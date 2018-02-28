@@ -44,6 +44,7 @@ public class UserAccount implements Serializable {
      * @param username    of the account
      * @param password    of the account
      * @param mailAddress of the account
+     * @param role        is the role of the Account
      */
     public UserAccount(String username, String password, String mailAddress, UserRole role) {
         this.username = username;
@@ -63,10 +64,6 @@ public class UserAccount implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public void setPassword(String password) {

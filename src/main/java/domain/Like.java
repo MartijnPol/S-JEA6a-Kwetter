@@ -1,10 +1,8 @@
 package domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,17 +10,20 @@ import java.util.Date;
  **/
 
 @Entity
-public class Like {
+public class Like implements Serializable {
 
     @Id
     @GeneratedValue
     private Long id;
 
+    private Date timeOfLiking;
+
     @NotNull
     @OneToOne
     private UserProfile sender;
 
-    private Date timeOfLiking;
+    @ManyToOne
+    private Kweet parentKweet;
 
     /**
      * Empty constructor for the ORM
@@ -36,9 +37,10 @@ public class Like {
      *
      * @param sender is the UserProfile that gave the like
      */
-    public Like(UserProfile sender) {
+    public Like(UserProfile sender, Kweet parentKweet) {
         this.timeOfLiking = new Date();
         this.sender = sender;
+        this.parentKweet = parentKweet;
     }
 
     //<editor-fold desc="Getters and Setters">
@@ -48,6 +50,10 @@ public class Like {
 
     public UserProfile getSender() {
         return sender;
+    }
+
+    public Kweet getParentKweet() {
+        return parentKweet;
     }
 
     //</editor-fold>

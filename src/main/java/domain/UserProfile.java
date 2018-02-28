@@ -2,6 +2,7 @@ package domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
  **/
 
 @Entity
-public class UserProfile {
+public class UserProfile implements Serializable {
 
     @Id
     @GeneratedValue
