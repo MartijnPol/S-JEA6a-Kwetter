@@ -44,13 +44,12 @@ public class UserAccount implements Serializable {
      * @param username    of the account
      * @param password    of the account
      * @param mailAddress of the account
-     * @param role        is the role of the Account
      */
-    public UserAccount(String username, String password, String mailAddress, UserRole role) {
+    public UserAccount(String username, String password, String mailAddress) {
         this.username = username;
         this.password = password;
         this.mailAddress = mailAddress;
-        this.role = role;
+        this.role = UserRole.REGULAR;
     }
 
     //<editor-fold desc="Getters and Setters">

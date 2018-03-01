@@ -44,6 +44,8 @@ public class Like implements Serializable {
     }
 
     //<editor-fold desc="Getters and Setters">
+    public Long getId() { return id; }
+
     public Date getTimeOfLiking() {
         return timeOfLiking;
     }
@@ -55,7 +57,6 @@ public class Like implements Serializable {
     public Kweet getParentKweet() {
         return parentKweet;
     }
-
     //</editor-fold>
 
 }

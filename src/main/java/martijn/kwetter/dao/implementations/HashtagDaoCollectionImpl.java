@@ -1,5 +1,6 @@
-package martijn.kwetter.dao;
+package martijn.kwetter.dao.implementations;
 
+import martijn.kwetter.dao.interfaces.HashtagDao;
 import martijn.kwetter.domain.Hashtag;
 
 import java.util.ArrayList;
@@ -8,14 +9,14 @@ import java.util.List;
 /**
  * Created by Martijn van der Pol on 01-03-18
  **/
-public class HashtagDaoCollection implements GenericDao<Hashtag> {
+public class HashtagDaoCollectionImpl implements HashtagDao {
 
     private List<Hashtag> hashtagList;
 
     /**
-     * Constructor for the HashtagDaoCollection
+     * Constructor for the HashtagDaoCollectionImpl
      */
-    public HashtagDaoCollection() {
+    public HashtagDaoCollectionImpl() {
         this.hashtagList = new ArrayList<Hashtag>();
     }
 
@@ -34,13 +35,12 @@ public class HashtagDaoCollection implements GenericDao<Hashtag> {
     }
 
     public Hashtag findById(long id) {
-        Hashtag foundHashtag = null;
         for (Hashtag hashtag : this.hashtagList) {
             if (hashtag.getId().equals(id)) {
-                foundHashtag = hashtag;
+                return hashtag;
             }
         }
-        return foundHashtag;
+        return null;
     }
 
     public Hashtag update(Hashtag newHashtag) {
@@ -56,15 +56,12 @@ public class HashtagDaoCollection implements GenericDao<Hashtag> {
 
     //<editor-fold desc="Custom methods">
     public List<Hashtag> getAllBySubject(String subject) {
-
         List<Hashtag> foundHashtags = new ArrayList<Hashtag>();
-
         for (Hashtag hashtag : this.hashtagList) {
             if (hashtag.getSubject().equals(subject)) {
                 foundHashtags.add(hashtag);
             }
         }
-
         return foundHashtags;
     }
     //</editor-fold>

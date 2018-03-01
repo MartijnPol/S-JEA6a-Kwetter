@@ -1,4 +1,4 @@
-package martijn.kwetter.dao;
+package martijn.kwetter.dao.interfaces;
 
 /**
  * Created by Martijn van der Pol on 01-03-18

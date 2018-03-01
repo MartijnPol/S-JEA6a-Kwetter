@@ -65,6 +65,10 @@ public class Kweet implements Serializable {
     }
 
     //<editor-fold desc="Getters and Setters">
+    public Long getId() {
+        return id;
+    }
+
     public int getMaxAmountOfCharacters() {
         return maxAmountOfCharacters;
     }
@@ -99,9 +103,8 @@ public class Kweet implements Serializable {
     //</editor-fold>
 
     //<editor-fold desc="Methods">
-
     /**
-     * Method to add a new like to the Kweet
+     * Method to add a like to the Kweet
      *
      * @param like is the Like itself
      */

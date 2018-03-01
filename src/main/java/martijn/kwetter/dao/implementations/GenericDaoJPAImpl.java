@@ -1,6 +1,9 @@
-package martijn.kwetter.dao;
+package martijn.kwetter.dao.implementations;
+
+import martijn.kwetter.dao.interfaces.GenericDao;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -8,9 +11,9 @@ import java.lang.reflect.Type;
 /**
  * Created by Martijn van der Pol on 01-03-18
  **/
-public class GenericDaoJPAImpl<T> implements GenericDao<T> {
+public abstract class GenericDaoJPAImpl<T> implements GenericDao<T> {
 
-    @PersistenceContext
+    @PersistenceContext(name = "KwetterJPA")
     protected EntityManager em;
 
     private Class<T> type;
@@ -19,6 +22,7 @@ public class GenericDaoJPAImpl<T> implements GenericDao<T> {
      * Constructor for the GenericDaoJPAImpl class
      */
     public GenericDaoJPAImpl() {
+        this.em = Persistence.createEntityManagerFactory("KwetterJPA").createEntityManager();
         Type t = getClass().getGenericSuperclass();
         ParameterizedType pt = (ParameterizedType) t;
         type = (Class) pt.getActualTypeArguments()[0];
