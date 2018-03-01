@@ -1,4 +1,4 @@
-package domain;
+package martijn.kwetter.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,4 +39,30 @@ public class Hashtag implements Serializable {
         this.parentKweet = parentKweet;
         this.subject = subject;
     }
+
+    //<editor-fold desc="Getters and Setters">
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public Kweet getParentKweet() {
+        return parentKweet;
+    }
+
+    public void setParentKweet(Kweet parentKweet) {
+        this.parentKweet = parentKweet;
+    }
+    //</editor-fold>
 }

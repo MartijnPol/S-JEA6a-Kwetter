@@ -1,4 +1,4 @@
-package domain;
+package martijn.kwetter.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
