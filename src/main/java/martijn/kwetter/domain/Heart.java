@@ -10,7 +10,7 @@ import java.util.Date;
  **/
 
 @Entity
-public class Like implements Serializable {
+public class Heart implements Serializable {
 
     @Id
     @GeneratedValue
@@ -28,7 +28,7 @@ public class Like implements Serializable {
     /**
      * Empty constructor for the ORM
      */
-    public Like() {
+    public Heart() {
 
     }
 
@@ -37,7 +37,7 @@ public class Like implements Serializable {
      *
      * @param sender is the UserProfile that gave the like
      */
-    public Like(UserProfile sender, Kweet parentKweet) {
+    public Heart(UserProfile sender, Kweet parentKweet) {
         this.timeOfLiking = new Date();
         this.sender = sender;
         this.parentKweet = parentKweet;

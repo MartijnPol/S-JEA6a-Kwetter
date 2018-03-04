@@ -21,8 +21,7 @@ public class UserAccount implements Serializable {
     private String username;
 
     @NotNull
-    @Size(min = 5, max = 16)
-    private String password;
+    private String passwordHash;
 
     @Column(unique = true)
     @Email
@@ -47,7 +46,7 @@ public class UserAccount implements Serializable {
      */
     public UserAccount(String username, String password, String mailAddress) {
         this.username = username;
-        this.password = password;
+        this.passwordHash = hashPassword(password);
         this.mailAddress = mailAddress;
         this.role = UserRole.REGULAR;
     }
@@ -66,7 +65,7 @@ public class UserAccount implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.passwordHash = hashPassword(password);
     }
 
     public String getMailAddress() {
@@ -85,5 +84,15 @@ public class UserAccount implements Serializable {
         this.role = role;
     }
     //</editor-fold>
+
+    /**
+     * Function to hash a given a password
+     *
+     * @param password given password
+     * @return hash
+     */
+    private String hashPassword(String password) {
+        return null;
+    }
 
 }

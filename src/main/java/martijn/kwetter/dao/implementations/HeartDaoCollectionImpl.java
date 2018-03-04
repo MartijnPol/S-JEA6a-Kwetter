@@ -1,7 +1,7 @@
 package martijn.kwetter.dao.implementations;
 
-import martijn.kwetter.dao.interfaces.LikeDao;
-import martijn.kwetter.domain.Like;
+import martijn.kwetter.dao.interfaces.HeartDao;
+import martijn.kwetter.domain.Heart;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,33 +9,33 @@ import java.util.List;
 /**
  * Created by Martijn van der Pol on 01-03-18
  **/
-public class LikeDaoCollectionImpl implements LikeDao {
+public class HeartDaoCollectionImpl implements HeartDao {
 
-    private List<Like> likeList;
+    private List<Heart> likeList;
 
     /**
      * Constructor for the LikeDaoCollectionImpl
      */
-    public LikeDaoCollectionImpl() {
-        this.likeList = new ArrayList<Like>();
+    public HeartDaoCollectionImpl() {
+        this.likeList = new ArrayList<Heart>();
     }
 
     //<editor-fold desc="Interface methods">
-    public Like create(Like like) {
+    public Heart create(Heart like) {
         this.likeList.add(like);
         return like;
     }
 
     public void delete(long id) {
-        for (Like like : this.likeList) {
+        for (Heart like : this.likeList) {
             if (like.getId().equals(id)) {
                 this.likeList.remove(like);
             }
         }
     }
 
-    public Like findById(long id) {
-        for (Like like : this.likeList) {
+    public Heart findById(long id) {
+        for (Heart like : this.likeList) {
             if (like.getId().equals(id)) {
                 return like;
             }
@@ -43,8 +43,8 @@ public class LikeDaoCollectionImpl implements LikeDao {
         return null;
     }
 
-    public Like update(Like newLike) {
-        for (Like oldLike : this.likeList) {
+    public Heart update(Heart newLike) {
+        for (Heart oldLike : this.likeList) {
             if (oldLike.getId().equals(newLike.getId())) {
                 this.likeList.remove(oldLike);
                 this.likeList.add(newLike);

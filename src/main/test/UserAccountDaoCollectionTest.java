@@ -1,28 +1,28 @@
-package martijn.kwetter.test;
-
-import martijn.kwetter.dao.implementations.UserAccountDaoJPAImpl;
+import martijn.kwetter.dao.implementations.UserAccountDaoCollectionImpl;
 import martijn.kwetter.dao.interfaces.UserAccountDao;
 import martijn.kwetter.domain.UserAccount;
 import org.junit.Before;
 import org.junit.Test;
 
+import static junit.framework.TestCase.assertEquals;
+
 /**
  * Created by Martijn van der Pol on 01-03-18
  **/
-
-public class UserAccountDoaJPATest {
+public class UserAccountDaoCollectionTest {
 
     UserAccountDao accountDao;
 
     @Before
     public void init() {
-        this.accountDao = new UserAccountDaoJPAImpl();
+        this.accountDao = new UserAccountDaoCollectionImpl();
     }
 
     @Test
     public void testCreateUserAccount() {
         UserAccount userAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
         this.accountDao.create(userAccount);
+        assertEquals(1, accountDao.count());
     }
 
 }

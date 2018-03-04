@@ -35,7 +35,7 @@ public class Kweet implements Serializable {
     private List<UserProfile> mentions;
 
     @OneToMany
-    private List<Like> likes;
+    private List<Heart> likes;
 
     @OneToMany
     private List<Hashtag> hashtags;
@@ -45,7 +45,7 @@ public class Kweet implements Serializable {
      */
     public Kweet() {
         this.mentions = new ArrayList<UserProfile>();
-        this.likes = new ArrayList<Like>();
+        this.likes = new ArrayList<Heart>();
         this.hashtags = new ArrayList<Hashtag>();
     }
 
@@ -93,7 +93,7 @@ public class Kweet implements Serializable {
         return mentions;
     }
 
-    public List<Like> getLikes() {
+    public List<Heart> getLikes() {
         return likes;
     }
 
@@ -108,7 +108,7 @@ public class Kweet implements Serializable {
      *
      * @param like is the Like itself
      */
-    public void addLike(Like like) {
+    public void addLike(Heart like) {
         this.likes.add(like);
     }
     //</editor-fold>

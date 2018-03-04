@@ -1,10 +1,10 @@
 package martijn.kwetter.dao.interfaces;
 
-import martijn.kwetter.domain.Like;
+import martijn.kwetter.domain.Heart;
 
 /**
  * Created by Martijn van der Pol on 01-03-18
  **/
-public interface LikeDao extends GenericDao<Like> {
+public interface HeartDao extends GenericDao<Heart> {
 
 }
