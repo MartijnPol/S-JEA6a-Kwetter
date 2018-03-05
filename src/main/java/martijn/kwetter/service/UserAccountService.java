@@ -14,8 +14,8 @@ import javax.inject.Inject;
 @Stateless
 public class UserAccountService {
 
-    @Inject
     @JPA
+    @Inject
     private UserAccountDao userAccountDao;
 
     public UserAccountService() {

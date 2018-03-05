@@ -11,8 +11,8 @@ import javax.inject.Inject;
  * Created by Martijn van der Pol on 02-03-18
  **/
 
-@Singleton
 @Startup
+@Singleton
 public class StartUpService {
 
     @Inject
