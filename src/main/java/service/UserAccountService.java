@@ -1,0 +1,28 @@
+package service;
+
+import dao.interfaces.UserAccountDao;
+import domain.JPA;
+import domain.UserAccount;
+
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+
+/**
+ * Created by Martijn van der Pol on 02-03-18
+ **/
+
+@Stateless
+public class UserAccountService {
+
+    @Inject @JPA
+    private UserAccountDao userAccountDao;
+
+    public UserAccountService() {
+
+    }
+
+    public void addUserAccount(UserAccount userAccount) {
+        userAccountDao.create(userAccount);
+    }
+
+}

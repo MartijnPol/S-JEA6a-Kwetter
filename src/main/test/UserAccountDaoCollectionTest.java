@@ -1,6 +1,6 @@
-import martijn.kwetter.dao.implementations.UserAccountDaoCollectionImpl;
-import martijn.kwetter.dao.interfaces.UserAccountDao;
-import martijn.kwetter.domain.UserAccount;
+import dao.implementations.UserAccountDaoCollectionImpl;
+import dao.interfaces.UserAccountDao;
+import domain.UserAccount;
 import org.junit.Before;
 import org.junit.Test;
 
