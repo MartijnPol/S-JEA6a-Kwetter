@@ -52,5 +52,9 @@ public class KweetDaoCollectionImpl implements KweetDao {
         }
         return newKweet;
     }
+
+    public List<Kweet> getAll() {
+        return this.kweetList;
+    }
     //</editor-fold>
 }

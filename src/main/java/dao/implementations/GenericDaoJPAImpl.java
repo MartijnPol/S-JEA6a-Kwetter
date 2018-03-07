@@ -6,8 +6,11 @@ import domain.JPA;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Martijn van der Pol on 01-03-18
@@ -45,5 +48,10 @@ public class GenericDaoJPAImpl<T> implements GenericDao<T> {
 
     public T update(T t) {
         return this.em.merge(t);
+    }
+
+    public List<T> getAll() {
+        Query query = em.createQuery("SELECT a FROM " + type.getSimpleName() + " a");
+        return new ArrayList<T>(query.getResultList());
     }
 }

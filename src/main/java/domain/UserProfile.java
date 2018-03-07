@@ -31,8 +31,14 @@ public class UserProfile implements Serializable {
 
     private String biography;
 
+    @OneToOne
+    private UserAccount userAccount;
+
     @OneToMany
     private List<Kweet> kweets;
+
+    @OneToMany
+    private List<Kweet> mentions;
 
     @ManyToMany
     private List<UserProfile> followers;
@@ -64,6 +70,11 @@ public class UserProfile implements Serializable {
     }
 
     //<editor-fold desc="Getters and Setters">
+
+    public Long getId() {
+        return id;
+    }
+
     public byte[] getAvatar() {
         return avatar;
     }
@@ -104,21 +115,30 @@ public class UserProfile implements Serializable {
         this.biography = biography;
     }
 
-    public List<UserProfile> getFollowers() {
-        return followers;
+    public UserAccount getUserAccount() {
+        return userAccount;
     }
 
-    public void setFollowers(List<UserProfile> followers) {
-        this.followers = followers;
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
+    }
+
+    public List<Kweet> getKweets() {
+        return kweets;
+    }
+
+    public List<Kweet> getMentions() {
+        return mentions;
+    }
+
+    public List<UserProfile> getFollowers() {
+        return followers;
     }
 
     public List<UserProfile> getFollowees() {
         return followees;
     }
 
-    public void setFollowees(List<UserProfile> followees) {
-        this.followees = followees;
-    }
     //</editor-fold>
 
 }

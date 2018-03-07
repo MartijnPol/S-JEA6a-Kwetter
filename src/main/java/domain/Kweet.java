@@ -65,6 +65,7 @@ public class Kweet implements Serializable {
     }
 
     //<editor-fold desc="Getters and Setters">
+
     public Long getId() {
         return id;
     }
@@ -100,6 +101,7 @@ public class Kweet implements Serializable {
     public List<Hashtag> getHashtags() {
         return hashtags;
     }
+
     //</editor-fold>
 
     //<editor-fold desc="Methods">

@@ -1,10 +1,10 @@
 package domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Martijn van der Pol on 28-02-18
@@ -17,10 +17,12 @@ public class Hashtag implements Serializable {
     @GeneratedValue
     private Long id;
 
+    @NotNull
+    @Column(unique = true)
     private String subject;
 
-    @ManyToOne
-    private Kweet parentKweet;
+    @OneToMany
+    private List<Kweet> kweets;
 
     /**
      * Empty constructor for the ORM
@@ -33,10 +35,9 @@ public class Hashtag implements Serializable {
      * Constructor for the Hashtag class
      *
      * @param subject     is the subject of the hashtag, for example '#DonaldTrump'
-     * @param parentKweet is the parent Kweet of the hashtag
      */
-    public Hashtag(Kweet parentKweet, String subject) {
-        this.parentKweet = parentKweet;
+    public Hashtag(String subject) {
+        this.kweets = new ArrayList<Kweet>();
         this.subject = subject;
     }
 
@@ -57,12 +58,13 @@ public class Hashtag implements Serializable {
         this.subject = subject;
     }
 
-    public Kweet getParentKweet() {
-        return parentKweet;
+    public List<Kweet> getKweets() {
+        return kweets;
     }
 
-    public void setParentKweet(Kweet parentKweet) {
-        this.parentKweet = parentKweet;
+    public void setKweets(List<Kweet> kweets) {
+        this.kweets = kweets;
     }
+
     //</editor-fold>
 }

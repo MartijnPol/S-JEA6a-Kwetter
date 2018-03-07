@@ -1,5 +1,7 @@
 package dao.interfaces;
 
+import java.util.List;
+
 /**
  * Created by Martijn van der Pol on 01-03-18
  **/
@@ -35,5 +37,11 @@ public interface GenericDao<T> {
      * @return the updated entity
      */
     T update(T t);
+
+    /**
+     * Function to get all objects
+     * @return all objects
+     */
+    List<T> getAll();
 
 }

@@ -16,6 +16,7 @@ public class Heart implements Serializable {
     @GeneratedValue
     private Long id;
 
+    @NotNull
     private Date timeOfLiking;
 
     @NotNull
@@ -38,9 +39,9 @@ public class Heart implements Serializable {
      * @param sender is the UserProfile that gave the like
      */
     public Heart(UserProfile sender, Kweet parentKweet) {
-        this.timeOfLiking = new Date();
         this.sender = sender;
         this.parentKweet = parentKweet;
+        this.timeOfLiking = new Date();
     }
 
     //<editor-fold desc="Getters and Setters">

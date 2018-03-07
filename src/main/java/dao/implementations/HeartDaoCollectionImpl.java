@@ -52,6 +52,10 @@ public class HeartDaoCollectionImpl implements HeartDao {
         }
         return newLike;
     }
+
+    public List<Heart> getAll() {
+        return this.likeList;
+    }
     //</editor-fold>
 
 }

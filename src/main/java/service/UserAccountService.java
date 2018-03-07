@@ -6,6 +6,7 @@ import domain.UserAccount;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.List;
 
 /**
  * Created by Martijn van der Pol on 02-03-18
@@ -23,6 +24,12 @@ public class UserAccountService {
 
     public void addUserAccount(UserAccount userAccount) {
         userAccountDao.create(userAccount);
+    }
+
+    public List<UserAccount> getAll() { return userAccountDao.getAll(); }
+
+    public UserAccount findById(long id) {
+        return userAccountDao.findById(id);
     }
 
 }

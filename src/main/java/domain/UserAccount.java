@@ -26,6 +26,9 @@ public class UserAccount implements Serializable {
     @Email
     private String mailAddress;
 
+    @OneToOne
+    private UserProfile userProfile;
+
     @NotNull
     @Enumerated(value = EnumType.STRING)
     private UserRole role;

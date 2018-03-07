@@ -49,6 +49,10 @@ public class UserAccountDaoCollectionImpl implements UserAccountDao {
         return newAccount;
     }
 
+    public List<UserAccount> getAll() {
+        return this.userAccountList;
+    }
+
     public int count() {
         return this.userAccountList.size();
     }

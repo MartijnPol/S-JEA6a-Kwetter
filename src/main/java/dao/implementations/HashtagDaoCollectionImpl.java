@@ -52,6 +52,10 @@ public class HashtagDaoCollectionImpl implements HashtagDao {
         }
         return newHashtag;
     }
+
+    public List<Hashtag> getAll() {
+        return this.hashtagList;
+    }
     //</editor-fold>
 
     //<editor-fold desc="Custom methods">
