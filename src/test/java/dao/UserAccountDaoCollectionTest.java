@@ -1,3 +1,5 @@
+package dao;
+
 import dao.implementations.UserAccountDaoCollectionImpl;
 import dao.interfaces.UserAccountDao;
 import domain.UserAccount;

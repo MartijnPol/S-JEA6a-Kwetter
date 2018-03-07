@@ -1,3 +1,5 @@
+package dao;
+
 import dao.implementations.UserAccountDaoJPAImpl;
 import dao.interfaces.UserAccountDao;
 import domain.UserAccount;
@@ -9,17 +11,17 @@ import org.junit.Test;
  **/
 public class UserAccountDoaJPATest {
 
-    UserAccountDao accountDao;
+    UserAccountDao userAccountDao;
 
     @Before
     public void init() {
-        this.accountDao = new UserAccountDaoJPAImpl();
+        this.userAccountDao = new UserAccountDaoJPAImpl();
     }
 
     @Test
     public void testCreateUserAccount() {
         UserAccount userAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
-        this.accountDao.create(userAccount);
+        this.userAccountDao.create(userAccount);
     }
 
 }

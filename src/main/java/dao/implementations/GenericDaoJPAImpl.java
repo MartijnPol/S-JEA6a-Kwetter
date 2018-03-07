@@ -8,7 +8,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,15 +20,14 @@ public class GenericDaoJPAImpl<T> implements GenericDao<T> {
 
     @PersistenceContext(unitName = "KwetterPU")
     protected EntityManager em;
-    private Class<T> type;
+    private Class<T> entityClass;
 
     /**
      * Constructor for the GenericDaoJPAImpl class
      */
     public GenericDaoJPAImpl() {
-        Type t = getClass().getGenericSuperclass();
-        ParameterizedType pt = (ParameterizedType) t;
-        type = (Class) pt.getActualTypeArguments()[0];
+        ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
+        this.entityClass = (Class<T>) genericSuperclass.getActualTypeArguments()[0];
     }
 
     public T create(T t) {
@@ -43,7 +41,7 @@ public class GenericDaoJPAImpl<T> implements GenericDao<T> {
     }
 
     public T findById(long id) {
-        return this.em.find(type, id);
+        return this.em.find(this.entityClass, id);
     }
 
     public T update(T t) {
@@ -51,7 +49,7 @@ public class GenericDaoJPAImpl<T> implements GenericDao<T> {
     }
 
     public List<T> getAll() {
-        Query query = em.createQuery("SELECT a FROM " + type.getSimpleName() + " a");
+        Query query = em.createQuery("SELECT entity FROM " + this.entityClass.getSimpleName() + " entity");
         return new ArrayList<T>(query.getResultList());
     }
 }
