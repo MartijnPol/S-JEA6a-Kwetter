@@ -1,5 +1,7 @@
 package domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -13,20 +15,21 @@ import java.io.Serializable;
 public class UserAccount implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
     private String username;
 
     @NotNull
+    @JsonIgnore
     private String password;
 
     @Column(unique = true)
     @Email
     private String mailAddress;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private UserProfile userProfile;
 
     @NotNull
@@ -50,6 +53,7 @@ public class UserAccount implements Serializable {
         this.username = username;
         this.password = password;
         this.mailAddress = mailAddress;
+        this.userProfile = new UserProfile();
         this.role = UserRole.REGULAR;
     }
 
@@ -93,6 +97,14 @@ public class UserAccount implements Serializable {
 
     public void setRole(UserRole role) {
         this.role = role;
+    }
+
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile) {
+        this.userProfile = userProfile;
     }
 
     //</editor-fold>

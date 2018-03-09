@@ -7,8 +7,8 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -28,14 +28,21 @@ public class UserAccountResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllAccounts() {
         List<UserAccount> userAccounts = userAccountService.getAll();
-        return Response.status(200).entity(userAccounts).build();
+        return Response.ok(userAccounts).build();
     }
 
     @GET
-    @Path("{id}")
+    @Path("findById")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAccountById(@PathParam("id") long id) {
-        return Response.status(200).entity(userAccountService.findById(id)).build();
+    public Response getAccountById(@QueryParam("id") Long id) {
+        return Response.ok(userAccountService.findById(id)).build();
+    }
+
+    @GET
+    @Path("count")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response countAllAccounts() {
+        return Response.ok(userAccountService.countAll()).build();
     }
 
 }

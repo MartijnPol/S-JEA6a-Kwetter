@@ -7,6 +7,4 @@ import domain.UserAccount;
  **/
 public interface UserAccountDao extends GenericDao<UserAccount> {
 
-    int count();
-
 }

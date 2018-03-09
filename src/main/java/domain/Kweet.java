@@ -12,10 +12,11 @@ import java.util.List;
  **/
 
 @Entity
+@NamedQuery(name = "Kweet.findAllKweetsBySenderId", query = "SELECT kweet FROM Kweet kweet WHERE kweet.sender.id = :id")
 public class Kweet implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull

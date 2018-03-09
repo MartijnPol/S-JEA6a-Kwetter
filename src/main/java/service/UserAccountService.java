@@ -11,7 +11,6 @@ import java.util.List;
 /**
  * Created by Martijn van der Pol on 02-03-18
  **/
-
 @Stateless
 public class UserAccountService {
 
@@ -32,4 +31,7 @@ public class UserAccountService {
         return userAccountDao.findById(id);
     }
 
+    public Long countAll() {
+        return userAccountDao.countAll();
+    }
 }

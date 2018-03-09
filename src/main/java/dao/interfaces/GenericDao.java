@@ -16,11 +16,17 @@ public interface GenericDao<T> {
     T create(T t);
 
     /**
-     * Method to delete an entity
-     *
-     * @param id
+     * Function to get all objects
+     * @return all objects
      */
-    void deleteById(Long id);
+    List<T> getAll();
+
+    /**
+     * Function to count all rows in a table
+     *
+     * @return the amount of rows
+     */
+    Long countAll();
 
     /**
      * Method to find an entity by it's id
@@ -39,9 +45,10 @@ public interface GenericDao<T> {
     T update(T t);
 
     /**
-     * Function to get all objects
-     * @return all objects
+     * Method to delete an entity
+     *
+     * @param id
      */
-    List<T> getAll();
+    void deleteById(Long id);
 
 }

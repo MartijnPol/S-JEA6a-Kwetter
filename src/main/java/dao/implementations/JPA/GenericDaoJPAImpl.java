@@ -1,4 +1,4 @@
-package dao.implementations;
+package dao.implementations.JPA;
 
 import dao.interfaces.GenericDao;
 import domain.JPA;
@@ -35,6 +35,10 @@ public class GenericDaoJPAImpl<T> implements GenericDao<T> {
 
     public List<T> getAll() {
         return em.createQuery("SELECT entity FROM " + this.entityClass.getSimpleName() + " entity").getResultList();
+    }
+
+    public Long countAll() {
+        return (Long) em.createQuery("SELECT COUNT(*) FROM " + this.entityClass.getSimpleName()).getSingleResult();
     }
 
     public T findById(Long id) {

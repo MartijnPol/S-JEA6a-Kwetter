@@ -1,7 +1,8 @@
-package dao.implementations;
+package dao.implementations.collection;
 
 import dao.interfaces.KweetDao;
 import domain.Kweet;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +56,14 @@ public class KweetDaoCollectionImpl implements KweetDao {
 
     public List<Kweet> getAll() {
         return this.kweetList;
+    }
+
+    public Long countAll() {
+        return new Long(this.kweetList.size());
+    }
+
+    public List<Kweet> findAllKweetsBySenderId(Long id) {
+        throw new NotImplementedException();
     }
     //</editor-fold>
 }

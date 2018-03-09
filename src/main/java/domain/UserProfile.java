@@ -1,7 +1,6 @@
 package domain;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,18 +14,15 @@ import java.util.List;
 public class UserProfile implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private byte[] avatar;
 
-    @NotNull
     private String firstName;
 
-    @NotNull
     private String lastName;
 
-    @NotNull
     private Date dateOfBirth;
 
     private String biography;
@@ -38,7 +34,7 @@ public class UserProfile implements Serializable {
     private List<Kweet> kweets;
 
     @OneToMany
-    private List<Kweet> mentions;
+    private List<UserProfile> mentions;
 
     @ManyToMany
     private List<UserProfile> followers;
@@ -53,6 +49,7 @@ public class UserProfile implements Serializable {
         this.followers = new ArrayList<UserProfile>();
         this.followees = new ArrayList<UserProfile>();
         this.kweets = new ArrayList<Kweet>();
+        this.mentions = new ArrayList<UserProfile>();
     }
 
     /**
@@ -127,7 +124,7 @@ public class UserProfile implements Serializable {
         return kweets;
     }
 
-    public List<Kweet> getMentions() {
+    public List<UserProfile> getMentions() {
         return mentions;
     }
 
@@ -140,5 +137,4 @@ public class UserProfile implements Serializable {
     }
 
     //</editor-fold>
-
 }

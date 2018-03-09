@@ -1,5 +1,6 @@
 package service;
 
+import domain.Kweet;
 import domain.UserAccount;
 
 import javax.annotation.PostConstruct;
@@ -17,14 +18,22 @@ public class StartUp {
     @Inject
     private UserAccountService userAccountService;
 
+    @Inject
+    private KweetService kweetService;
+
     public StartUp() {
 
     }
 
     @PostConstruct
     public void initData() {
-        userAccountService.addUserAccount(new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com"));
-        userAccountService.addUserAccount(new UserAccount("HansDeGans", "1234", "hans.degans@hotmail.com"));
+        UserAccount MartijnPol = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
+        UserAccount HansDeGans = new UserAccount("HansDeGans", "1234", "hans.degans@hotmail.com");
+
+        kweetService.addKweet(new Kweet(MartijnPol.getUserProfile(), "Test", null, null));
+
+        userAccountService.addUserAccount(MartijnPol);
+        userAccountService.addUserAccount(HansDeGans);
     }
-    
+
 }

@@ -1,4 +1,4 @@
-package dao.implementations;
+package dao.implementations.collection;
 
 import dao.interfaces.HeartDao;
 import domain.Heart;
@@ -55,6 +55,10 @@ public class HeartDaoCollectionImpl implements HeartDao {
 
     public List<Heart> getAll() {
         return this.likeList;
+    }
+
+    public Long countAll() {
+        return new Long(this.likeList.size());
     }
     //</editor-fold>
 

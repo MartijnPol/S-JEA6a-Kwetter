@@ -1,6 +1,6 @@
 package dao;
 
-import dao.implementations.UserAccountDaoJPAImpl;
+import dao.implementations.JPA.UserAccountDaoJPAImpl;
 import dao.interfaces.UserAccountDao;
 import domain.UserAccount;
 import org.junit.Before;

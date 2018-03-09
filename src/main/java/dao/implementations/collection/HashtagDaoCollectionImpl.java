@@ -1,4 +1,4 @@
-package dao.implementations;
+package dao.implementations.collection;
 
 import dao.interfaces.HashtagDao;
 import domain.Hashtag;
@@ -55,6 +55,10 @@ public class HashtagDaoCollectionImpl implements HashtagDao {
 
     public List<Hashtag> getAll() {
         return this.hashtagList;
+    }
+
+    public Long countAll() {
+        return new Long(this.hashtagList.size());
     }
     //</editor-fold>
 

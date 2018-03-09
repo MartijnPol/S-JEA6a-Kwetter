@@ -1,4 +1,4 @@
-package dao.implementations;
+package dao.implementations.collection;
 
 import dao.interfaces.UserAccountDao;
 import domain.UserAccount;
@@ -53,7 +53,7 @@ public class UserAccountDaoCollectionImpl implements UserAccountDao {
         return this.userAccountList;
     }
 
-    public int count() {
-        return this.userAccountList.size();
+    public Long countAll() {
+        return new Long(this.userAccountList.size());
     }
 }

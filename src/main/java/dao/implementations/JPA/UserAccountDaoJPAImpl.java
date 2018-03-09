@@ -1,4 +1,4 @@
-package dao.implementations;
+package dao.implementations.JPA;
 
 import dao.interfaces.UserAccountDao;
 import domain.JPA;
@@ -9,14 +9,12 @@ import javax.ejb.Stateless;
 /**
  * Created by Martijn van der Pol on 01-03-18
  **/
-@Stateless @JPA
+@Stateless
+@JPA
 public class UserAccountDaoJPAImpl extends GenericDaoJPAImpl<UserAccount> implements UserAccountDao {
 
     public UserAccountDaoJPAImpl() {
 
     }
 
-    public int count() {
-        return 0;
-    }
 }
