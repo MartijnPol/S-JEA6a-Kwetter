@@ -1,6 +1,5 @@
 package service;
 
-import domain.JPA;
 import domain.UserAccount;
 
 import javax.annotation.PostConstruct;
@@ -24,8 +23,8 @@ public class StartUp {
 
     @PostConstruct
     public void initData() {
-        UserAccount newAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
-        userAccountService.addUserAccount(newAccount);
+        userAccountService.addUserAccount(new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com"));
+        userAccountService.addUserAccount(new UserAccount("HansDeGans", "1234", "hans.degans@hotmail.com"));
     }
     
 }

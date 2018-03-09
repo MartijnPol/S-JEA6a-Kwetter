@@ -6,9 +6,7 @@ import domain.JPA;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,12 +33,11 @@ public class GenericDaoJPAImpl<T> implements GenericDao<T> {
         return t;
     }
 
-    public void delete(long id) {
-        T objectToDelete = findById(id);
-        this.em.remove(this.em.merge(objectToDelete));
+    public List<T> getAll() {
+        return em.createQuery("SELECT entity FROM " + this.entityClass.getSimpleName() + " entity").getResultList();
     }
 
-    public T findById(long id) {
+    public T findById(Long id) {
         return this.em.find(this.entityClass, id);
     }
 
@@ -48,8 +45,7 @@ public class GenericDaoJPAImpl<T> implements GenericDao<T> {
         return this.em.merge(t);
     }
 
-    public List<T> getAll() {
-        Query query = em.createQuery("SELECT entity FROM " + this.entityClass.getSimpleName() + " entity");
-        return new ArrayList<T>(query.getResultList());
+    public void deleteById(Long id) {
+        this.em.remove(this.em.merge(findById(id)));
     }
 }

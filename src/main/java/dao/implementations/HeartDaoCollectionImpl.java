@@ -26,7 +26,7 @@ public class HeartDaoCollectionImpl implements HeartDao {
         return like;
     }
 
-    public void delete(long id) {
+    public void deleteById(Long id) {
         for (Heart like : this.likeList) {
             if (like.getId().equals(id)) {
                 this.likeList.remove(like);
@@ -34,7 +34,7 @@ public class HeartDaoCollectionImpl implements HeartDao {
         }
     }
 
-    public Heart findById(long id) {
+    public Heart findById(Long id) {
         for (Heart like : this.likeList) {
             if (like.getId().equals(id)) {
                 return like;

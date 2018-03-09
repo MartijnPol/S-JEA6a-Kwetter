@@ -20,7 +20,7 @@ public interface GenericDao<T> {
      *
      * @param id
      */
-    void delete(long id);
+    void deleteById(Long id);
 
     /**
      * Method to find an entity by it's id
@@ -28,7 +28,7 @@ public interface GenericDao<T> {
      * @param id
      * @return the found entity
      */
-    T findById(long id);
+    T findById(Long id);
 
     /**
      * Method to store an updated entity

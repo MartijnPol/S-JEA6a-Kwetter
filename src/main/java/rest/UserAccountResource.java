@@ -26,7 +26,7 @@ public class UserAccountResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAll() {
+    public Response getAllAccounts() {
         List<UserAccount> userAccounts = userAccountService.getAll();
         return Response.status(200).entity(userAccounts).build();
     }
@@ -34,7 +34,7 @@ public class UserAccountResource {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAccount(@PathParam("id") long id){
+    public Response getAccountById(@PathParam("id") long id) {
         return Response.status(200).entity(userAccountService.findById(id)).build();
     }
 

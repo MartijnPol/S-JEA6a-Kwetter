@@ -26,7 +26,7 @@ public class KweetDaoCollectionImpl implements KweetDao {
         return kweet;
     }
 
-    public void delete(long id) {
+    public void deleteById(Long id) {
         for (Kweet kweet : this.kweetList) {
             if (kweet.getId().equals(id)) {
                 this.kweetList.remove(kweet);
@@ -34,7 +34,7 @@ public class KweetDaoCollectionImpl implements KweetDao {
         }
     }
 
-    public Kweet findById(long id) {
+    public Kweet findById(Long id) {
         for (Kweet kweet : this.kweetList) {
             if (kweet.getId().equals(id)) {
                 return kweet;

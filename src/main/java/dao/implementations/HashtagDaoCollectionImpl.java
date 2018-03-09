@@ -26,7 +26,7 @@ public class HashtagDaoCollectionImpl implements HashtagDao {
         return hashtag;
     }
 
-    public void delete(long id) {
+    public void deleteById(Long id) {
         for(Hashtag hashtag : this.hashtagList) {
             if (hashtag.getId().equals(id)) {
                 this.hashtagList.remove(hashtag);
@@ -34,7 +34,7 @@ public class HashtagDaoCollectionImpl implements HashtagDao {
         }
     }
 
-    public Hashtag findById(long id) {
+    public Hashtag findById(Long id) {
         for (Hashtag hashtag : this.hashtagList) {
             if (hashtag.getId().equals(id)) {
                 return hashtag;

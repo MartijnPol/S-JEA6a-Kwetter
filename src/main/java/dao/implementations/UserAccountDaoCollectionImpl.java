@@ -22,7 +22,7 @@ public class UserAccountDaoCollectionImpl implements UserAccountDao {
         return userAccount;
     }
 
-    public void delete(long id) {
+    public void deleteById(Long id) {
         for (UserAccount account : this.userAccountList) {
             if (account.getId().equals(id)) {
                 this.userAccountList.remove(account);
@@ -30,7 +30,7 @@ public class UserAccountDaoCollectionImpl implements UserAccountDao {
         }
     }
 
-    public UserAccount findById(long id) {
+    public UserAccount findById(Long id) {
         for (UserAccount account : this.userAccountList) {
             if (account.getId().equals(id)) {
                 return account;
