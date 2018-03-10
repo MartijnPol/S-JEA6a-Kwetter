@@ -29,7 +29,7 @@ public class UserAccount implements Serializable {
     @Email
     private String mailAddress;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     private UserProfile userProfile;
 
     @NotNull
@@ -37,7 +37,7 @@ public class UserAccount implements Serializable {
     private UserRole role;
 
     /**
-     * Empty constructor for the ORM
+     * Empty constructor
      */
     public UserAccount() {
     }
@@ -75,6 +75,7 @@ public class UserAccount implements Serializable {
         this.username = username;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }

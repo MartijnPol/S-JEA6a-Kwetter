@@ -15,6 +15,6 @@ import java.util.List;
 public class KweetDaoJPAImpl extends GenericDaoJPAImpl<Kweet> implements KweetDao {
 
     public List<Kweet> findAllKweetsBySenderId(Long id) {
-        return this.em.createNamedQuery("Kweet.findAllKweetsBySenderId").getResultList();
+        return this.entityManager.createNamedQuery("Kweet.findAllKweetsBySenderId").getResultList();
     }
 }

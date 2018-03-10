@@ -30,10 +30,10 @@ public class StartUp {
         UserAccount MartijnPol = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
         UserAccount HansDeGans = new UserAccount("HansDeGans", "1234", "hans.degans@hotmail.com");
 
-        kweetService.addKweet(new Kweet(MartijnPol.getUserProfile(), "Test", null, null));
+        userAccountService.create(MartijnPol);
+        userAccountService.create(HansDeGans);
 
-        userAccountService.addUserAccount(MartijnPol);
-        userAccountService.addUserAccount(HansDeGans);
+        kweetService.addKweet(new Kweet(MartijnPol.getUserProfile(), "Test", null, null));
     }
 
 }

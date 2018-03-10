@@ -5,6 +5,7 @@ import domain.JPA;
 import domain.UserAccount;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
 
 /**
  * Created by Martijn van der Pol on 01-03-18
@@ -15,6 +16,10 @@ public class UserAccountDaoJPAImpl extends GenericDaoJPAImpl<UserAccount> implem
 
     public UserAccountDaoJPAImpl() {
 
+    }
+
+    public UserAccountDaoJPAImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
 }

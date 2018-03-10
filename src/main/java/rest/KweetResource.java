@@ -1,6 +1,7 @@
 package rest;
 
 import service.KweetService;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -22,7 +23,8 @@ public class KweetResource {
     @Path("findBySenderId")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAccountById(@QueryParam("id") Long id) {
-        return Response.ok(kweetService.findAllKweetsBySenderId(id)).build();
+        throw new NotImplementedException();
+//        return Response.ok(kweetService.addKweet(new Kweet());
     }
 
 }

@@ -23,17 +23,19 @@ public class UserProfile implements Serializable {
 
     private String lastName;
 
+    @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
     private String biography;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+//    @JoinColumn(name = "ID", nullable = false)
     private UserAccount userAccount;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Kweet> kweets;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<UserProfile> mentions;
 
     @ManyToMany

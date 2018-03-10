@@ -4,6 +4,7 @@ import dao.interfaces.UserAccountDao;
 import domain.UserAccount;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -23,9 +24,11 @@ public class UserAccountDaoCollectionImpl implements UserAccountDao {
     }
 
     public void deleteById(Long id) {
-        for (UserAccount account : this.userAccountList) {
-            if (account.getId().equals(id)) {
-                this.userAccountList.remove(account);
+        Iterator<UserAccount> iterator = this.userAccountList.iterator();
+        while (iterator.hasNext()) {
+            UserAccount userAccount = iterator.next();
+            if (userAccount.getId().equals(id)) {
+                iterator.remove();
             }
         }
     }
@@ -54,6 +57,6 @@ public class UserAccountDaoCollectionImpl implements UserAccountDao {
     }
 
     public Long countAll() {
-        return new Long(this.userAccountList.size());
+        return (long) this.userAccountList.size();
     }
 }

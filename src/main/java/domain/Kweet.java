@@ -20,10 +20,6 @@ public class Kweet implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(columnDefinition = "int default 140")
-    private int maxAmountOfCharacters;
-
-    @NotNull
     private String message;
 
     @NotNull
@@ -58,25 +54,21 @@ public class Kweet implements Serializable {
      * @param hashtags are all the hashtags the person used in the Kweet
      */
     public Kweet(UserProfile sender, String message, List<UserProfile> mentions, List<Hashtag> hashtags) {
-        this.sender = sender;
-        this.message = message;
-        this.mentions = mentions;
-        this.hashtags = hashtags;
-        this.timeOfPosting = new Date();
+        if (message.length() > 140) {
+            throw new IllegalArgumentException("Message needs to be within 140 characters.");
+        } else {
+            this.sender = sender;
+            this.message = message;
+            this.mentions = mentions;
+            this.hashtags = hashtags;
+            this.timeOfPosting = new Date();
+        }
     }
 
     //<editor-fold desc="Getters and Setters">
 
     public Long getId() {
         return id;
-    }
-
-    public int getMaxAmountOfCharacters() {
-        return maxAmountOfCharacters;
-    }
-
-    public void setMaxAmountOfCharacters(int maxAmountOfCharacters) {
-        this.maxAmountOfCharacters = maxAmountOfCharacters;
     }
 
     public String getMessage() {

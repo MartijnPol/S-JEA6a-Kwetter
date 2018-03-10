@@ -21,7 +21,7 @@ public class UserAccountService {
 
     }
 
-    public void addUserAccount(UserAccount userAccount) {
+    public void create(UserAccount userAccount) {
         userAccountDao.create(userAccount);
     }
 

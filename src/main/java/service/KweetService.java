@@ -6,7 +6,6 @@ import domain.Kweet;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import java.util.List;
 
 /**
  * Created by Martijn van der Pol on 09-03-18
@@ -23,11 +22,13 @@ public class KweetService {
 
     }
 
+    /**
+     * Function to save a Kweet to the database
+     *
+     * @param kweet Kweet object to save in the database
+     */
     public void addKweet(Kweet kweet) {
         kweetDao.create(kweet);
     }
 
-    public List<Kweet> findAllKweetsBySenderId(long id) {
-        return kweetDao.findAllKweetsBySenderId(id);
-    }
 }
