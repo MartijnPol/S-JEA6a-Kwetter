@@ -22,7 +22,7 @@ public class KweetDaoCollectionImpl implements KweetDao {
     }
 
     //<editor-fold desc="Interface methods">
-    public Kweet create(Kweet kweet) {
+    public Kweet save(Kweet kweet) {
         this.kweetList.add(kweet);
         return kweet;
     }
@@ -59,7 +59,7 @@ public class KweetDaoCollectionImpl implements KweetDao {
     }
 
     public Long countAll() {
-        return new Long(this.kweetList.size());
+        return (long) this.kweetList.size();
     }
 
     public List<Kweet> findAllKweetsBySenderId(Long id) {

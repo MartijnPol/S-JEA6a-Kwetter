@@ -18,9 +18,6 @@ public class StartUp {
     @Inject
     private UserAccountService userAccountService;
 
-    @Inject
-    private KweetService kweetService;
-
     public StartUp() {
 
     }
@@ -30,10 +27,9 @@ public class StartUp {
         UserAccount MartijnPol = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
         UserAccount HansDeGans = new UserAccount("HansDeGans", "1234", "hans.degans@hotmail.com");
 
+        MartijnPol.getUserProfile().addKweet(new Kweet(MartijnPol.getUserProfile(), "Test", null, null));
+
         userAccountService.create(MartijnPol);
         userAccountService.create(HansDeGans);
-
-        kweetService.addKweet(new Kweet(MartijnPol.getUserProfile(), "Test", null, null));
     }
-
 }

@@ -2,30 +2,21 @@
 <persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1"
              xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="KwetterPU" transaction-type="JTA">
-        <jta-data-source>jdbc/_MySQL</jta-data-source>
+    <persistence-unit name="KwetterTestPU" transaction-type="RESOURCE_LOCAL">
+        <class>domain.UserAccount</class>
+        <class>domain.UserProfile</class>
+        <class>domain.Kweet</class>
+        <class>domain.Hashtag</class>
+        <class>domain.Heart</class>
         <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/kwetter_test"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="root"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.logging.logger" value="DefaultLogger"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
     </persistence-unit>
 </persistence>
-
-        <!--<?xml version="1.0" encoding="UTF-8"?>-->
-        <!--<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"-->
-        <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
-        <!--xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">-->
-        <!--<persistence-unit name="KwetterPU" transaction-type="JTA">-->
-        <!--<jta-data-source>jdbc/_MySQL</jta-data-source>-->
-        <!--<exclude-unlisted-classes>false</exclude-unlisted-classes>-->
-        <!--<properties>-->
-        <!--<property name="javax.persistence.jdbc.url" value="jdbc:mysql://www.martijnvanderpol.nl:3306/?user=martinb215_kwetter"/>-->
-        <!--<property name="javax.persistence.jdbc.password" value="kwetter1234"/>-->
-        <!--<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>-->
-        <!--<property name="javax.persistence.jdbc.user" value="martinb215_kwetter"/>-->
-        <!--<property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>-->
-        <!--<property name="eclipselink.logging.logger" value="DefaultLogger"/>-->
-        <!--<property name="eclipselink.logging.level" value="FINE"/>-->
-        <!--<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>-->
-        <!--</properties>-->
-        <!--</persistence-unit>-->
-        <!--</persistence>-->

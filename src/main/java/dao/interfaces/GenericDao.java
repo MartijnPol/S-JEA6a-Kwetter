@@ -13,7 +13,7 @@ public interface GenericDao<T> {
      * @param t is the entity that needs to be stored in the database
      * @return
      */
-    T create(T t);
+    T save(T t);
 
     /**
      * Function to get all objects

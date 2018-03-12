@@ -5,6 +5,7 @@ import domain.JPA;
 import domain.Kweet;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
 import java.util.List;
 
 /**
@@ -14,7 +15,17 @@ import java.util.List;
 @JPA
 public class KweetDaoJPAImpl extends GenericDaoJPAImpl<Kweet> implements KweetDao {
 
+    public KweetDaoJPAImpl() {
+
+    }
+
+    public KweetDaoJPAImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
     public List<Kweet> findAllKweetsBySenderId(Long id) {
-        return this.entityManager.createNamedQuery("Kweet.findAllKweetsBySenderId").getResultList();
+        return this.entityManager.createNamedQuery("Kweet.findAllKweetsBySenderId")
+                .setParameter("id", id)
+                .getResultList();
     }
 }

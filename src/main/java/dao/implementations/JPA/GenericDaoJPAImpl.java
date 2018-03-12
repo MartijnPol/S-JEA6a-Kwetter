@@ -28,7 +28,7 @@ public class GenericDaoJPAImpl<T> implements GenericDao<T> {
         this.entityClass = (Class<T>) genericSuperclass.getActualTypeArguments()[0];
     }
 
-    public T create(T t) {
+    public T save(T t) {
         this.entityManager.persist(t);
         return t;
     }

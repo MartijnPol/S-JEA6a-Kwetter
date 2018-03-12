@@ -17,6 +17,7 @@ public class Heart implements Serializable {
     private Long id;
 
     @NotNull
+    @Temporal(TemporalType.DATE)
     private Date timeOfLiking;
 
     @NotNull

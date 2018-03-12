@@ -21,7 +21,7 @@ public class HashtagDaoCollectionImpl implements HashtagDao {
     }
 
     //<editor-fold desc="Interface methods">
-    public Hashtag create(Hashtag hashtag) {
+    public Hashtag save(Hashtag hashtag) {
         this.hashtagList.add(hashtag);
         return hashtag;
     }

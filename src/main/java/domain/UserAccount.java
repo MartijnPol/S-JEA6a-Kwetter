@@ -1,5 +1,6 @@
 package domain;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -22,7 +23,6 @@ public class UserAccount implements Serializable {
     private String username;
 
     @NotNull
-    @JsonIgnore
     private String password;
 
     @Column(unique = true)
@@ -53,7 +53,7 @@ public class UserAccount implements Serializable {
         this.username = username;
         this.password = password;
         this.mailAddress = mailAddress;
-        this.userProfile = new UserProfile();
+        this.userProfile = new UserProfile(this, null, null, null);
         this.role = UserRole.REGULAR;
     }
 
@@ -75,7 +75,6 @@ public class UserAccount implements Serializable {
         this.username = username;
     }
 
-    @JsonIgnore
     public String getPassword() {
         return password;
     }
@@ -100,6 +99,7 @@ public class UserAccount implements Serializable {
         this.role = role;
     }
 
+    @JsonIgnore
     public UserProfile getUserProfile() {
         return userProfile;
     }

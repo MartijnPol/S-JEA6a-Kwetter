@@ -22,7 +22,7 @@ public class UserAccountService {
     }
 
     public void create(UserAccount userAccount) {
-        userAccountDao.create(userAccount);
+        userAccountDao.save(userAccount);
     }
 
     public List<UserAccount> getAll() { return userAccountDao.getAll(); }

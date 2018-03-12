@@ -23,9 +23,11 @@ public class Kweet implements Serializable {
     private String message;
 
     @NotNull
+    @Temporal(TemporalType.DATE)
     private Date timeOfPosting;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "SENDER_ID", nullable = false)
     private UserProfile sender;
 
     @OneToMany
@@ -71,6 +73,10 @@ public class Kweet implements Serializable {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getMessage() {
         return message;
     }
@@ -83,17 +89,42 @@ public class Kweet implements Serializable {
         return timeOfPosting;
     }
 
+    public void setTimeOfPosting(Date timeOfPosting) {
+        this.timeOfPosting = timeOfPosting;
+    }
+
+    public UserProfile getSender() {
+        return sender;
+    }
+
+    public void setSender(UserProfile sender) {
+        this.sender = sender;
+    }
+
     public List<UserProfile> getMentions() {
         return mentions;
+    }
+
+    public void setMentions(List<UserProfile> mentions) {
+        this.mentions = mentions;
     }
 
     public List<Heart> getLikes() {
         return likes;
     }
 
+    public void setLikes(List<Heart> likes) {
+        this.likes = likes;
+    }
+
     public List<Hashtag> getHashtags() {
         return hashtags;
     }
+
+    public void setHashtags(List<Hashtag> hashtags) {
+        this.hashtags = hashtags;
+    }
+
 
     //</editor-fold>
 

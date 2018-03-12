@@ -18,7 +18,7 @@ public class UserAccountDaoCollectionImpl implements UserAccountDao {
         this.userAccountList = new ArrayList<UserAccount>();
     }
 
-    public UserAccount create(UserAccount userAccount) {
+    public UserAccount save(UserAccount userAccount) {
         this.userAccountList.add(userAccount);
         return userAccount;
     }

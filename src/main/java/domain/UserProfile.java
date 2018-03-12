@@ -1,5 +1,7 @@
 package domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -29,18 +31,22 @@ public class UserProfile implements Serializable {
     private String biography;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name = "ID", nullable = false)
+    @JoinColumn(name = "USERACCOUNT_ID", referencedColumnName = "ID")
     private UserAccount userAccount;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "sender")
     private List<Kweet> kweets;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL)
     private List<UserProfile> mentions;
 
+    @JsonIgnore
     @ManyToMany
     private List<UserProfile> followers;
 
+    @JsonIgnore
     @Transient
     private List<UserProfile> followees;
 
@@ -61,8 +67,9 @@ public class UserProfile implements Serializable {
      * @param lastName    is the last name of the person this account belongs to
      * @param dateOfBirth is the birthday of the person this account belongs to
      */
-    public UserProfile(String firstName, String lastName, Date dateOfBirth) {
+    public UserProfile(UserAccount userAccount, String firstName, String lastName, Date dateOfBirth) {
         this();
+        this.userAccount = userAccount;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -139,4 +146,8 @@ public class UserProfile implements Serializable {
     }
 
     //</editor-fold>
+
+    public void addKweet(Kweet kweet) {
+        this.kweets.add(kweet);
+    }
 }

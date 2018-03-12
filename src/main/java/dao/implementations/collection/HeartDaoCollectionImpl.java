@@ -21,7 +21,7 @@ public class HeartDaoCollectionImpl implements HeartDao {
     }
 
     //<editor-fold desc="Interface methods">
-    public Heart create(Heart like) {
+    public Heart save(Heart like) {
         this.likeList.add(like);
         return like;
     }
