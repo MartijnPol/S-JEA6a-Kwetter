@@ -29,6 +29,7 @@ public class UserAccount implements Serializable {
     @Email
     private String mailAddress;
 
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     private UserProfile userProfile;
 
@@ -104,6 +105,7 @@ public class UserAccount implements Serializable {
         return userProfile;
     }
 
+    @JsonIgnore
     public void setUserProfile(UserProfile userProfile) {
         this.userProfile = userProfile;
     }

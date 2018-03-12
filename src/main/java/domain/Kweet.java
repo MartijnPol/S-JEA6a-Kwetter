@@ -12,7 +12,9 @@ import java.util.List;
  **/
 
 @Entity
-@NamedQuery(name = "Kweet.findAllKweetsBySenderId", query = "SELECT kweet FROM Kweet kweet WHERE kweet.sender.id = :id")
+@NamedQueries({
+        @NamedQuery(name = "Kweet.findAllKweetsBySenderId", query = "SELECT kweet FROM Kweet kweet WHERE kweet.sender.id = :id")
+})
 public class Kweet implements Serializable {
 
     @Id
@@ -33,10 +35,10 @@ public class Kweet implements Serializable {
     @OneToMany
     private List<UserProfile> mentions;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Heart> likes;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Hashtag> hashtags;
 
     /**
@@ -52,17 +54,14 @@ public class Kweet implements Serializable {
      * Constructor for the Kweet class
      *
      * @param message  contains the content of this Kweet
-     * @param mentions are all the people (UserProfiles) the person mentioned in the Kweet
-     * @param hashtags are all the hashtags the person used in the Kweet
      */
-    public Kweet(UserProfile sender, String message, List<UserProfile> mentions, List<Hashtag> hashtags) {
+    public Kweet(UserProfile sender, String message) {
+        this();
         if (message.length() > 140) {
             throw new IllegalArgumentException("Message needs to be within 140 characters.");
         } else {
             this.sender = sender;
             this.message = message;
-            this.mentions = mentions;
-            this.hashtags = hashtags;
             this.timeOfPosting = new Date();
         }
     }
@@ -130,12 +129,32 @@ public class Kweet implements Serializable {
 
     //<editor-fold desc="Methods">
     /**
-     * Method to add a like to the Kweet
+     * Method to add a like to a Kweet
      *
      * @param like is the Like itself
      */
     public void addLike(Heart like) {
         this.likes.add(like);
+    }
+
+    /**
+     * Function to add a hashtag to a Kweet
+     *
+     * @param hashtag
+     */
+    public void addHashtag(Hashtag hashtag) {
+        hashtag.addKweet(this);
+        this.hashtags.add(hashtag);
+    }
+
+    /**
+     * Function to add a mention to a Kweet
+     *
+     * @param mention
+     */
+    public void addMention(UserProfile mention) {
+        mention.addMention(this);
+        this.mentions.add(mention);
     }
     //</editor-fold>
 

@@ -28,4 +28,10 @@ public class KweetDaoJPAImpl extends GenericDaoJPAImpl<Kweet> implements KweetDa
                 .setParameter("id", id)
                 .getResultList();
     }
+
+    public List<Kweet> findAllKweetsByHashtagSubject(String hashtagSubject) {
+        return this.entityManager.createNamedQuery("Kweet.findAllKweetsByHashtagSubject")
+                .setParameter("subject", hashtagSubject)
+                .getResultList();
+    }
 }

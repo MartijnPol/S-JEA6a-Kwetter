@@ -27,7 +27,7 @@ public class StartUp {
         UserAccount MartijnPol = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
         UserAccount HansDeGans = new UserAccount("HansDeGans", "1234", "hans.degans@hotmail.com");
 
-        MartijnPol.getUserProfile().addKweet(new Kweet(MartijnPol.getUserProfile(), "Test", null, null));
+        MartijnPol.getUserProfile().addKweet(new Kweet(MartijnPol.getUserProfile(), "Test"));
 
         userAccountService.create(MartijnPol);
         userAccountService.create(HansDeGans);

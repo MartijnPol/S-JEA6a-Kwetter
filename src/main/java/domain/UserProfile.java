@@ -3,6 +3,7 @@ package domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,8 +31,8 @@ public class UserProfile implements Serializable {
 
     private String biography;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "USERACCOUNT_ID", referencedColumnName = "ID")
+    @NotNull
+    @OneToOne(optional = false)
     private UserAccount userAccount;
 
     @JsonIgnore
@@ -39,8 +40,8 @@ public class UserProfile implements Serializable {
     private List<Kweet> kweets;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<UserProfile> mentions;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Kweet> mentionKweets;
 
     @JsonIgnore
     @ManyToMany
@@ -57,7 +58,7 @@ public class UserProfile implements Serializable {
         this.followers = new ArrayList<UserProfile>();
         this.followees = new ArrayList<UserProfile>();
         this.kweets = new ArrayList<Kweet>();
-        this.mentions = new ArrayList<UserProfile>();
+        this.mentionKweets = new ArrayList<Kweet>();
     }
 
     /**
@@ -79,6 +80,10 @@ public class UserProfile implements Serializable {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public byte[] getAvatar() {
@@ -133,21 +138,43 @@ public class UserProfile implements Serializable {
         return kweets;
     }
 
-    public List<UserProfile> getMentions() {
-        return mentions;
+    public void setKweets(List<Kweet> kweets) {
+        this.kweets = kweets;
+    }
+
+    public List<Kweet> getMentionKweets() {
+        return mentionKweets;
+    }
+
+    public void setMentionKweets(List<Kweet> mentionKweets) {
+        this.mentionKweets = mentionKweets;
     }
 
     public List<UserProfile> getFollowers() {
         return followers;
     }
 
+    public void setFollowers(List<UserProfile> followers) {
+        this.followers = followers;
+    }
+
     public List<UserProfile> getFollowees() {
         return followees;
     }
+
+    public void setFollowees(List<UserProfile> followees) {
+        this.followees = followees;
+    }
+
 
     //</editor-fold>
 
     public void addKweet(Kweet kweet) {
         this.kweets.add(kweet);
     }
+
+    public void addMention(Kweet mentionKweet) {
+        this.mentionKweets.add(mentionKweet);
+    }
+
 }

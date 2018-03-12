@@ -65,5 +65,9 @@ public class KweetDaoCollectionImpl implements KweetDao {
     public List<Kweet> findAllKweetsBySenderId(Long id) {
         throw new NotImplementedException();
     }
+
+    public List<Kweet> findAllKweetsByHashtagSubject(String hashtagSubject) {
+        throw new NotImplementedException();
+    }
     //</editor-fold>
 }

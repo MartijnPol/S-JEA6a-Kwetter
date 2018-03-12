@@ -4,6 +4,8 @@ import dao.implementations.JPA.KweetDaoJPAImpl;
 import dao.implementations.JPA.UserAccountDaoJPAImpl;
 import dao.interfaces.KweetDao;
 import dao.interfaces.UserAccountDao;
+import domain.Hashtag;
+import domain.Heart;
 import domain.Kweet;
 import domain.UserAccount;
 import org.junit.Before;
@@ -32,10 +34,9 @@ public class KweetDaoJPATest {
     private DatabaseCleaner databaseCleaner;
 
     @Before
-    public void init() {
-
+    public void Before() {
+        this.databaseCleaner = new DatabaseCleaner(this.entityManagerFactory.createEntityManager());
         try {
-            this.databaseCleaner = new DatabaseCleaner(entityManagerFactory.createEntityManager());
             this.databaseCleaner.clean();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -48,14 +49,14 @@ public class KweetDaoJPATest {
     }
 
     @Test
-    public void createTest() {
+    public void createKweetTest() {
         UserAccount userAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
 
         entityTransaction.begin();
         this.userAccountDao.save(userAccount);
         entityTransaction.commit();
 
-        Kweet kweet = new Kweet(userAccount.getUserProfile(), "TestMessage", null, null);
+        Kweet kweet = new Kweet(userAccount.getUserProfile(), "TestMessage");
 
         entityTransaction.begin();
         this.kweetDao.save(kweet);
@@ -64,16 +65,28 @@ public class KweetDaoJPATest {
         assertEquals(new Long(1), this.kweetDao.countAll());
     }
 
-    @Test
-    public void findKweetByUserId() {
+    @Test(expected = IllegalArgumentException.class)
+    public void createKweetWithMaxCharactersTest() {
         UserAccount userAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
-        Kweet kweet = new Kweet(userAccount.getUserProfile(), "First kweet!", null, null);
 
         entityTransaction.begin();
         this.userAccountDao.save(userAccount);
         entityTransaction.commit();
 
+        Kweet kweet = new Kweet(userAccount.getUserProfile(), "TestMessageTestMessageTestMessageTestMessageTestMessageTestMessageTestMessageTestMessageTestMessageTestMessageTestMessageTestMessageTestMessageTestMessageTestMessageTestMessageTestMessage");
+
         entityTransaction.begin();
+        this.kweetDao.save(kweet);
+        entityTransaction.commit();
+    }
+
+    @Test
+    public void findKweetByUserId() {
+        UserAccount userAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
+        Kweet kweet = new Kweet(userAccount.getUserProfile(), "First kweet!");
+
+        entityTransaction.begin();
+        this.userAccountDao.save(userAccount);
         this.kweetDao.save(kweet);
         entityTransaction.commit();
 
@@ -89,7 +102,7 @@ public class KweetDaoJPATest {
         this.userAccountDao.save(userAccount);
         entityTransaction.commit();
 
-        Kweet kweet = new Kweet(userAccount.getUserProfile(), "TestMessage", null, null);
+        Kweet kweet = new Kweet(userAccount.getUserProfile(), "TestMessage");
 
         entityTransaction.begin();
         this.kweetDao.save(kweet);
@@ -97,6 +110,68 @@ public class KweetDaoJPATest {
 
         assertEquals("Martijn zijn bio.", this.kweetDao.findAllKweetsBySenderId(1L).get(0).getSender().getBiography());
         assertEquals("MartijnPol", this.kweetDao.findAllKweetsBySenderId(1L).get(0).getSender().getUserAccount().getUsername());
+    }
+
+    @Test
+    public void addHeartTest() {
+        UserAccount userAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
+        userAccount.getUserProfile().setFirstName("Martijn");
+
+        entityTransaction.begin();
+        this.userAccountDao.save(userAccount);
+        entityTransaction.commit();
+
+        Kweet kweet = new Kweet(userAccount.getUserProfile(), "TestMessage");
+
+        entityTransaction.begin();
+        kweet.addLike(new Heart(userAccount.getUserProfile(), kweet));
+        this.kweetDao.save(kweet);
+        entityTransaction.commit();
+
+        assertEquals(1, this.kweetDao.findAllKweetsBySenderId(1L).get(0).getLikes().size());
+        assertEquals("Martijn", this.kweetDao.findAllKweetsBySenderId(1L).get(0).getLikes().get(0).getSender().getFirstName());
+    }
+
+    @Test
+    public void addHashtagTest() {
+        UserAccount userAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
+        userAccount.getUserProfile().setFirstName("Martijn");
+
+        entityTransaction.begin();
+        this.userAccountDao.save(userAccount);
+        entityTransaction.commit();
+
+        Kweet kweet = new Kweet(userAccount.getUserProfile(), "TestMessage");
+
+        entityTransaction.begin();
+        kweet.addHashtag(new Hashtag("#Hashtag"));
+        this.kweetDao.save(kweet);
+        entityTransaction.commit();
+
+        assertEquals(1, this.kweetDao.findAllKweetsBySenderId(1L).get(0).getHashtags().size());
+    }
+
+    @Test
+    public void addMentionTest() {
+        UserAccount firstUserAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
+        firstUserAccount.getUserProfile().setFirstName("Martijn");
+
+        UserAccount secondUserAccount = new UserAccount("Harry", "1234", "harry@test.nl");
+        secondUserAccount.getUserProfile().setFirstName("Harry");
+
+        entityTransaction.begin();
+        this.userAccountDao.save(firstUserAccount);
+        this.userAccountDao.save(secondUserAccount);
+        entityTransaction.commit();
+
+        Kweet kweet = new Kweet(firstUserAccount.getUserProfile(), "TestMessage");
+        kweet.addMention(secondUserAccount.getUserProfile());
+
+        entityTransaction.begin();
+        this.kweetDao.save(kweet);
+        entityTransaction.commit();
+
+        assertEquals(1, this.kweetDao.findAllKweetsBySenderId(1L).get(0).getMentions().size());
     }
 
 }

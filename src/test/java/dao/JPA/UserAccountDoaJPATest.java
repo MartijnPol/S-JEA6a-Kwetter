@@ -28,9 +28,8 @@ public class UserAccountDoaJPATest {
 
     @Before
     public void init() {
-
+        this.databaseCleaner = new DatabaseCleaner(entityManagerFactory.createEntityManager());
         try {
-            this.databaseCleaner = new DatabaseCleaner(entityManagerFactory.createEntityManager());
             this.databaseCleaner.clean();
         } catch (SQLException e) {
             e.printStackTrace();

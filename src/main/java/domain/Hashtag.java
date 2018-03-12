@@ -42,6 +42,7 @@ public class Hashtag implements Serializable {
     }
 
     //<editor-fold desc="Getters and Setters">
+
     public Long getId() {
         return id;
     }
@@ -67,4 +68,8 @@ public class Hashtag implements Serializable {
     }
 
     //</editor-fold>
+
+    public void addKweet(Kweet kweet) {
+        this.kweets.add(kweet);
+    }
 }
