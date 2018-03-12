@@ -16,7 +16,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.sql.SQLException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -36,11 +35,7 @@ public class KweetDaoJPATest {
     @Before
     public void Before() {
         this.databaseCleaner = new DatabaseCleaner(this.entityManagerFactory.createEntityManager());
-        try {
-            this.databaseCleaner.clean();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        this.databaseCleaner.clean();
 
         this.entityManager = this.entityManagerFactory.createEntityManager();
         this.kweetDao = new KweetDaoJPAImpl(this.entityManager);
