@@ -9,6 +9,6 @@ import java.util.List;
  **/
 public interface KweetDao extends GenericDao<Kweet> {
 
-    List<Kweet> findAllKweetsBySenderId(Long id);
+    List<Kweet> findAllKweetsByMessage(String message);
 
 }

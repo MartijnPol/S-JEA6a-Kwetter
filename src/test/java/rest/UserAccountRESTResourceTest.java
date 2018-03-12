@@ -16,17 +16,17 @@ public class UserAccountRESTResourceTest {
 
     @Test
     public void getAllAccountsTest() {
-        given().when().get("/accounts").then().body(containsString("martijn.pol@hotmail.com"));
+        given().when().get("/profiles").then().body(containsString("martijn.pol@hotmail.com"));
     }
 
     @Test
     public void getAccountByIdTest() {
-        given().when().get("/accounts/findById?id=1").then().body(containsString("martijn.pol@hotmail.com"));
+        given().when().get("/profiles/profile?id=1").then().body(containsString("martijn.pol@hotmail.com"));
     }
 
     @Test
     public void countAllAccountsTest() {
-        given().when().get("/accounts/count").then().body(containsString("2"));
+        given().when().get("/profiles/count").then().body(containsString("2"));
     }
 
 }

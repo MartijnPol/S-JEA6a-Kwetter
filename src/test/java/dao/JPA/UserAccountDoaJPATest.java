@@ -115,4 +115,5 @@ public class UserAccountDoaJPATest {
 
         assertEquals("martijn.pol@hotmail.com", this.userAccountDao.findById(1L).getUserProfile().getUserAccount().getMailAddress());
     }
+
 }

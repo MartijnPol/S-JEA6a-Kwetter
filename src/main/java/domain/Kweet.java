@@ -13,7 +13,7 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Kweet.findAllKweetsBySenderId", query = "SELECT kweet FROM Kweet kweet WHERE kweet.sender.id = :id")
+        @NamedQuery(name = "Kweet.findAllKweetsByMessage", query = "SELECT kweet FROM Kweet kweet WHERE kweet.message LIKE :message")
 })
 public class Kweet implements Serializable {
 

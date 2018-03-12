@@ -18,13 +18,8 @@ public class KweetRESTResourceTest {
     }
 
     @Test
-    public void findKweetBySenderId() {
-        given().when().get("/kweets/findBySenderId?id=2").then().body(containsString("Test"));
-    }
-
-    @Test
-    public void countKweetsBySenderId() {
-        given().when().get("/kweets/findBySenderId/count?id=2").then().body(containsString("1"));
+    public void findById() {
+        given().when().get("/kweets/kweet/?id=2").then().body(containsString("1"));
     }
 
 }

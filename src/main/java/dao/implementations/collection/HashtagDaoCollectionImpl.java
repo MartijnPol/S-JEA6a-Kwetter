@@ -63,14 +63,14 @@ public class HashtagDaoCollectionImpl implements HashtagDao {
     //</editor-fold>
 
     //<editor-fold desc="Custom methods">
-    public List<Hashtag> getAllBySubject(String subject) {
-        List<Hashtag> foundHashtags = new ArrayList<Hashtag>();
+    public Hashtag findBySubject(String subject) {
         for (Hashtag hashtag : this.hashtagList) {
             if (hashtag.getSubject().equals(subject)) {
-                foundHashtags.add(hashtag);
+                return hashtag;
             }
         }
-        return foundHashtags;
+        return null;
     }
+
     //</editor-fold>
 }

@@ -29,7 +29,7 @@ public class StartUp {
 
         MartijnPol.getUserProfile().addKweet(new Kweet(MartijnPol.getUserProfile(), "Test"));
 
-        userAccountService.create(MartijnPol);
-        userAccountService.create(HansDeGans);
+        userAccountService.save(MartijnPol);
+        userAccountService.save(HansDeGans);
     }
 }

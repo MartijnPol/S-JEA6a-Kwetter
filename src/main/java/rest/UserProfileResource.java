@@ -1,7 +1,7 @@
 package rest;
 
-import domain.UserAccount;
-import service.UserAccountService;
+import domain.UserProfile;
+import service.UserProfileService;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -17,32 +17,32 @@ import java.util.List;
  * Created by Martijn van der Pol on 07-03-18
  **/
 
-@Path("accounts")
+@Path("profiles")
 @Stateless
-public class UserAccountResource {
+public class UserProfileResource {
 
     @Inject
-    private UserAccountService userAccountService;
+    private UserProfileService userProfileService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllAccounts() {
-        List<UserAccount> userAccounts = userAccountService.getAll();
-        return Response.ok(userAccounts).build();
+    public Response getAllUserProfiles() {
+        List<UserProfile> userProfiles = userProfileService.getAll();
+        return Response.ok(userProfiles).build();
     }
 
     @GET
-    @Path("findById")
+    @Path("profile")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAccountById(@QueryParam("id") Long id) {
-        return Response.ok(userAccountService.findById(id)).build();
+        return Response.ok(userProfileService.findById(id)).build();
     }
 
     @GET
     @Path("count")
     @Produces(MediaType.APPLICATION_JSON)
     public Response countAllAccounts() {
-        return Response.ok(userAccountService.countAll()).build();
+        return Response.ok(userProfileService.countAll()).build();
     }
 
 }

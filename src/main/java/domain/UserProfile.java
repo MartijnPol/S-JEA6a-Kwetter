@@ -1,6 +1,6 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -33,6 +33,7 @@ public class UserProfile implements Serializable {
 
     @NotNull
     @OneToOne(optional = false)
+    @JsonIgnore
     private UserAccount userAccount;
 
     @JsonIgnore

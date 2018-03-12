@@ -19,16 +19,24 @@ public class KweetResource {
     private KweetService kweetService;
 
     @GET
-    @Path("findBySenderId")
+    @Path("findByMessage")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response findKweetsBySenderId(@QueryParam("id") Long id) {
-        return Response.ok(kweetService.findKweetsById(id)).build();
+    public Response findAllKweetsByMessage(@QueryParam("message") String message) {
+        return Response.ok(kweetService.findAllKweetsByMessage(message)).build();
     }
 
     @GET
-    @Path("findBySenderId/count")
+    @Path("kweet")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response countKweetsBySenderId(@QueryParam("id") Long id) {
-        return Response.ok(kweetService.findKweetsById(id).size()).build();
+    public Response findById(@QueryParam("id") Long id) {
+        return Response.ok(kweetService.findById(id)).build();
+    }
+
+    @GET
+    @Path("kweet/delete")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteById(@QueryParam("id") Long id) {
+        kweetService.deleteById(id);
+        return Response.ok().build();
     }
 }

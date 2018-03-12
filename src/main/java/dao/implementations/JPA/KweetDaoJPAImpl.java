@@ -23,15 +23,10 @@ public class KweetDaoJPAImpl extends GenericDaoJPAImpl<Kweet> implements KweetDa
         this.entityManager = entityManager;
     }
 
-    public List<Kweet> findAllKweetsBySenderId(Long id) {
-        return this.entityManager.createNamedQuery("Kweet.findAllKweetsBySenderId")
-                .setParameter("id", id)
+    public List<Kweet> findAllKweetsByMessage(String message) {
+        return this.entityManager.createNamedQuery("Kweet.findAllKweetsByMessage")
+                .setParameter("message", "%" + message + "%")
                 .getResultList();
     }
 
-    public List<Kweet> findAllKweetsByHashtagSubject(String hashtagSubject) {
-        return this.entityManager.createNamedQuery("Kweet.findAllKweetsByHashtagSubject")
-                .setParameter("subject", hashtagSubject)
-                .getResultList();
-    }
 }

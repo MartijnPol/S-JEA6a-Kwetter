@@ -24,22 +24,37 @@ public class KweetService {
     }
 
     /**
-     * Function to save a Kweet to the database
-     *
-     * @param kweet Kweet object to save in the database
+     * Function to delete a Kweet stored in the database
+     * @param id of the Kweet that needs to be deleted
      */
-    public void addKweet(Kweet kweet) {
-        kweetDao.save(kweet);
+    public void deleteById(Long id) {
+        this.kweetDao.deleteById(id);
     }
 
     /**
-     * Function to find all kweets of a specific user
+     * Function to update a Kweet in the database
      *
-     * @param id id of the user
-     * @return all kweets from the given user
+     * @param kweet is the Kweet that needs to be updated in the database
      */
-    public List<Kweet> findKweetsById(Long id) {
-        return kweetDao.findAllKweetsBySenderId(id);
+    public Kweet update(Kweet kweet) {
+        return this.kweetDao.update(kweet);
+    }
+
+    /**
+     * Function to find a specific Kweet by it's id
+     * @param id is the id from the specific Kweet that needs to be retrieved
+     */
+    public Kweet findById(Long id) {
+        return this.kweetDao.findById(id);
+    }
+
+    /**
+     * Function to find all kweets containing a given message
+     * @param message the message the Kweets has to contain
+     * @return a collection of Kweets that match with the given message
+     */
+    public List<Kweet> findAllKweetsByMessage(String message) {
+        return kweetDao.findAllKweetsByMessage(message);
     }
 
 }
