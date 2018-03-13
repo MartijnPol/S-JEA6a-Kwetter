@@ -18,8 +18,20 @@ public class HeartService {
     @JPA
     private HeartDao heartDao;
 
+    /**
+     * Empty constructor
+     */
     public HeartService() {
 
+    }
+
+    /**
+     * Function to set the HeartDao via constructor injection
+     *
+     * @param heartDao
+     */
+    public HeartService(HeartDao heartDao) {
+        this.heartDao = heartDao;
     }
 
     /**
@@ -38,6 +50,16 @@ public class HeartService {
      */
     public List<Heart> getAll() {
         return this.heartDao.getAll();
+    }
+
+    /**
+     * Function to find a Heart by it's id
+     *
+     * @param id of the Heart
+     * @return the Heart object with the given id
+     */
+    public Heart findById(Long id) {
+        return this.heartDao.findById(id);
     }
 
     /**
@@ -64,7 +86,7 @@ public class HeartService {
      *
      * @return the amount of Hearts
      */
-    public Long count() {
+    public Long countAll() {
         return this.heartDao.countAll();
     }
 

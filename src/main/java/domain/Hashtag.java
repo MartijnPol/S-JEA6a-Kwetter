@@ -11,7 +11,9 @@ import java.util.List;
  **/
 
 @Entity
-@NamedQuery(name = "Hashtag.findBySubject", query = "SELECT hashtag FROM Hashtag hashtag WHERE hashtag.subject = :subject")
+@NamedQueries(
+        @NamedQuery(name = "Hashtag.findBySubject", query = "SELECT hashtag FROM Hashtag hashtag WHERE hashtag.subject = :subject")
+)
 public class Hashtag implements Serializable {
 
     @Id

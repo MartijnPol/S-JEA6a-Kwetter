@@ -4,6 +4,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,7 +13,6 @@ import java.util.List;
 /**
  * Created by Martijn van der Pol on 28-02-18
  **/
-
 @Entity
 public class UserProfile implements Serializable {
 
@@ -29,6 +29,7 @@ public class UserProfile implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
 
+    @Size(max = 160, message = "Biography can't be longer then 160 characters.")
     private String biography;
 
     @NotNull

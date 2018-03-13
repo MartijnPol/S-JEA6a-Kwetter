@@ -18,12 +18,23 @@ public class HashtagService {
     @JPA
     private HashtagDao hashtagDao;
 
+    /**
+     * Empty constructor
+     */
     public HashtagService() {
 
     }
 
     /**
-     * Function to save a Hashtag to the database
+     * Function to set the HashtagDao via constructor injection
+     * @param hashtagDao
+     */
+    public HashtagService(HashtagDao hashtagDao) {
+        this.hashtagDao = hashtagDao;
+    }
+
+    /**
+     * Function to save a given Hashtag to the database
      *
      * @param hashtag the hashtag that needs to be saved
      */
@@ -60,12 +71,22 @@ public class HashtagService {
     }
 
     /**
-     * Function to retrieve all Hashtags stored in the database
+     * Function to retrieve the amount of Hashtags stored in the database
      *
      * @return the amount of Hashtags
      */
-    public Long count() {
+    public Long countAll() {
         return this.hashtagDao.countAll();
+    }
+
+    /**
+     * Function to find a hashtag by it's id
+     *
+     * @param id of the hashtag you are looking for
+     * @return the Hashtag with the given id
+     */
+    public Hashtag findById(Long id) {
+        return this.hashtagDao.findById(id);
     }
 
     /**

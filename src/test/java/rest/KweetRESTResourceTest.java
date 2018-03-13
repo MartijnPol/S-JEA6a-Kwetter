@@ -19,7 +19,7 @@ public class KweetRESTResourceTest {
 
     @Test
     public void findById() {
-        given().when().get("/kweets/kweet/?id=2").then().body(containsString("1"));
+        given().when().get("/kweets/kweet/?id=1").then().body(containsString("Test"));
     }
 
 }

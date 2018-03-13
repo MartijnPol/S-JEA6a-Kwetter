@@ -19,8 +19,20 @@ public class KweetService {
     @JPA
     private KweetDao kweetDao;
 
+    /**
+     * Empty constructor
+     */
     public KweetService() {
 
+    }
+
+    /**
+     * Function to set the KweetDao via constructor injection
+     *
+     * @param kweetDao
+     */
+    public KweetService(KweetDao kweetDao) {
+        this.kweetDao = kweetDao;
     }
 
     /**

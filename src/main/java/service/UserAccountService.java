@@ -16,8 +16,20 @@ public class UserAccountService {
     @Inject @JPA
     private UserAccountDao userAccountDao;
 
+    /**
+     * Empty constructor
+     */
     public UserAccountService() {
 
+    }
+
+    /**
+     * Function to set the UserAccountDao via constructor injection
+     *
+     * @param userAccountDao
+     */
+    public UserAccountService(UserAccountDao userAccountDao) {
+        this.userAccountDao = userAccountDao;
     }
 
     /**
@@ -63,7 +75,7 @@ public class UserAccountService {
      *
      * @return the amount of UserAccounts stored in the database
      */
-    public Long count() {
+    public Long countAll() {
         return this.userAccountDao.countAll();
     }
 

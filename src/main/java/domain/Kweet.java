@@ -2,6 +2,7 @@ package domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,6 +23,7 @@ public class Kweet implements Serializable {
     private Long id;
 
     @NotNull
+    @Size(max = 140, message = "Message can't be longer then 140 characters.")
     private String message;
 
     @NotNull

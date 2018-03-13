@@ -19,8 +19,20 @@ public class UserProfileService {
     @JPA
     private UserProfileDao userProfileDao;
 
+    /**
+     * Empty constructor
+     */
     public UserProfileService() {
 
+    }
+
+    /**
+     * Function to set the UserProfileDao via constructor injection
+     *
+     * @param userProfileDao
+     */
+    public UserProfileService(UserProfileDao userProfileDao) {
+        this.userProfileDao = userProfileDao;
     }
 
     /**
@@ -46,7 +58,7 @@ public class UserProfileService {
      * Function to find a specific UserProfile by it's id
      *
      * @param id is the id of the UserProfile that needs to be retrieved
-     * @return
+     * @return the UserProfile found
      */
     public UserProfile findById(Long id) {
         return userProfileDao.findById(id);

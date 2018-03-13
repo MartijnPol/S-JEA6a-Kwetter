@@ -21,7 +21,7 @@ public class UserAccountRESTResourceTest {
 
     @Test
     public void getAccountByIdTest() {
-        given().when().get("/profiles/profile?id=1").then().body(containsString("martijn.pol@hotmail.com"));
+        given().when().get("/profiles/profile?id=2").then().body(containsString("martijn.pol@hotmail.com"));
     }
 
     @Test

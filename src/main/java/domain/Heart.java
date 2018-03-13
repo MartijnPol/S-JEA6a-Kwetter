@@ -46,19 +46,39 @@ public class Heart implements Serializable {
     }
 
     //<editor-fold desc="Getters and Setters">
-    public Long getId() { return id; }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Date getTimeOfLiking() {
         return timeOfLiking;
+    }
+
+    public void setTimeOfLiking(Date timeOfLiking) {
+        this.timeOfLiking = timeOfLiking;
     }
 
     public UserProfile getSender() {
         return sender;
     }
 
+    public void setSender(UserProfile sender) {
+        this.sender = sender;
+    }
+
     public Kweet getParentKweet() {
         return parentKweet;
     }
+
+    public void setParentKweet(Kweet parentKweet) {
+        this.parentKweet = parentKweet;
+    }
+
     //</editor-fold>
 
 }

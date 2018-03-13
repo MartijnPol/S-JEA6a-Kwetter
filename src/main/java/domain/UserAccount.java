@@ -99,12 +99,10 @@ public class UserAccount implements Serializable {
         this.role = role;
     }
 
-    @JsonIgnore
     public UserProfile getUserProfile() {
         return userProfile;
     }
 
-    @JsonIgnore
     public void setUserProfile(UserProfile userProfile) {
         this.userProfile = userProfile;
     }
