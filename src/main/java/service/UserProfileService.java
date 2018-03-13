@@ -74,6 +74,16 @@ public class UserProfileService {
     }
 
     /**
+     * Function to find a UserProfile by it's username
+     *
+     * @param username the username of the user
+     * @return a UserProfile object that belongs to the given username
+     */
+    public UserProfile findByUsername(String username) {
+        return this.userProfileDao.findByUsername(username);
+    }
+
+    /**
      * Function to find a avatar of a UserProfile according to the given UserProfile id
      *
      * @param id is the UserProfile id

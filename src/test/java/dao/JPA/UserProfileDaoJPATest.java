@@ -31,7 +31,7 @@ public class UserProfileDaoJPATest {
     private DatabaseCleaner databaseCleaner;
 
     @Before
-    public void Before() {
+    public void before() {
         this.databaseCleaner = new DatabaseCleaner(this.entityManagerFactory.createEntityManager());
         this.databaseCleaner.clean();
 

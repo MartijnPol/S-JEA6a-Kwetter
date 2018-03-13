@@ -14,6 +14,9 @@ import java.util.List;
  * Created by Martijn van der Pol on 28-02-18
  **/
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "UserProfile.findByUsername", query = "SELECT profile FROM UserProfile profile WHERE profile.userAccount.username= :username")
+})
 public class UserProfile implements Serializable {
 
     @Id

@@ -10,25 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f338b46e-5d23-41e5-a273-e31452770522" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_1_10_19.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/service/HashtagServiceTest.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/service/HeartServiceTest.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Kwetter.iml" afterPath="$PROJECT_DIR$/Kwetter.iml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Hashtag.java" afterPath="$PROJECT_DIR$/src/main/java/domain/Hashtag.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Heart.java" afterPath="$PROJECT_DIR$/src/main/java/domain/Heart.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Kweet.java" afterPath="$PROJECT_DIR$/src/main/java/domain/Kweet.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/UserAccount.java" afterPath="$PROJECT_DIR$/src/main/java/domain/UserAccount.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/JPA/UserProfileDaoJPAImpl.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/JPA/UserProfileDaoJPAImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/interfaces/UserProfileDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/interfaces/UserProfileDao.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/domain/UserProfile.java" afterPath="$PROJECT_DIR$/src/main/java/domain/UserProfile.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/HashtagService.java" afterPath="$PROJECT_DIR$/src/main/java/service/HashtagService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/HeartService.java" afterPath="$PROJECT_DIR$/src/main/java/service/HeartService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/KweetService.java" afterPath="$PROJECT_DIR$/src/main/java/service/KweetService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/UserAccountService.java" afterPath="$PROJECT_DIR$/src/main/java/service/UserAccountService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/UserProfileService.java" afterPath="$PROJECT_DIR$/src/main/java/service/UserProfileService.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/rest/KweetRESTResourceTest.java" afterPath="$PROJECT_DIR$/src/test/java/rest/KweetRESTResourceTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/rest/UserAccountRESTResourceTest.java" afterPath="$PROJECT_DIR$/src/test/java/rest/UserAccountRESTResourceTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dao/JPA/KweetDaoJPATest.java" afterPath="$PROJECT_DIR$/src/test/java/dao/JPA/KweetDaoJPATest.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dao/JPA/UserAccountDoaJPATest.java" afterPath="$PROJECT_DIR$/src/test/java/dao/JPA/UserAccountDoaJPATest.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dao/JPA/UserProfileDaoJPATest.java" afterPath="$PROJECT_DIR$/src/test/java/dao/JPA/UserProfileDaoJPATest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -86,26 +76,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HashtagServiceTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/service/HashtagServiceTest.java">
+      <file leaf-file-name="KweetDaoJPATest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/dao/JPA/KweetDaoJPATest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="56" column="33" lean-forward="false" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="344">
+              <caret line="154" column="34" lean-forward="true" selection-start-line="154" selection-start-column="34" selection-end-line="154" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeartServiceTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/service/HeartServiceTest.java">
+      <file leaf-file-name="UserAccountDoaJPATest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/dao/JPA/UserAccountDoaJPATest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="29" lean-forward="true" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-890">
+              <caret line="28" column="26" lean-forward="false" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserProfileDaoJPATest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/dao/JPA/UserProfileDaoJPATest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -144,7 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/dao/implementations/KweetDaoJPAImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/UserAccountDaoJPAImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" />
         <option value="$PROJECT_DIR$/src/main/java/domain/UserRole.java" />
@@ -170,10 +165,6 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/collection/KweetDaoCollectionImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/StartUp.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/JPA/KweetDaoJPAImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/java/dao/JPA/KweetDaoJPATest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/dao/JPA/UserAccountDoaJPATest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/implementations/JPA/UserProfileDaoJPAImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/java/dao/JPA/UserProfileDaoJPATest.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/collection/HashtagDaoCollectionImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/KweetResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/implementations/JPA/HeartDaoJPAImpl.java" />
@@ -181,7 +172,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/domain/UserAccount.java" />
         <option value="$PROJECT_DIR$/src/main/java/rest/UserProfileResource.java" />
-        <option value="$PROJECT_DIR$/src/main/java/domain/UserProfile.java" />
         <option value="$PROJECT_DIR$/src/main/java/domain/Kweet.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/interfaces/HashtagDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/domain/Hashtag.java" />
@@ -193,8 +183,14 @@
         <option value="$PROJECT_DIR$/src/main/java/service/HashtagService.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/KweetService.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/UserAccountService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/UserProfileService.java" />
         <option value="$PROJECT_DIR$/src/test/java/service/HashtagServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/interfaces/UserProfileDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/implementations/JPA/UserProfileDaoJPAImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/UserProfileService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/dao/JPA/UserProfileDaoJPATest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/dao/JPA/UserAccountDoaJPATest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/domain/UserProfile.java" />
+        <option value="$PROJECT_DIR$/src/test/java/dao/JPA/KweetDaoJPATest.java" />
       </list>
     </option>
   </component>
@@ -265,6 +261,60 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kwetter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kwetter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kwetter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kwetter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="implementations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kwetter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kwetter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="implementations" type="462c0819:PsiDirectoryNode" />
+              <item name="collection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kwetter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kwetter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="implementations" type="462c0819:PsiDirectoryNode" />
+              <item name="JPA" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kwetter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kwetter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kwetter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kwetter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Kwetter" type="b2602c69:ProjectViewProjectNode" />
@@ -430,7 +480,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.HeartServiceTest">
+  <component name="RunManager" selected="JUnit.KweetDaoJPATest.addHashtagTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -522,31 +572,6 @@
           <artifact name="Kwetter:war" />
         </option>
       </method>
-    </configuration>
-    <configuration name="HashtagServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="Kwetter" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.HashtagServiceTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
     </configuration>
     <configuration name="HashtagServiceTest.findHashtagByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -648,6 +673,31 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration name="KweetDaoJPATest.addHashtagTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="dao.JPA.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Kwetter" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="dao.JPA" />
+      <option name="MAIN_CLASS_NAME" value="dao.JPA.KweetDaoJPATest" />
+      <option name="METHOD_NAME" value="addHashtagTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -711,18 +761,18 @@
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="GlassFish Server.GlassFish 5.0" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.HashtagServiceTest.saveHashtagTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.HashtagServiceTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.HashtagServiceTest.findHashtagByIdTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.HeartServiceTest.countAllHeartsTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.HeartServiceTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.HashtagServiceTest.findHashtagByIdTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.HeartServiceTest.countAllHeartsTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.HeartServiceTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.KweetDaoJPATest.addHashtagTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.HeartServiceTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.HeartServiceTest.countAllHeartsTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.HashtagServiceTest.findHashtagByIdTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.HashtagServiceTest.saveHashtagTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.HashtagServiceTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.KweetDaoJPATest.addHashtagTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.HeartServiceTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.HeartServiceTest.countAllHeartsTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.HashtagServiceTest.findHashtagByIdTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.HashtagServiceTest.saveHashtagTest" />
       </list>
     </recent_temporary>
   </component>
@@ -774,7 +824,7 @@
       <workItem from="1520839518168" duration="16209000" />
       <workItem from="1520862307467" duration="10662000" />
       <workItem from="1520876975838" duration="6427000" />
-      <workItem from="1520927999455" duration="4166000" />
+      <workItem from="1520927999455" duration="5427000" />
     </task>
     <task id="LOCAL-00001" summary="Kweet, Like, UserAccount, UserProfile and UserRole classes added to the project.">
       <created>1519827277125</created>
@@ -888,24 +938,22 @@
       <option name="project" value="LOCAL" />
       <updated>1520880908217</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Made some service tests using Mockito">
+      <created>1520933554812</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1520933554813</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
     <history-entry file="HashtagServiceTest_countAllHashtagsTest - 2018.03.13 at 10h 10m 23s.xml">
       <configuration name="HashtagServiceTest.countAllHashtagsTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="HashtagServiceTest_deleteHashtagByIdTest - 2018.03.13 at 09h 46m 46s.xml">
-      <configuration name="HashtagServiceTest.deleteHashtagByIdTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HashtagServiceTest_findHashtagBySubjectTest - 2018.03.13 at 09h 45m 11s.xml">
-      <configuration name="HashtagServiceTest.findHashtagBySubjectTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="HashtagServiceTest_findHashtagBySubjectTest - 2018.03.13 at 10h 09m 07s.xml">
       <configuration name="HashtagServiceTest.findHashtagBySubjectTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="HashtagServiceTest_saveHashtagTest - 2018.03.13 at 09h 45m 15s.xml">
-      <configuration name="HashtagServiceTest.saveHashtagTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="HashtagServiceTest_saveHashtagTest - 2018.03.13 at 09h 55m 21s.xml">
       <configuration name="HashtagServiceTest.saveHashtagTest" configurationId="JUnit" />
@@ -916,18 +964,28 @@
     <history-entry file="HeartServiceTest_countAllHeartsTest - 2018.03.13 at 10h 25m 34s.xml">
       <configuration name="HeartServiceTest.countAllHeartsTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserAccountDaoCollectionTest - 2018.03.12 at 18h 32m 23s.xml">
-      <configuration name="UserAccountDaoCollectionTest" configurationId="JUnit" />
+    <history-entry file="KweetDaoJPATest_addHashtagTest - 2018.03.13 at 10h 53m 42s.xml">
+      <configuration name="KweetDaoJPATest.addHashtagTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserProfileDaoJPATest_getKweetsFromUserProfileTest - 2018.03.12 at 17h 42m 35s.xml">
-      <configuration name="UserProfileDaoJPATest.getKweetsFromUserProfileTest" configurationId="JUnit" />
+    <history-entry file="KweetDaoJPATest_addHashtagTest - 2018.03.13 at 10h 53m 57s.xml">
+      <configuration name="KweetDaoJPATest.addHashtagTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="KweetDaoJPATest_addHashtagTest - 2018.03.13 at 10h 55m 44s.xml">
+      <configuration name="KweetDaoJPATest.addHashtagTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="KweetDaoJPATest_addHashtagTest - 2018.03.13 at 10h 56m 12s.xml">
+      <configuration name="KweetDaoJPATest.addHashtagTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="KweetDaoJPATest_addHashtagTest - 2018.03.13 at 10h 56m 33s.xml">
+      <configuration name="KweetDaoJPATest.addHashtagTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106069000" />
+    <option name="totallyTimeSpent" value="107330000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28" sideWeight="0.50416666" order="7" side_tool="true" content_ui="tabs" />
@@ -943,18 +1001,19 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29411766" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28" sideWeight="0.49583334" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28" sideWeight="0.49583334" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.49722221" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32941177" sideWeight="0.49722221" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2888889" sideWeight="0.1754386" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2888889" sideWeight="0.8245614" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2888889" sideWeight="0.8245614" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24652778" sideWeight="0.53267974" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -964,7 +1023,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1027,7 +1085,8 @@
     <MESSAGE value="Implemented Travis.ci" />
     <MESSAGE value="Build? Please." />
     <MESSAGE value="Made some extra service classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made some extra service classes" />
+    <MESSAGE value="Made some service tests using Mockito" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made some service tests using Mockito" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1039,21 +1098,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/resources/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/lang/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="3237" column="0" lean-forward="false" selection-start-line="3237" selection-start-column="0" selection-end-line="3237" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/domain/JPA.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1141,14 +1185,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/JPA/UserAccountDaoJPAImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/JPA/HashtagDaoJPAImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1171,22 +1207,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
           <caret line="71" column="30" lean-forward="false" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/JPA/UserProfileDaoJPAImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" column="31" lean-forward="false" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/JPA/KweetDaoJPAImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="27" column="36" lean-forward="false" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1247,36 +1267,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/dao/JPA/UserAccountDoaJPATest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1481">
-          <caret line="111" column="23" lean-forward="true" selection-start-line="111" selection-start-column="23" selection-end-line="111" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/dao/JPA/KweetDaoJPATest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/domain/Kweet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="26" column="27" lean-forward="true" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/domain/UserProfile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="41" column="19" lean-forward="true" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1297,14 +1291,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/rest/UserAccountRESTResourceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="23" column="50" lean-forward="false" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/domain/Hashtag.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
@@ -1318,32 +1304,6 @@
         <state relative-caret-position="73">
           <caret line="25" column="6" lean-forward="true" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/UserProfileResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="41" column="18" lean-forward="true" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/KweetResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/rest/KweetRESTResourceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1371,98 +1331,200 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/HeartService.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/service/HeartServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="30" selection-end-column="7" />
+        <state relative-caret-position="248">
+          <caret line="33" column="11" lean-forward="true" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
           <folding>
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#580#581#0" expanded="true" />
-            <element signature="e#1192#1193#0" expanded="true" />
-            <element signature="e#1241#1242#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/HashtagService.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/rest/UserAccountRESTResourceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="30" selection-end-column="7" />
-          <folding>
-            <element signature="e#562#563#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#1991#1992#0" expanded="true" />
-            <element signature="e#2042#2043#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="240">
+          <caret line="23" column="50" lean-forward="false" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/UserProfileService.java">
+    <entry file="file://$PROJECT_DIR$/src/test/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-          <folding>
-            <element signature="e#627#628#0" expanded="true" />
-            <element signature="e#679#680#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/UserAccountService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="45" column="48" lean-forward="false" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+        <state relative-caret-position="-20">
+          <caret line="45" column="6" lean-forward="true" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
           <folding>
-            <element signature="e#579#580#0" expanded="true" />
-            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/KweetService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="-35">
           <caret line="29" column="35" lean-forward="false" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
           <folding>
-            <element signature="e#542#543#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
+            <element signature="e#548#549#0" expanded="true" />
+            <element signature="e#588#589#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/HeartService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-455">
+          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+          <folding>
+            <element signature="e#547#548#0" expanded="true" />
+            <element signature="e#587#588#0" expanded="true" />
+            <element signature="e#1206#1207#0" expanded="true" />
+            <element signature="e#1255#1256#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/KweetResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="11" lean-forward="true" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/service/HashtagServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/UserProfileResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="24" column="31" lean-forward="false" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/rest/KweetRESTResourceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/JPA/UserAccountDaoJPAImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/JPA/KweetDaoJPAImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="28" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/implementations/JPA/UserProfileDaoJPAImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="47" lean-forward="false" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/HashtagService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="36" column="30" lean-forward="true" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+          <folding>
+            <element signature="e#562#563#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#1998#1999#0" expanded="true" />
+            <element signature="e#2049#2050#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/interfaces/UserProfileDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/dao/JPA/UserProfileDaoJPATest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/dao/JPA/UserAccountDoaJPATest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-890">
+          <caret line="28" column="26" lean-forward="false" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/domain/UserProfile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="19" column="50" lean-forward="true" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/UserProfileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding>
+            <element signature="e#634#635#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#2042#2043#0" expanded="true" />
+            <element signature="e#2109#2110#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/StartUp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="150">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/service/HashtagServiceTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/dao/JPA/KweetDaoJPATest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="56" column="33" lean-forward="false" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/dao/JPA/UserProfileDaoJPATest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="33" column="26" lean-forward="true" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+        <state relative-caret-position="344">
+          <caret line="154" column="34" lean-forward="true" selection-start-line="154" selection-start-column="34" selection-end-line="154" selection-end-column="34" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/service/HeartServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="29" lean-forward="true" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

@@ -33,7 +33,7 @@ public class KweetDaoJPATest {
     private DatabaseCleaner databaseCleaner;
 
     @Before
-    public void Before() {
+    public void before() {
         this.databaseCleaner = new DatabaseCleaner(this.entityManagerFactory.createEntityManager());
         this.databaseCleaner.clean();
 
@@ -141,6 +141,7 @@ public class KweetDaoJPATest {
         entityTransaction.commit();
 
         assertEquals(1, this.kweetDao.findById(1L).getHashtags().size());
+        assertEquals("TestMessage", this.kweetDao.findById(1L).getHashtags().get(0).getKweets().get(0).getMessage());
     }
 
     @Test

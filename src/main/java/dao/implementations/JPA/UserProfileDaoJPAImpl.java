@@ -22,4 +22,9 @@ public class UserProfileDaoJPAImpl extends GenericDaoJPAImpl<UserProfile> implem
         this.entityManager = entityManager;
     }
 
+    public UserProfile findByUsername(String username) {
+        return (UserProfile) this.entityManager.createNamedQuery("UserProfile.findByUsername")
+                .setParameter("username", username)
+                .getSingleResult();
+    }
 }

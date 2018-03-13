@@ -26,7 +26,7 @@ public class UserAccountDoaJPATest {
     private DatabaseCleaner databaseCleaner;
 
     @Before
-    public void init() {
+    public void before() {
         this.databaseCleaner = new DatabaseCleaner(entityManagerFactory.createEntityManager());
         this.databaseCleaner.clean();
 
