@@ -2,7 +2,9 @@ package dao.implementations.collection;
 
 import dao.interfaces.KweetDao;
 import domain.Kweet;
+import event.KweetEvent;
 
+import javax.enterprise.event.Observes;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,6 +71,11 @@ public class KweetDaoCollectionImpl implements KweetDao {
             }
         }
         return matchingKweets;
+    }
+
+    public void addKweetEvent(@Observes KweetEvent kweetEvent) {
+        Kweet kweet = kweetEvent.getKweet();
+        this.kweetList.add(kweet);
     }
 
     //</editor-fold>

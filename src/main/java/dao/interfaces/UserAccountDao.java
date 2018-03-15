@@ -7,4 +7,6 @@ import domain.UserAccount;
  **/
 public interface UserAccountDao extends GenericDao<UserAccount> {
 
+    UserAccount findByUsername(String username);
+
 }

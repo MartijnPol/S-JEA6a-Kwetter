@@ -1,9 +1,13 @@
 package domain;
 
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -159,5 +163,17 @@ public class Kweet implements Serializable {
         this.mentions.add(mention);
     }
     //</editor-fold>
+
+    public JsonObject toJson() {
+
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+        return Json.createObjectBuilder()
+                .add("id", this.id)
+                .add("message", this.message)
+                .add("timeOfPosting", dateFormat.format(this.timeOfPosting))
+                .add("senderId", this.sender.getId())
+                .build();
+    }
 
 }

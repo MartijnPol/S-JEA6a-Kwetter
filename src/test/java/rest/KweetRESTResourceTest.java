@@ -19,7 +19,28 @@ public class KweetRESTResourceTest {
 
     @Test
     public void findById() {
-        given().when().get("/kweets/kweet/?id=1").then().body(containsString("Test"));
+        given()
+                .when().get("/kweets/1")
+                .then()
+                .statusCode(200)
+                .body(containsString("Test"));
+    }
+
+    @Test
+    public void findByIdFail() {
+        given()
+                .when().get("/kweets/100")
+                .then()
+                .statusCode(404);
+    }
+
+    @Test
+    public void findAllKweetsByMessage() {
+        given()
+                .when().get("/kweets/find/Test")
+                .then()
+                .statusCode(200)
+                .body(containsString("1"));
     }
 
 }

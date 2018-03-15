@@ -17,7 +17,7 @@ public class RESTResourceSetup {
 
         String basePath = System.getProperty("server.base");
         if (basePath == null) {
-            basePath = "/Kwetter/rest";
+            basePath = "/Kwetter/api";
         }
 
         RestAssured.basePath = basePath;

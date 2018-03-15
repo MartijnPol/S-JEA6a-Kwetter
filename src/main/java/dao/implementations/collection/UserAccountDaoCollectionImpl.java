@@ -59,4 +59,13 @@ public class UserAccountDaoCollectionImpl implements UserAccountDao {
     public Long countAll() {
         return (long) this.userAccountList.size();
     }
+
+    public UserAccount findByUsername(String username) {
+        for (UserAccount account : this.userAccountList) {
+            if (account.getUsername().equals(username)) {
+                return account;
+            }
+        }
+        return null;
+    }
 }

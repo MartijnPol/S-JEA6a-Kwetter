@@ -3,8 +3,10 @@ package dao.implementations.JPA;
 import dao.interfaces.KweetDao;
 import domain.JPA;
 import domain.Kweet;
+import event.KweetEvent;
 
 import javax.ejb.Stateless;
+import javax.enterprise.event.Observes;
 import javax.persistence.EntityManager;
 import java.util.List;
 
@@ -27,6 +29,11 @@ public class KweetDaoJPAImpl extends GenericDaoJPAImpl<Kweet> implements KweetDa
         return this.entityManager.createNamedQuery("Kweet.findAllKweetsByMessage")
                 .setParameter("message", "%" + message + "%")
                 .getResultList();
+    }
+
+    public void addKweetEvent(@Observes KweetEvent kweetEvent) {
+        Kweet kweet = kweetEvent.getKweet();
+        entityManager.persist(kweet);
     }
 
 }

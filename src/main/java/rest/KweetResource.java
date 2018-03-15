@@ -1,15 +1,14 @@
 package rest;
 
+import domain.Kweet;
 import service.KweetService;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path("kweets")
 @Stateless
@@ -19,23 +18,31 @@ public class KweetResource {
     private KweetService kweetService;
 
     @GET
-    @Path("findByMessage")
+    @Path("find/{message}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response findAllKweetsByMessage(@QueryParam("message") String message) {
-        return Response.ok(kweetService.findAllKweetsByMessage(message)).build();
+    public Response findAllKweetsByMessage(@PathParam("message") String message) {
+        List<Kweet> kweetList = kweetService.findAllKweetsByMessage(message);
+        if (kweetList != null) {
+            return Response.ok(kweetService.convertAllToJson(kweetList)).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @GET
-    @Path("kweet")
+    @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response findById(@QueryParam("id") Long id) {
-        return Response.ok(kweetService.findById(id)).build();
+    public Response findById(@PathParam("id") Long id) {
+        Kweet kweet = kweetService.findById(id);
+        if (kweet != null) {
+            return Response.ok(kweet.toJson()).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
     }
 
-    @GET
-    @Path("kweet/delete")
+    @DELETE
+    @Path("delete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteById(@QueryParam("id") Long id) {
+    public Response deleteById(@PathParam("id") Long id) {
         kweetService.deleteById(id);
         return Response.ok().build();
     }

@@ -3,14 +3,17 @@ package service;
 import dao.interfaces.HeartDao;
 import domain.Heart;
 import domain.JPA;
+import interceptor.LoggingInterceptor;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.interceptor.Interceptors;
 import java.util.List;
 
 /**
  * Created by Martijn van der Pol on 12-03-18
  **/
+@Interceptors(LoggingInterceptor.class)
 @Stateless
 public class HeartService {
 
@@ -28,7 +31,7 @@ public class HeartService {
     /**
      * Function to set the HeartDao via constructor injection
      *
-     * @param heartDao
+     * @param heartDao heartDao
      */
     public HeartService(HeartDao heartDao) {
         this.heartDao = heartDao;
@@ -38,6 +41,7 @@ public class HeartService {
      * Function to save a Heart to the database
      *
      * @param heart the heart that needs to be saved
+     * @return the Heart filled with id from database
      */
     public Heart save(Heart heart) {
         return this.heartDao.save(heart);

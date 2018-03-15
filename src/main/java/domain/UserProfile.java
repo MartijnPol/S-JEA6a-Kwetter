@@ -2,6 +2,8 @@ package domain;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -79,6 +81,16 @@ public class UserProfile implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public JsonObject toJson() {
+        return Json.createObjectBuilder()
+                .add("id", this.id)
+                .add("firstName", this.firstName)
+                .add("lastName", this.lastName)
+                .add("userAccountId", this.userAccount.getId())
+                .add("amountOfKweets", this.kweets.size())
+                .build();
     }
 
     //<editor-fold desc="Getters and Setters">

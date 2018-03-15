@@ -4,14 +4,19 @@ import dao.interfaces.UserProfileDao;
 import domain.JPA;
 import domain.Kweet;
 import domain.UserProfile;
+import interceptor.LoggingInterceptor;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.interceptor.Interceptors;
+import javax.json.JsonObject;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Martijn van der Pol on 02-03-18
  **/
+@Interceptors(LoggingInterceptor.class)
 @Stateless
 public class UserProfileService {
 
@@ -29,7 +34,7 @@ public class UserProfileService {
     /**
      * Function to set the UserProfileDao via constructor injection
      *
-     * @param userProfileDao
+     * @param userProfileDao userProfileDao
      */
     public UserProfileService(UserProfileDao userProfileDao) {
         this.userProfileDao = userProfileDao;
@@ -101,5 +106,21 @@ public class UserProfileService {
      */
     public List<Kweet> getAllKweetsById(Long id) {
         return userProfileDao.findById(id).getKweets();
+    }
+
+    /**
+     * Function to convert a given list of UserProfiles to a List of converted JsonObjects
+     *
+     * @param userProfiles List of UserProfiles
+     * @return a List of converted JsonObjects
+     */
+    public List<JsonObject> convertAllToJson(List<UserProfile> userProfiles) {
+        List<JsonObject> jsonObjects = new ArrayList<JsonObject>();
+
+        for (UserProfile userProfile : userProfiles) {
+            jsonObjects.add(userProfile.toJson());
+        }
+
+        return jsonObjects;
     }
 }

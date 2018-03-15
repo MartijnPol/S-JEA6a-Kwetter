@@ -22,4 +22,15 @@ public class UserAccountDaoJPAImpl extends GenericDaoJPAImpl<UserAccount> implem
         this.entityManager = entityManager;
     }
 
+    public UserAccount findByUsername(String username) {
+        UserAccount userAccount = (UserAccount) this.entityManager.createNamedQuery("UserAccount.findByUsername")
+                .setParameter("username", username)
+                .getSingleResult();
+
+        if (userAccount != null) {
+            return userAccount;
+        }
+
+        return null;
+    }
 }

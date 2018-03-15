@@ -3,13 +3,16 @@ package service;
 import dao.interfaces.UserAccountDao;
 import domain.JPA;
 import domain.UserAccount;
+import interceptor.LoggingInterceptor;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.interceptor.Interceptors;
 
 /**
  * Created by Martijn van der Pol on 12-03-18
  **/
+@Interceptors(LoggingInterceptor.class)
 @Stateless
 public class UserAccountService {
 
@@ -26,7 +29,7 @@ public class UserAccountService {
     /**
      * Function to set the UserAccountDao via constructor injection
      *
-     * @param userAccountDao
+     * @param userAccountDao userAccountDao
      */
     public UserAccountService(UserAccountDao userAccountDao) {
         this.userAccountDao = userAccountDao;
@@ -35,6 +38,7 @@ public class UserAccountService {
     /**
      * Function to store a UserAccount in the database
      *
+     * @return the UserAccount object from the database (with id etc.)
      * @param userAccount the UserAccount object that needs to be stored in the database
      */
     public UserAccount save(UserAccount userAccount) {
@@ -50,6 +54,17 @@ public class UserAccountService {
     public UserAccount findById(Long id) {
         return this.userAccountDao.findById(id);
     }
+
+    /**
+     * Function to find a UserAccount by a given username
+     *
+     * @param username the Username
+     * @return the object connected with the given username
+     */
+    public UserAccount findByUsername(String username) {
+        return this.userAccountDao.findByUsername(username);
+    }
+
 
     /**
      * Function to update a given UserAccount object in the database

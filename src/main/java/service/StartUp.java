@@ -2,11 +2,13 @@ package service;
 
 import domain.Kweet;
 import domain.UserAccount;
+import domain.UserProfile;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
+import java.util.Date;
 
 /**
  * Created by Martijn van der Pol on 02-03-18
@@ -24,12 +26,19 @@ public class StartUp {
 
     @PostConstruct
     public void initData() {
-        UserAccount MartijnPol = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
-        UserAccount HansDeGans = new UserAccount("HansDeGans", "1234", "hans.degans@hotmail.com");
 
-        MartijnPol.getUserProfile().addKweet(new Kweet(MartijnPol.getUserProfile(), "Test"));
+        UserAccount MartijnPolAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
+        UserAccount HansDeGansAccount = new UserAccount("HansDeGans", "1234", "hans.degans@hotmail.com");
 
-        userAccountService.save(MartijnPol);
-        userAccountService.save(HansDeGans);
+        UserProfile MartijnPolProfile = new UserProfile(MartijnPolAccount, "Martijn", "van der Pol", new Date());
+        UserProfile HansDeGansProfile = new UserProfile(HansDeGansAccount, "Hans", "de Gans", new Date());
+
+        MartijnPolProfile.addKweet(new Kweet(MartijnPolProfile, "Test"));
+
+        MartijnPolAccount.setUserProfile(MartijnPolProfile);
+        HansDeGansAccount.setUserProfile(HansDeGansProfile);
+
+        userAccountService.save(MartijnPolAccount);
+        userAccountService.save(HansDeGansAccount);
     }
 }

@@ -3,14 +3,17 @@ package service;
 import dao.interfaces.HashtagDao;
 import domain.Hashtag;
 import domain.JPA;
+import interceptor.LoggingInterceptor;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.interceptor.Interceptors;
 import java.util.List;
 
 /**
  * Created by Martijn van der Pol on 12-03-18
  **/
+@Interceptors(LoggingInterceptor.class)
 @Stateless
 public class HashtagService {
 
@@ -27,7 +30,7 @@ public class HashtagService {
 
     /**
      * Function to set the HashtagDao via constructor injection
-     * @param hashtagDao
+     * @param hashtagDao hashtagDao
      */
     public HashtagService(HashtagDao hashtagDao) {
         this.hashtagDao = hashtagDao;
@@ -37,6 +40,7 @@ public class HashtagService {
      * Function to save a given Hashtag to the database
      *
      * @param hashtag the hashtag that needs to be saved
+     * @return saved Hashtag filled with id set from database
      */
     public Hashtag save(Hashtag hashtag) {
         return this.hashtagDao.save(hashtag);
