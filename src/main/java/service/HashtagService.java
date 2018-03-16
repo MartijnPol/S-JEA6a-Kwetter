@@ -8,6 +8,8 @@ import interceptor.LoggingInterceptor;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
+import javax.json.JsonObject;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -103,4 +105,11 @@ public class HashtagService {
         return this.hashtagDao.findBySubject(subject);
     }
 
+    public List<JsonObject> convertAllToJson(List<Hashtag> hashtags) {
+        List<JsonObject> convertedHashtags = new ArrayList<JsonObject>();
+        for (Hashtag hashtag : hashtags) {
+            convertedHashtags.add(hashtag.toJson());
+        }
+        return convertedHashtags;
+    }
 }

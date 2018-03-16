@@ -13,7 +13,7 @@ import java.io.Serializable;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "UserAccount.findByUsername", query = "SELECT account FROM UserAccount profile WHERE profile.username= :username")
+        @NamedQuery(name = "UserAccount.findByUsername", query = "SELECT account FROM UserAccount account WHERE account.username= :username")
 })
 public class UserAccount implements Serializable {
 

@@ -1,5 +1,6 @@
 package service;
 
+import domain.Hashtag;
 import domain.Kweet;
 import domain.UserAccount;
 import domain.UserProfile;
@@ -33,7 +34,16 @@ public class StartUp {
         UserProfile MartijnPolProfile = new UserProfile(MartijnPolAccount, "Martijn", "van der Pol", new Date());
         UserProfile HansDeGansProfile = new UserProfile(HansDeGansAccount, "Hans", "de Gans", new Date());
 
-        MartijnPolProfile.addKweet(new Kweet(MartijnPolProfile, "Test"));
+        Hashtag hashtag = new Hashtag("#LoveJEA");
+
+        Kweet martijnKweet = new Kweet(MartijnPolProfile, "Java is life");
+        martijnKweet.addHashtag(hashtag);
+
+        Kweet hansKweet = new Kweet(HansDeGansProfile, "JavaEE is pretty cool stuff to learn about!");
+        hansKweet.addHashtag(hashtag);
+
+        MartijnPolProfile.addKweet(martijnKweet);
+        HansDeGansProfile.addKweet(hansKweet);
 
         MartijnPolAccount.setUserProfile(MartijnPolProfile);
         HansDeGansAccount.setUserProfile(HansDeGansProfile);

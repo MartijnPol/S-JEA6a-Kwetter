@@ -24,7 +24,7 @@ public class HashtagDaoJPAImpl extends GenericDaoJPAImpl<Hashtag> implements Has
 
     public Hashtag findBySubject(String subject) {
         return (Hashtag) this.entityManager.createNamedQuery("Hashtag.findBySubject")
-                .setParameter("subject", subject).getSingleResult();
+                .setParameter("subject", "#" + subject).getSingleResult();
     }
 
 }

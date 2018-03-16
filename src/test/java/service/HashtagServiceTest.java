@@ -23,8 +23,10 @@ import static org.mockito.Mockito.when;
 public class HashtagServiceTest {
 
     Hashtag hashtag = null;
+
     @Mock
     private HashtagDao hashtagDao;
+
     private HashtagService hashtagService;
 
     @Before

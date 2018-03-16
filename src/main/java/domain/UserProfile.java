@@ -89,7 +89,9 @@ public class UserProfile implements Serializable {
                 .add("firstName", this.firstName)
                 .add("lastName", this.lastName)
                 .add("userAccountId", this.userAccount.getId())
-                .add("amountOfKweets", this.kweets.size())
+                .add("kweets", this.kweets.size())
+                .add("followers", this.followers.size())
+                .add("followees", this.followees.size())
                 .build();
     }
 

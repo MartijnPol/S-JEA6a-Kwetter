@@ -1,5 +1,7 @@
 package domain;
 
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -12,7 +14,7 @@ import java.util.List;
 
 @Entity
 @NamedQueries(
-        @NamedQuery(name = "Hashtag.findBySubject", query = "SELECT hashtag FROM Hashtag hashtag WHERE hashtag.subject = :subject")
+        @NamedQuery(name = "Hashtag.findBySubject", query = "SELECT hashtag FROM Hashtag hashtag WHERE hashtag.subject LIKE :subject")
 )
 public class Hashtag implements Serializable {
 
@@ -74,5 +76,13 @@ public class Hashtag implements Serializable {
 
     public void addKweet(Kweet kweet) {
         this.kweets.add(kweet);
+    }
+
+    public JsonObject toJson() {
+        return Json.createObjectBuilder()
+                .add("id", this.id)
+                .add("subject", this.subject)
+                .add("kweets", this.kweets.size())
+                .build();
     }
 }

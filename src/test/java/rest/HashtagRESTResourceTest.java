@@ -8,9 +8,9 @@ import static org.hamcrest.Matchers.containsString;
 import static rest.RESTResourceSetup.Setup;
 
 /**
- * Created by Martijn van der Pol on 12-03-18
+ * Created by Martijn van der Pol on 16-03-18
  **/
-public class KweetRESTResourceTest {
+public class HashtagRESTResourceTest {
 
     @BeforeClass
     public static void setup() {
@@ -18,26 +18,27 @@ public class KweetRESTResourceTest {
     }
 
     @Test
-    public void findById() {
+    public void findAll() {
         given()
-                .when().get("/kweets/1")
+                .when().get("/hashtags")
                 .then()
                 .statusCode(200)
-                .body(containsString("Java"));
+                .body(containsString("LoveJEA"));
     }
 
     @Test
-    public void findByIdFail() {
+    public void findById() {
         given()
-                .when().get("/kweets/100")
+                .when().get("/hashtags/1")
                 .then()
-                .statusCode(404);
+                .statusCode(200)
+                .body(containsString("LoveJEA"));
     }
 
     @Test
-    public void findAllKweetsByMessage() {
+    public void findAllBySubject() {
         given()
-                .when().get("/kweets/find/Java")
+                .when().get("/hashtags/find/LoveJEA")
                 .then()
                 .statusCode(200)
                 .body(containsString("1"));
