@@ -11,6 +11,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -48,6 +49,13 @@ public class HashtagServiceTest {
         when(hashtagService.findById(1L)).thenReturn(hashtag);
         Hashtag foundHashtag = hashtagService.findById(1L);
         assertThat(foundHashtag, is(hashtag));
+    }
+
+    @Test
+    public void findHashtagByIdNullTest() {
+        when(hashtagService.findById(1L)).thenReturn(hashtag);
+        Hashtag foundHashtag = hashtagService.findById(null);
+        assertNull(foundHashtag);
     }
 
     @Test

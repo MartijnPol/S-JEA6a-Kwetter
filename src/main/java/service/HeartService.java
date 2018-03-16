@@ -10,6 +10,8 @@ import javax.inject.Inject;
 import javax.interceptor.Interceptors;
 import java.util.List;
 
+import static utils.StaticHelperFunctions.isNull;
+
 /**
  * Created by Martijn van der Pol on 12-03-18
  **/
@@ -44,7 +46,10 @@ public class HeartService {
      * @return the Heart filled with id from database
      */
     public Heart save(Heart heart) {
-        return this.heartDao.save(heart);
+        if (!isNull(heart)) {
+            return this.heartDao.save(heart);
+        }
+        return null;
     }
 
     /**
@@ -63,7 +68,10 @@ public class HeartService {
      * @return the Heart object with the given id
      */
     public Heart findById(Long id) {
-        return this.heartDao.findById(id);
+        if (!isNull(id)) {
+            return this.heartDao.findById(id);
+        }
+        return null;
     }
 
     /**
@@ -73,7 +81,10 @@ public class HeartService {
      * @return the updated Heart object
      */
     public Heart update(Heart heart) {
-        return this.heartDao.update(heart);
+        if (!isNull(heart)) {
+            return this.heartDao.update(heart);
+        }
+        return null;
     }
 
     /**
@@ -82,7 +93,9 @@ public class HeartService {
      * @param id the id of the Heart that needs to be deleted
      */
     public void deleteById(Long id) {
-        this.heartDao.deleteById(id);
+        if (!isNull(id)) {
+            this.heartDao.deleteById(id);
+        }
     }
 
     /**

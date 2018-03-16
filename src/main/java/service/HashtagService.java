@@ -12,6 +12,8 @@ import javax.json.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static utils.StaticHelperFunctions.isNull;
+
 /**
  * Created by Martijn van der Pol on 12-03-18
  **/
@@ -45,7 +47,10 @@ public class HashtagService {
      * @return saved Hashtag filled with id set from database
      */
     public Hashtag save(Hashtag hashtag) {
-        return this.hashtagDao.save(hashtag);
+        if (!isNull(hashtag)) {
+            return this.hashtagDao.save(hashtag);
+        }
+        return null;
     }
 
     /**
@@ -64,7 +69,10 @@ public class HashtagService {
      * @return the updated Hashtag object
      */
     public Hashtag update(Hashtag hashtag) {
-        return this.hashtagDao.update(hashtag);
+        if (!isNull(hashtag)) {
+            return this.hashtagDao.update(hashtag);
+        }
+        return null;
     }
 
     /**
@@ -73,7 +81,9 @@ public class HashtagService {
      * @param id the id of the Hashtag that needs to be deleted
      */
     public void deleteById(Long id) {
-        this.hashtagDao.deleteById(id);
+        if (!isNull(id)) {
+            this.hashtagDao.deleteById(id);
+        }
     }
 
     /**
@@ -92,7 +102,10 @@ public class HashtagService {
      * @return the Hashtag with the given id
      */
     public Hashtag findById(Long id) {
-        return this.hashtagDao.findById(id);
+        if (!isNull(id)) {
+            return this.hashtagDao.findById(id);
+        }
+        return null;
     }
 
     /**
@@ -102,7 +115,10 @@ public class HashtagService {
      * @return the Hashtag containing this unique subject
      */
     public Hashtag findBySubject(String subject) {
-        return this.hashtagDao.findBySubject(subject);
+        if (!isNull(subject)) {
+            return this.hashtagDao.findBySubject(subject);
+        }
+        return null;
     }
 
     /**

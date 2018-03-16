@@ -10,6 +10,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -38,9 +39,16 @@ public class UserAccountServiceTest {
     }
 
     @Test
-    public void findAccountSuccessful() {
+    public void findAccountByIdTest() {
         when(userAccountService.findByUsername("test")).thenReturn(userAccount);
         UserAccount found = userAccountService.findByUsername(userAccount.getUsername());
         assertThat(found, is(userAccount));
+    }
+
+    @Test
+    public void findAccountByIdNullTest() {
+        when(userAccountService.findByUsername("test")).thenReturn(userAccount);
+        UserAccount found = userAccountService.findByUsername(null);
+        assertNull(found);
     }
 }

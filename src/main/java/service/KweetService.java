@@ -14,6 +14,8 @@ import javax.json.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static utils.StaticHelperFunctions.isNull;
+
 /**
  * Created by Martijn van der Pol on 09-03-18
  **/
@@ -50,7 +52,9 @@ public class KweetService {
      * @param kweet the Kweet that needs to be saved
      */
     public void save(Kweet kweet) {
-        kweetEvent.fire(new KweetEvent(kweet));
+        if (!isNull(kweet)) {
+            kweetEvent.fire(new KweetEvent(kweet));
+        }
     }
 
     /**
@@ -58,7 +62,9 @@ public class KweetService {
      * @param id of the Kweet that needs to be deleted
      */
     public void deleteById(Long id) {
-        this.kweetDao.deleteById(id);
+        if (!isNull(id)) {
+            this.kweetDao.deleteById(id);
+        }
     }
 
     /**
@@ -68,7 +74,10 @@ public class KweetService {
      * @return the updated Kweet
      */
     public Kweet update(Kweet kweet) {
-        return this.kweetDao.update(kweet);
+        if (!isNull(kweet)) {
+            return this.kweetDao.update(kweet);
+        }
+        return null;
     }
 
     /**
@@ -77,7 +86,10 @@ public class KweetService {
      * @return the Kweet object that matches with the given id
      */
     public Kweet findById(Long id) {
-        return this.kweetDao.findById(id);
+        if (!isNull(id)) {
+            return this.kweetDao.findById(id);
+        }
+        return null;
     }
 
     /**
@@ -86,7 +98,10 @@ public class KweetService {
      * @return a collection of Kweets that match with the given message
      */
     public List<Kweet> findAllKweetsByMessage(String message) {
-        return kweetDao.findAllKweetsByMessage(message);
+        if (!isNull(message)) {
+            return kweetDao.findAllKweetsByMessage(message);
+        }
+        return null;
     }
 
     /**

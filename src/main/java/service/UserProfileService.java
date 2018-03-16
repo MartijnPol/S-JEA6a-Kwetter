@@ -13,6 +13,8 @@ import javax.json.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static utils.StaticHelperFunctions.isNull;
+
 /**
  * Created by Martijn van der Pol on 02-03-18
  **/
@@ -66,7 +68,10 @@ public class UserProfileService {
      * @return the UserProfile found
      */
     public UserProfile findById(Long id) {
-        return userProfileDao.findById(id);
+        if (!isNull(id)) {
+            return this.userProfileDao.findById(id);
+        }
+        return null;
     }
 
     /**
@@ -85,7 +90,10 @@ public class UserProfileService {
      * @return a UserProfile object that belongs to the given username
      */
     public UserProfile findByUsername(String username) {
-        return this.userProfileDao.findByUsername(username);
+        if (!isNull(username)) {
+            return this.userProfileDao.findByUsername(username);
+        }
+        return null;
     }
 
     /**
@@ -95,7 +103,10 @@ public class UserProfileService {
      * @return a byte[] containing the avatar of the UserProfile
      */
     public byte[] findAvatarById(Long id) {
-        return userProfileDao.findById(id).getAvatar();
+        if (!isNull(id)) {
+            return this.userProfileDao.findById(id).getAvatar();
+        }
+        return null;
     }
 
     /**
@@ -105,7 +116,10 @@ public class UserProfileService {
      * @return a collection of Kweets from the given UserProfile
      */
     public List<Kweet> getAllKweetsById(Long id) {
-        return userProfileDao.findById(id).getKweets();
+        if (!isNull(id)) {
+            return this.userProfileDao.findById(id).getKweets();
+        }
+        return null;
     }
 
     /**

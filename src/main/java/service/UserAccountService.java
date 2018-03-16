@@ -9,6 +9,8 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
 
+import static utils.StaticHelperFunctions.isNull;
+
 /**
  * Created by Martijn van der Pol on 12-03-18
  **/
@@ -42,7 +44,10 @@ public class UserAccountService {
      * @param userAccount the UserAccount object that needs to be stored in the database
      */
     public UserAccount save(UserAccount userAccount) {
-        return this.userAccountDao.save(userAccount);
+        if (!isNull(userAccount)) {
+            return this.userAccountDao.save(userAccount);
+        }
+        return null;
     }
 
     /**
@@ -52,7 +57,10 @@ public class UserAccountService {
      * @return a UserAccount if found
      */
     public UserAccount findById(Long id) {
-        return this.userAccountDao.findById(id);
+        if (!isNull(id)) {
+            return this.userAccountDao.findById(id);
+        }
+        return null;
     }
 
     /**
@@ -62,7 +70,10 @@ public class UserAccountService {
      * @return the object connected with the given username
      */
     public UserAccount findByUsername(String username) {
-        return this.userAccountDao.findByUsername(username);
+        if (!isNull(username)) {
+            return this.userAccountDao.findByUsername(username);
+        }
+        return null;
     }
 
 
@@ -73,7 +84,10 @@ public class UserAccountService {
      * @return the updated UserAccount object
      */
     public UserAccount update(UserAccount userAccount) {
-        return this.userAccountDao.update(userAccount);
+        if (!isNull(userAccount)) {
+            return this.userAccountDao.update(userAccount);
+        }
+        return null;
     }
 
     /**
@@ -82,7 +96,9 @@ public class UserAccountService {
      * @param id is the id of the UserAccount that needs to be deleted
      */
     public void deleteById(Long id) {
-        this.userAccountDao.deleteById(id);
+        if (!isNull(id)) {
+            this.userAccountDao.deleteById(id);
+        }
     }
 
     /**

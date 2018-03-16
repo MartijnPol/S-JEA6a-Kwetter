@@ -14,6 +14,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -42,6 +43,16 @@ public class HeartServiceTest {
         Heart heart = new Heart(new UserProfile(), new Kweet());
         heartDao.save(heart);
         verify(heartDao, Mockito.times(1)).save(heart);
+    }
+
+    @Test
+    public void findHeartByIdNullTest() {
+        Heart heart = new Heart(new UserProfile(), new Kweet());
+        heart.setId(1L);
+
+        when(heartService.findById(1L)).thenReturn(heart);
+        Heart foundHeart = heartService.findById(null);
+        assertNull(foundHeart);
     }
 
     @Test
