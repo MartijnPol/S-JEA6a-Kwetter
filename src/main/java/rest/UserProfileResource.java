@@ -28,7 +28,7 @@ public class UserProfileResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUserProfiles() {
         List<UserProfile> userProfiles = userProfileService.getAll();
-        return Response.ok(userProfileService.convertAllToJson(userProfiles)).build();
+        return Response.ok((userProfileService.convertAllToJson(userProfiles))).build();
     }
 
     @GET

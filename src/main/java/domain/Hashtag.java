@@ -85,4 +85,10 @@ public class Hashtag implements Serializable {
                 .add("kweets", this.kweets.size())
                 .build();
     }
+
+    public JsonObject toHref() {
+        return Json.createObjectBuilder()
+                .add("href", this.id)
+                .build();
+    }
 }

@@ -1,6 +1,6 @@
 package domain;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static utils.HrefBuilder.build;
+
 /**
  * Created by Martijn van der Pol on 28-02-18
  **/
@@ -19,7 +21,7 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(name = "UserProfile.findByUsername", query = "SELECT profile FROM UserProfile profile WHERE profile.userAccount.username= :username")
 })
-public class UserProfile implements Serializable {
+public class UserProfile implements Serializable, RestObject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -92,6 +94,12 @@ public class UserProfile implements Serializable {
                 .add("kweets", this.kweets.size())
                 .add("followers", this.followers.size())
                 .add("followees", this.followees.size())
+                .build();
+    }
+
+    public JsonObject toHref() {
+        return Json.createObjectBuilder()
+                .add("href", build(this))
                 .build();
     }
 
