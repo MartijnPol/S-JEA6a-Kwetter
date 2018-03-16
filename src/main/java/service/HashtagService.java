@@ -105,6 +105,12 @@ public class HashtagService {
         return this.hashtagDao.findBySubject(subject);
     }
 
+    /**
+     * Function to convert all hashtags to a JsonObject
+     *
+     * @param hashtags is a list of Hashtags that need to be converted
+     * @return the list of converted Hashtags (JsonObjects)
+     */
     public List<JsonObject> convertAllToJson(List<Hashtag> hashtags) {
         List<JsonObject> convertedHashtags = new ArrayList<JsonObject>();
         for (Hashtag hashtag : hashtags) {

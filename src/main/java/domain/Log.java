@@ -29,11 +29,11 @@ public class Log implements Serializable {
     public Log() {
     }
 
-    public Log(String className, String methodName, String usedParameters, Date time) {
+    public Log(String className, String methodName, String usedParameters) {
         this.className = className;
         this.methodName = methodName;
         this.usedParameters = usedParameters;
-        this.time = time;
+        this.time = new Date();
     }
 
     public Long getId() {

@@ -8,7 +8,6 @@ import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 import java.util.Arrays;
-import java.util.Date;
 
 @Interceptor
 @Logging
@@ -23,7 +22,7 @@ public class LoggingInterceptor {
         String methodName = context.getMethod().getName();
         String paramsName = Arrays.toString(context.getParameters());
 
-        Log log = new Log(className, methodName, paramsName, new Date());
+        Log log = new Log(className, methodName, paramsName);
         loggingService.save(log);
 
         return context.proceed();
