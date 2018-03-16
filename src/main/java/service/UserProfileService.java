@@ -125,7 +125,7 @@ public class UserProfileService {
     /**
      * Function to convert a given list of UserProfiles to a List of converted JsonObjects
      *
-     * @param userProfiles
+     * @param userProfiles are the UserProfiles that needed to be converted
      * @return a List of converted JsonObjects
      */
     public List<JsonObject> convertAllToJson(List<UserProfile> userProfiles) {
