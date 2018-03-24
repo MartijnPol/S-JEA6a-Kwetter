@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Martijn van der Pol on 16-03-18
  **/
-public class RestObjectList<E extends RestObject> extends ArrayList<E> {
+public class RestObjectList<E extends RestObject> extends ArrayList<E> implements List<E> {
 
     public RestObjectList() {
 

@@ -1,24 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/templates/login-template.xhtml">
 
-<h:head>
-    <h:outputStylesheet name="common-stylesheet.css" library="css"/>
-</h:head>
+    <ui:define name="title">Home</ui:define>
 
-<h:body>
+    <ui:define name="content">
 
-    <div id="page">
+        <h1>Welcome to Kwetter!</h1>
 
-        <div id="header">
-            <ui:insert name="header">
-                <ui:include src="/template/common/commonHeader.xhtml"/>
-            </ui:insert>
-        </div>
+    </ui:define>
 
-    </div>
-
-</h:body>
-
-</html>
+</ui:composition>
