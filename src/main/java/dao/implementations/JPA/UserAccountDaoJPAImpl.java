@@ -33,4 +33,18 @@ public class UserAccountDaoJPAImpl extends GenericDaoJPAImpl<UserAccount> implem
 
         return null;
     }
+
+    public UserAccount findByCredentials(String username, String password) {
+        UserAccount userAccount = (UserAccount) this.entityManager.createNamedQuery("UserAccount.findByCredentials")
+                .setParameter("username", username)
+                .setParameter("password", password)
+                .getSingleResult();
+
+        if (userAccount != null) {
+            return userAccount;
+        }
+
+        return null;
+    }
+
 }

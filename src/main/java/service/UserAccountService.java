@@ -76,6 +76,20 @@ public class UserAccountService {
         return null;
     }
 
+    /**
+     * Function to find a UserAccount by it's credentials
+     *
+     * @param username Username of the UserAccount
+     * @param password Password of the UserAccount
+     * @return the UserAccount, if found. Otherwise null.
+     */
+    public UserAccount findByCredentials(String username, String password) {
+        if (!isNull(username) && !isNull(password)) {
+            return this.userAccountDao.findByCredentials(username, password);
+        }
+        return null;
+    }
+
 
     /**
      * Function to update a given UserAccount object in the database

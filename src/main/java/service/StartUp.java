@@ -1,9 +1,6 @@
 package service;
 
-import domain.Hashtag;
-import domain.Kweet;
-import domain.UserAccount;
-import domain.UserProfile;
+import domain.*;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
@@ -20,6 +17,9 @@ public class StartUp {
 
     @Inject
     private UserAccountService userAccountService;
+
+    @Inject
+    private UserGroupService userGroupService;
 
     public StartUp() {
 
@@ -48,7 +48,13 @@ public class StartUp {
         MartijnPolAccount.setUserProfile(MartijnPolProfile);
         HansDeGansAccount.setUserProfile(HansDeGansProfile);
 
+        UserGroup regularUserGroup = new UserGroup("Regular");
+        regularUserGroup.addUser(MartijnPolAccount);
+        regularUserGroup.addUser(HansDeGansAccount);
+
         userAccountService.save(MartijnPolAccount);
         userAccountService.save(HansDeGansAccount);
+
+        userGroupService.save(regularUserGroup);
     }
 }

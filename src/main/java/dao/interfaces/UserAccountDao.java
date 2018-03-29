@@ -9,4 +9,6 @@ public interface UserAccountDao extends GenericDao<UserAccount> {
 
     UserAccount findByUsername(String username);
 
+    UserAccount findByCredentials(String username, String password);
+
 }

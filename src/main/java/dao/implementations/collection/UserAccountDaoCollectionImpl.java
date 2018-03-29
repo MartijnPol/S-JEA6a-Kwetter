@@ -2,6 +2,7 @@ package dao.implementations.collection;
 
 import dao.interfaces.UserAccountDao;
 import domain.UserAccount;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -67,5 +68,9 @@ public class UserAccountDaoCollectionImpl implements UserAccountDao {
             }
         }
         return null;
+    }
+
+    public UserAccount findByCredentials(String username, String password) {
+        throw new NotImplementedException();
     }
 }

@@ -1,11 +1,14 @@
 package domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import utils.EncryptionHelper;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Martijn van der Pol on 28-02-18
@@ -13,7 +16,8 @@ import java.io.Serializable;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "UserAccount.findByUsername", query = "SELECT account FROM UserAccount account WHERE account.username= :username")
+        @NamedQuery(name = "UserAccount.findByUsername", query = "SELECT account FROM UserAccount account WHERE account.username= :username"),
+        @NamedQuery(name = "UserAccount.findByCredentials", query = "SELECT account FROM UserAccount account WHERE account.username= :username AND account.password = :password")
 })
 public class UserAccount implements Serializable {
 
@@ -39,10 +43,14 @@ public class UserAccount implements Serializable {
     @Enumerated(value = EnumType.STRING)
     private UserRole role;
 
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER, mappedBy = "users")
+    private List<UserGroup> userGroups;
+
     /**
      * Empty constructor
      */
     public UserAccount() {
+        this.userGroups = new ArrayList<UserGroup>();
     }
 
     /**
@@ -53,8 +61,9 @@ public class UserAccount implements Serializable {
      * @param mailAddress of the account
      */
     public UserAccount(String username, String password, String mailAddress) {
+        this();
         this.username = username;
-        this.password = password;
+        this.password = EncryptionHelper.encryptPassword(password);
         this.mailAddress = mailAddress;
         this.userProfile = new UserProfile(this, null, null, null);
         this.role = UserRole.REGULAR;
@@ -83,7 +92,7 @@ public class UserAccount implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = EncryptionHelper.encryptPassword(password);
     }
 
     public String getMailAddress() {
@@ -111,5 +120,9 @@ public class UserAccount implements Serializable {
     }
 
     //</editor-fold>
+
+    public void addUserGroup(UserGroup userGroup) {
+        this.userGroups.add(userGroup);
+    }
 
 }

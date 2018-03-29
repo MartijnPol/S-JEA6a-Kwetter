@@ -6,7 +6,11 @@ body {
     height: 100%;
     font-family: 'Ubuntu', sans-serif;
     color: #444;
-    background: linear-gradient(to top right, #E61E78, #2D7EDC);
+    background-color: white;
+}
+
+.login-background {
+    background: linear-gradient(to top right, #1D8EEE, #1B80D8);
 }
 
 /** CARDS **/
@@ -17,10 +21,6 @@ body {
     border-radius: 0px;
     box-shadow: 0px 5px 5px 3px rgba(0, 0, 0, 0.25);
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-}
-
-.card:hover {
-    /* box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); */
 }
 
 a:hover {
@@ -66,16 +66,16 @@ input {
 }
 
 .btn-primary {
-    background: #0099cc;
+    background: #1DA1F2;
     color: #ffffff;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #33a6cc;
+    background: #006DBF;
 }
 
 .btn-primary:active, .btn-primary.active {
-    background: #007299;
+    background: #006DBF;
     box-shadow: none;
 }
 
@@ -83,12 +83,29 @@ input {
 
 #registerHelper {
     margin-top: 16px;
-    font-size: small;
 }
 
 .card-title {
     text-align: center;
     margin-bottom: 24px;
+}
+
+/** NAVBAR **/
+
+.navbar {
+    background: linear-gradient(to top right, #1D8EEE, #1B80D8);
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-nav .active > .nav-link {
+    color: white;
 }
 
 /** UTILS **/
