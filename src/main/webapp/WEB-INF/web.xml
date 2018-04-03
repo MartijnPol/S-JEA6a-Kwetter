@@ -49,8 +49,12 @@
     </login-config>
 
     <security-role>
-        <description/>
+        <description>Role for the regular user</description>
         <role-name>RegularRole</role-name>
+    </security-role>
+    <security-role>
+        <description>Role for the admin user</description>
+        <role-name>AdminRole</role-name>
     </security-role>
 
 </web-app>

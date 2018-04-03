@@ -44,9 +44,14 @@ public class LoginBean implements Serializable {
         this.sessionBean.setLoggedInUser(loggedInUser);
 
         boolean isRegular = request.isUserInRole("RegularRole");
+        boolean isAdmin = request.isUserInRole("AdminRole");
 
         if (isRegular) {
             return "profile.xhtml?faces-redirect=true";
+        }
+
+        if (isAdmin) {
+            return "admin.xhtml?faces-redirect=true";
         }
 
         return "";

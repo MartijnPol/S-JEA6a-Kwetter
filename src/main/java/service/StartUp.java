@@ -50,11 +50,14 @@ public class StartUp {
 
         UserGroup regularUserGroup = new UserGroup("Regular");
         regularUserGroup.addUser(MartijnPolAccount);
-        regularUserGroup.addUser(HansDeGansAccount);
+
+        UserGroup adminUserGroup = new UserGroup("Admin");
+        adminUserGroup.addUser(HansDeGansAccount);
 
         userAccountService.save(MartijnPolAccount);
         userAccountService.save(HansDeGansAccount);
 
         userGroupService.save(regularUserGroup);
+        userGroupService.save(adminUserGroup);
     }
 }

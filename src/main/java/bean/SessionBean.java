@@ -16,9 +16,10 @@ public class SessionBean implements Serializable {
 
     private UserAccount loggedInUser;
 
-    public void InvalidateSession() {
+    public String Logout() {
         loggedInUser = null;
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return "login.xhtml?faces-redirect=true";
     }
 
     public UserAccount getLoggedInUser() {

@@ -4,7 +4,7 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="/templates/template.xhtml">
 
-    <ui:define name="title">Profile</ui:define>
+    <ui:define name="title">Admin</ui:define>
 
     <ui:define name="content">
 
@@ -55,7 +55,7 @@
 
             <div class="row justify-content-center align-items-center vertical-center">
 
-                <h1>Welcome #{SessionBean.loggedInUser.username}!</h1>
+                <h1>Hello admin #{SessionBean.loggedInUser.username}!</h1>
 
                 <h:form style="margin-left: 16px">
 
