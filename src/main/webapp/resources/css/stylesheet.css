@@ -108,6 +108,25 @@ input {
     color: white;
 }
 
+/** HEADER **/
+
+.header {
+    padding: 28px;
+    border-bottom: 2px solid #e5e5e5;
+}
+
+.header h1 {
+    font-size: 35px;
+}
+
+.header h5 {
+    padding-left: 2px;
+}
+
+.content-container {
+    padding: 28px;
+}
+
 /** UTILS **/
 
 .vertical-center {

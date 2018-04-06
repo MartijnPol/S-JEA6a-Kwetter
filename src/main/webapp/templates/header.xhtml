@@ -2,37 +2,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
 
 <div class="navbar navbar-expand-lg navbar-light bg-light">
 
-
     <a class="navbar-brand" href="#">Kwetter</a>
-    <button class="navbar-toggler" type="button">
-        <span class="navbar-toggler-icon"/>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!-- Items on the left -->
+    <ul class="navbar-nav mr-auto">
 
-        <!-- Items on the left -->
-        <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="#{root}/pages/admin/dashboard.xhtml">Dashboard</a>
+        </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#{root}/pages/admin/dashboard.xhtml">Dashboard</a>
-            </li>
+    </ul>
 
-        </ul>
+    <!-- Items on the right -->
+    <ul class="navbar-nav ml-auto">
 
-        <!-- Items on the right -->
-        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <h:form>
+                <h:commandLink styleClass="nav-link" value="Uitloggen" action="#{SessionBean.Logout()}"/>
+            </h:form>
+        </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#{root}/pages/admin/dashboard.xhtml">Uitloggen</a>
-            </li>
-
-        </ul>
-
-    </div>
+    </ul>
 
 </div>
 

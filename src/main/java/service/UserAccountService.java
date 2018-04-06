@@ -8,6 +8,7 @@ import interceptor.LoggingInterceptor;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.interceptor.Interceptors;
+import java.util.List;
 
 import static utils.StaticHelperFunctions.isNull;
 
@@ -35,6 +36,15 @@ public class UserAccountService {
      */
     public UserAccountService(UserAccountDao userAccountDao) {
         this.userAccountDao = userAccountDao;
+    }
+
+    /**
+     * Function to return all UserAccounts
+     *
+     * @return all UserAccounts
+     */
+    public List<UserAccount> getAll() {
+        return this.userAccountDao.getAll();
     }
 
     /**

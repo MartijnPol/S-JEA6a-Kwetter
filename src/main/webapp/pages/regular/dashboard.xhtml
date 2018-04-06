@@ -1,10 +1,8 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:p="http://primefaces.org/ui"
                 template="/templates/template.xhtml">
 
-    <ui:define name="title">Profile</ui:define>
+    <ui:define name="title">Dashboard (regular)</ui:define>
 
     <ui:define name="content">
 
@@ -13,14 +11,6 @@
             <div class="row justify-content-center align-items-center vertical-center">
 
                 <h1>Welcome #{SessionBean.loggedInUser.username}!</h1>
-
-                <h:form style="margin-left: 16px">
-
-                    <p:commandButton styleClass="btn btn-primary w-100"
-                                     value="Logout"
-                                     action="#{SessionBean.Logout}"/>
-
-                </h:form>
 
             </div>
 
