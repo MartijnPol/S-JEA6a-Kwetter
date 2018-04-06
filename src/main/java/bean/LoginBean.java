@@ -40,18 +40,18 @@ public class LoginBean implements Serializable {
             e.printStackTrace();
         }
 
-        UserAccount loggedInUser = this.userAccountService.findByUsername(request.getRemoteUser());
+        UserAccount loggedInUser = this.userAccountService.findByUsername(request.getUserPrincipal().getName());
         this.sessionBean.setLoggedInUser(loggedInUser);
 
         boolean isRegular = request.isUserInRole("RegularRole");
         boolean isAdmin = request.isUserInRole("AdminRole");
 
         if (isRegular) {
-            return "profile.xhtml?faces-redirect=true";
+            return "/pages/regular/dashboard.xhtml?faces-redirect=true";
         }
 
         if (isAdmin) {
-            return "admin.xhtml?faces-redirect=true";
+            return "/pages/admin/dashboard.xhtml?faces-redirect=true";
         }
 
         return "";

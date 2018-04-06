@@ -4,7 +4,6 @@
          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
@@ -38,6 +37,27 @@
         <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
         <param-value>client</param-value>
     </context-param>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Regular Pages</web-resource-name>
+            <url-pattern>/pages/regular/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>RegularRole</role-name>
+            <role-name>AdminRole</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Admin Pages</web-resource-name>
+            <url-pattern>/pages/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>AdminRole</role-name>
+        </auth-constraint>
+    </security-constraint>
 
     <login-config>
         <auth-method>FORM</auth-method>

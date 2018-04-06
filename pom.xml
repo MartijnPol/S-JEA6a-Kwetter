@@ -87,6 +87,13 @@
             <version>1.11</version>
         </dependency>
 
+        <!-- Omnifaces -->
+        <dependency>
+            <groupId>org.omnifaces</groupId>
+            <artifactId>omnifaces</artifactId>
+            <version>3.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
