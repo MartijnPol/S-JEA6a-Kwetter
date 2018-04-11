@@ -7,4 +7,6 @@ import domain.UserGroup;
  **/
 public interface UserGroupDao extends GenericDao<UserGroup> {
 
+    UserGroup findByName(String name);
+
 }

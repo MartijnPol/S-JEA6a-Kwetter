@@ -1,7 +1,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:p="http://primefaces.org/ui"
+                xmlns:b="http://bootsfaces.net/ui"
                 template="/templates/template.xhtml">
 
     <ui:define name="title">Accounts</ui:define>
@@ -17,58 +17,18 @@
 
             <div class="content-container">
 
-                <!--<h:panelGroup id="accounts">-->
-                <!--<h:form class="well">-->
-                <!--<h:dataTable class="table" value="#{UserAccountBean.userAccountList}" var="account">-->
-                <!--<h:column>-->
-                <!--<f:facet name="header">#</f:facet>-->
-                <!--<h:outputLabel value="#{account.id}"/>-->
-                <!--</h:column>-->
-                <!--<h:column>-->
-                <!--<f:facet name="header">Email</f:facet>-->
-                <!--<h:outputLabel value="#{account.mailAddress}"/>-->
-                <!--</h:column>-->
-                <!--<h:column>-->
-                <!--<f:facet name="header">Username</f:facet>-->
-                <!--<h:outputLabel value="#{account.username}"/>-->
-                <!--</h:column>-->
-                <!--<h:column>-->
-                <!--<h:commandLink class="btn btn-danger" value="Delete"-->
-                <!--action="#{UserAccountBean.deleteAccount(account)}">-->
-                <!--<f:ajax event="action" render="studenten"/>-->
-                <!--</h:commandLink>-->
-                <!--</h:column>-->
-                <!--</h:dataTable>-->
-                <!--</h:form>-->
-                <!--</h:panelGroup>-->
-
                 <h:form>
-
-                    <p:dataTable emptyMessage="No matching accounts found"
-                                 filteredValue="#{UserAccountBean.userAccountFilteredList}"
-                                 paginator="true"
-                                 paginatorPosition="bottom"
-                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                 rowsPerPageTemplate="10, 20, 50"
-                                 value="#{UserAccountBean.userAccountList}" var="account"
-                                 widgetVar="accountOverviewDataTable">
-
-                        <p:column headerText="#" filterBy="#{account.id}" filterMatchMode="contains">
-                            <h:outputText value="#{account.id}"/>
-                        </p:column>
-
-                        <p:column headerText="Email" filterBy="#{account.mailAddress}"
-                                  filterMatchMode="contains">
-                            <h:outputText value="#{account.mailAddress}"/>
-                        </p:column>
-
-                        <p:column headerText="Username" filterBy="#{account.username}"
-                                  filterMatchMode="contains">
-                            <h:outputText value="#{account.username}"/>
-                        </p:column>
-
-                    </p:dataTable>
-
+                    <b:dataTable value="#{UserAccountBean.userAccountList}"
+                                 var="account" responsive="true">
+                        <b:dataTableColumn value="#{account.username}"/>
+                        <b:dataTableColumn value="#{account.mailAddress}" label="Email"/>
+                        <b:dataTableColumn value="#{account.role}"/>
+                        <b:dataTableColumn orderable="false" label="Remove">
+                            <b:commandButton look="danger" value="Delete" icon="delete" ajax="true"
+                                             action="#{UserAccountBean.deleteAccount(account)}">
+                            </b:commandButton>
+                        </b:dataTableColumn>
+                    </b:dataTable>
                 </h:form>
 
             </div>

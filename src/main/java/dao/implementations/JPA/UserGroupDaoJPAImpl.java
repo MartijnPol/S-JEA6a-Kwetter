@@ -17,4 +17,8 @@ public class UserGroupDaoJPAImpl extends GenericDaoJPAImpl<UserGroup> implements
     public UserGroupDaoJPAImpl() {
     }
 
+    public UserGroup findByName(String name) {
+        return (UserGroup) this.entityManager.createNamedQuery("UserGroup.findByName")
+                .setParameter("name", name).getSingleResult();
+    }
 }

@@ -45,5 +45,6 @@ public class UserAccountBean implements Serializable {
     }
 
     public void deleteAccount(UserAccount account) {
+        userAccountService.deleteById(account.getId());
     }
 }

@@ -18,13 +18,18 @@ body {
 .card {
     border: none;
     padding: 24px;
-    border-radius: 0px;
-    box-shadow: 0px 5px 5px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 0;
+    box-shadow: 0 5px 5px 3px rgba(0, 0, 0, 0.25);
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+a {
+    color: #1DA1F2;
 }
 
 a:hover {
     text-decoration: none;
+    color: #006DBF;
 }
 
 .card-title {
@@ -46,7 +51,7 @@ input {
 
 .form-control {
     border: none;
-    border-radius: 0px;
+    border-radius: 0;
     background-color: #EFEFEF;
 }
 
@@ -55,7 +60,7 @@ input {
 .btn {
     padding: 14px 24px;
     border: 0 none;
-    border-radius: 0px;
+    border-radius: 0;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -96,15 +101,11 @@ input {
     background: linear-gradient(to top right, #1D8EEE, #1B80D8);
 }
 
-.navbar-light .navbar-brand {
+.navbar-default .navbar-brand {
     color: white;
 }
 
-.navbar-light .navbar-nav .nav-link {
-    color: white;
-}
-
-.navbar-light .navbar-nav .active > .nav-link {
+.navbar-default .navbar-nav > li > a {
     color: white;
 }
 

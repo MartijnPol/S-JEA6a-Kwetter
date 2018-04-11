@@ -2,7 +2,8 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+>
 
 <h:head>
 
@@ -13,13 +14,12 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
 
+    <!-- Custom CSS -->
+    <h:outputStylesheet library="css" name="stylesheet.css" position="last"/>
+
 </h:head>
 
 <h:body>
-
-    <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
-
-    <h:outputStylesheet library="css" name="stylesheet.css"/>
 
     <ui:include src="header.xhtml"/>
 

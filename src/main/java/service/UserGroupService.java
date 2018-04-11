@@ -40,4 +40,24 @@ public class UserGroupService {
         return this.userGroupDao.save(userGroup);
     }
 
+    /**
+     * Updates a UserGroup
+     *
+     * @param userGroup
+     * @return
+     */
+    public UserGroup update(UserGroup userGroup) {
+        return this.userGroupDao.update(userGroup);
+    }
+
+    /**
+     * Find a UserGroup by name
+     *
+     * @param name name of the UserGroup
+     * @return UserGroup
+     */
+    public UserGroup findByName(String name) {
+        return this.userGroupDao.findByName(name);
+    }
+
 }

@@ -10,6 +10,9 @@ import java.util.List;
  **/
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "UserGroup.findByName", query = "SELECT u FROM UserGroup u WHERE u.groupName = :name")
+})
 public class UserGroup implements Serializable {
 
     @Id

@@ -105,6 +105,15 @@ public class KweetService {
     }
 
     /**
+     * Function to get all Kweets in the database
+     *
+     * @return all Kweets stored in the database
+     */
+    public List<Kweet> getAll() {
+        return kweetDao.getAll();
+    }
+
+    /**
      * Function to convert a given list of UserProfiles to a List of converted JsonObjects
      *
      * @param kweets

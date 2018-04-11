@@ -46,15 +46,7 @@ public class LoginBean implements Serializable {
         boolean isRegular = request.isUserInRole("RegularRole");
         boolean isAdmin = request.isUserInRole("AdminRole");
 
-        if (isRegular) {
-            return "/pages/regular/dashboard.xhtml?faces-redirect=true";
-        }
-
-        if (isAdmin) {
-            return "/pages/admin/dashboard.xhtml?faces-redirect=true";
-        }
-
-        return "";
+        return "/pages/regular/dashboard.xhtml?faces-redirect=true";
     }
 
     public String getUsername() {

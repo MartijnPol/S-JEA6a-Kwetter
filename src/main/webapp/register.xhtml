@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-    <title>Kwetter | Login</title>
+    <title>Kwetter | Register</title>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"/>
@@ -29,13 +29,20 @@
 
                 <div class="card login-card justify-content-center">
 
-                    <h1 class="card-title">Kwetter</h1>
+                    <h1 class="card-title">Register</h1>
 
                     <div class="form-group">
                         <p:inputText styleClass="form-control"
                                      id="username"
                                      placeholder="Username"
-                                     value="#{LoginBean.username}"/>
+                                     value="#{RegisterBean.username}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <p:inputText styleClass="form-control"
+                                     id="email"
+                                     placeholder="Email"
+                                     value="#{RegisterBean.email}"/>
                     </div>
 
                     <div class="form-group">
@@ -43,16 +50,15 @@
                                     styleClass="form-control"
                                     id="password"
                                     placeholder="Password"
-                                    value="#{LoginBean.password}"/>
+                                    value="#{RegisterBean.password}"/>
                     </div>
 
                     <p:commandButton styleClass="btn btn-primary w-100"
-                                     value="Login"
-                                     action="#{LoginBean.Login}"/>
+                                     value="Register"
+                                     action="#{RegisterBean.Register}"/>
 
                     <span id="registerHelper"
-                          class="form-text text-muted text-center">Not registered? <strong><a
-                            href="./register.xhtml">Create an account</a></strong>
+                          class="form-text text-muted text-center">We sell data to Cambridge Analytica
                     </span>
 
                 </div>

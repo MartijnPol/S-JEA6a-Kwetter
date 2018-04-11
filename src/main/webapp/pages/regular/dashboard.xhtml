@@ -1,20 +1,15 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:b="http://bootsfaces.net/ui"
                 template="/templates/template.xhtml">
 
     <ui:define name="title">Dashboard (regular)</ui:define>
 
     <ui:define name="content">
 
-        <div class="container">
-
-            <div class="row justify-content-center align-items-center vertical-center">
-
-                <h1>Welcome #{SessionBean.loggedInUser.username}!</h1>
-
-            </div>
-
-        </div>
+        <b:container>
+            <h1 style="text-align: center">Welcome #{SessionBean.loggedInUser.userProfile.firstName}</h1>
+        </b:container>
 
     </ui:define>
 

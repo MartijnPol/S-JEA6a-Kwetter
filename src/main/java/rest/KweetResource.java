@@ -18,6 +18,13 @@ public class KweetResource {
     private KweetService kweetService;
 
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAllKweets() {
+        List<Kweet> kweetList = kweetService.getAll();
+        return Response.ok(kweetService.convertAllToJson(kweetList)).build();
+    }
+
+    @GET
     @Path("find/{message}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findAllKweetsByMessage(@PathParam("message") String message) {
