@@ -47,6 +47,7 @@ public class AccountOverviewBean implements Serializable {
 
     public void deleteAccount(UserAccount account) {
         userAccountService.deleteById(account.getId());
+        RedirectHelper.redirect("/pages/admin/accounts.xhtml");
     }
 
     public void loadDetails(UserAccount account) {

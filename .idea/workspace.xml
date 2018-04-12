@@ -10,40 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f338b46e-5d23-41e5-a273-e31452770522" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bean/DetailsOverviewBean.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/utils/RedirectHelper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/details.xhtml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/LoginBean.java" afterPath="$PROJECT_DIR$/src/main/java/bean/LoginBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/RegisterBean.java" afterPath="$PROJECT_DIR$/src/main/java/bean/RegisterBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bean/UserAccountBean.java" afterPath="$PROJECT_DIR$/src/main/java/bean/AccountOverviewBean.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/JPA/GenericDaoJPAImpl.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/JPA/GenericDaoJPAImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/JPA/KweetDaoJPAImpl.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/JPA/KweetDaoJPAImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/collection/HashtagDaoCollectionImpl.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/collection/HashtagDaoCollectionImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/collection/HeartDaoCollectionImpl.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/collection/HeartDaoCollectionImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/collection/KweetDaoCollectionImpl.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/collection/KweetDaoCollectionImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/implementations/collection/UserAccountDaoCollectionImpl.java" afterPath="$PROJECT_DIR$/src/main/java/dao/implementations/collection/UserAccountDaoCollectionImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/interfaces/GenericDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/interfaces/GenericDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/interfaces/KweetDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/interfaces/KweetDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Hashtag.java" afterPath="$PROJECT_DIR$/src/main/java/domain/Hashtag.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Heart.java" afterPath="$PROJECT_DIR$/src/main/java/domain/Heart.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Kweet.java" afterPath="$PROJECT_DIR$/src/main/java/domain/Kweet.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/UserAccount.java" afterPath="$PROJECT_DIR$/src/main/java/domain/UserAccount.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/UserGroup.java" afterPath="$PROJECT_DIR$/src/main/java/domain/UserGroup.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/UserProfile.java" afterPath="$PROJECT_DIR$/src/main/java/domain/UserProfile.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/UserRole.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/KweetService.java" afterPath="$PROJECT_DIR$/src/main/java/service/KweetService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/StartUp.java" afterPath="$PROJECT_DIR$/src/main/java/service/StartUp.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/beans.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glassfish-web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/glassfish-web.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/admin/accounts.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/admin/accounts.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/regular/dashboard.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/pages/regular/dashboard.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/register.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/stylesheet.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/stylesheet.css" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/header.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/templates/header.xhtml" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/template.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/templates/template.xhtml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/AccountOverviewBean.java" afterPath="$PROJECT_DIR$/src/main/java/bean/AccountOverviewBean.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bean/DetailsOverviewBean.java" afterPath="$PROJECT_DIR$/src/main/java/bean/DetailsOverviewBean.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -104,11 +73,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="accounts.xhtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="accounts.xhtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/accounts.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+            <state relative-caret-position="55">
+              <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -127,8 +96,8 @@
       <file leaf-file-name="DetailsOverviewBean.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bean/DetailsOverviewBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+            <state relative-caret-position="400">
+              <caret line="70" column="35" lean-forward="false" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,19 +109,18 @@
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/details.xhtml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
-              <caret line="29" column="65" lean-forward="false" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
+              <caret line="30" column="65" lean-forward="false" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AccountOverviewBean.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AccountOverviewBean.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bean/AccountOverviewBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+            <state relative-caret-position="150">
+              <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="e#780#781#0" expanded="true" />
                 <element signature="e#818#819#0" expanded="true" />
               </folding>
@@ -250,10 +218,10 @@
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/stylesheet.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/regular/dashboard.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/templates/header.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/bean/AccountOverviewBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bean/DetailsOverviewBean.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/details.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/admin/accounts.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/bean/DetailsOverviewBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bean/AccountOverviewBean.java" />
       </list>
     </option>
   </component>
@@ -921,7 +889,7 @@
       <workItem from="1523467899920" duration="50000" />
       <workItem from="1523520218975" duration="8311000" />
       <workItem from="1523528710844" duration="1280000" />
-      <workItem from="1523532954386" duration="10936000" />
+      <workItem from="1523532954386" duration="11207000" />
     </task>
     <task id="LOCAL-00001" summary="Kweet, Like, UserAccount, UserProfile and UserRole classes added to the project.">
       <created>1519827277125</created>
@@ -1140,7 +1108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523440087266</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Why Java?">
+      <created>1523557452839</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1523557452840</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1176,7 +1151,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208295000" />
+    <option name="totallyTimeSpent" value="208566000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1291,7 +1266,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="JPA connection is working" />
     <MESSAGE value="Simple REST service created for the UserAccountService" />
     <MESSAGE value="Refactored the location of the tests folder" />
     <MESSAGE value="Small changes made to the GenericDaoImplementation class." />
@@ -1316,7 +1290,8 @@
     <MESSAGE value="Protect pages" />
     <MESSAGE value="Started with the account admin page" />
     <MESSAGE value="Users can register as well." />
-    <option name="LAST_COMMIT_MESSAGE" value="Users can register as well." />
+    <MESSAGE value="Why Java?" />
+    <option name="LAST_COMMIT_MESSAGE" value="Why Java?" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1718,33 +1693,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bean/AccountOverviewBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#780#781#0" expanded="true" />
-            <element signature="e#818#819#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/StartUp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bean/DetailsOverviewBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1759,16 +1712,37 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/details.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
-          <caret line="29" column="65" lean-forward="false" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
+          <caret line="30" column="65" lean-forward="false" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin/accounts.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="55">
+          <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bean/DetailsOverviewBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="70" column="35" lean-forward="false" selection-start-line="70" selection-start-column="35" selection-end-line="70" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bean/AccountOverviewBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding>
+            <element signature="e#780#781#0" expanded="true" />
+            <element signature="e#818#819#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -4,6 +4,7 @@ import domain.Kweet;
 import domain.UserAccount;
 import service.KweetService;
 import service.UserAccountService;
+import utils.RedirectHelper;
 
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;
@@ -30,12 +31,13 @@ public class DetailsOverviewBean implements Serializable {
     private UserAccount sender;
     private List<Kweet> kweetList;
     private List<Kweet> kweetFilteredList;
+    private String accountId;
 
     @PostConstruct
     public void init() {
         FacesContext context = FacesContext.getCurrentInstance();
         Map<String, String> paramMap = context.getExternalContext().getRequestParameterMap();
-        String accountId = paramMap.get("accountId");
+        accountId = paramMap.get("accountId");
 
         this.sender = userAccountService.findById(new Long(accountId));
         this.kweetList = kweetService.findAllKweetsBySender(sender.getUserProfile());
@@ -67,6 +69,7 @@ public class DetailsOverviewBean implements Serializable {
 
     public void deleteKweet(Kweet kweet) {
         kweetService.delete(kweet);
+        RedirectHelper.redirect("/pages/admin/details.xhtml?accountId=" + accountId);
     }
 
 }
