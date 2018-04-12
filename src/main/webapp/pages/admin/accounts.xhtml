@@ -18,16 +18,27 @@
             <div class="content-container">
 
                 <h:form>
-                    <b:dataTable value="#{UserAccountBean.userAccountList}"
-                                 var="account" responsive="true">
+                    <b:dataTable id="accountsTable" value="#{AccountOverviewBean.userAccountList}" var="account"
+                                 responsive="true">
+
+                        <b:dataTableColumn value="#{account.id}" label="#" order="asc"/>
                         <b:dataTableColumn value="#{account.username}"/>
                         <b:dataTableColumn value="#{account.mailAddress}" label="Email"/>
-                        <b:dataTableColumn value="#{account.role}"/>
-                        <b:dataTableColumn orderable="false" label="Remove">
-                            <b:commandButton look="danger" value="Delete" icon="delete" ajax="true"
-                                             action="#{UserAccountBean.deleteAccount(account)}">
+
+                        <b:dataTableColumn orderable="false" label="Details">
+                            <b:commandButton look="primary" value="Details" styleClass="width-100"
+                                             action="#{AccountOverviewBean.loadDetails(account)}">
                             </b:commandButton>
                         </b:dataTableColumn>
+
+                        <b:dataTableColumn orderable="false" label="Remove">
+                            <b:commandButton look="danger" value="Delete" styleClass="width-100"
+                                             ajax="true"
+                                             update="accountsTable"
+                                             action="#{AccountOverviewBean.deleteAccount(account)}">
+                            </b:commandButton>
+                        </b:dataTableColumn>
+
                     </b:dataTable>
                 </h:form>
 

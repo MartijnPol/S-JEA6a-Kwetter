@@ -34,6 +34,10 @@ public class UserAccountDaoCollectionImpl implements UserAccountDao {
         }
     }
 
+    public void delete(UserAccount userAccount) {
+        throw new NotImplementedException();
+    }
+
     public UserAccount findById(Long id) {
         for (UserAccount account : this.userAccountList) {
             if (account.getId().equals(id)) {

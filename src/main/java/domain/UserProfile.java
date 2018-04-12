@@ -1,7 +1,5 @@
 package domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.persistence.*;
@@ -40,24 +38,19 @@ public class UserProfile implements Serializable, RestObject {
     private String biography;
 
     @NotNull
-    @OneToOne(optional = false)
-    @JsonIgnore
+    @OneToOne(cascade = CascadeType.ALL)
     private UserAccount userAccount;
 
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "sender")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sender", orphanRemoval = true)
     private List<Kweet> kweets;
 
-    @JsonIgnore
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private List<Kweet> mentionKweets;
 
-    @JsonIgnore
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "followees")
     private List<UserProfile> followers;
 
-    @JsonIgnore
-    @Transient
+    @ManyToMany
     private List<UserProfile> followees;
 
     /**

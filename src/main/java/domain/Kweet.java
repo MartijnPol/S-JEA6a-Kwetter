@@ -1,5 +1,7 @@
 package domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.persistence.*;
@@ -18,7 +20,8 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Kweet.findAllKweetsByMessage", query = "SELECT kweet FROM Kweet kweet WHERE kweet.message LIKE :message")
+        @NamedQuery(name = "Kweet.findAllKweetsByMessage", query = "SELECT kweet FROM Kweet kweet WHERE kweet.message LIKE :message"),
+        @NamedQuery(name = "Kweet.findAllKweetsBySender", query = "SELECT kweet FROM Kweet kweet WHERE kweet.sender = :sender")
 })
 public class Kweet implements Serializable {
 
@@ -34,17 +37,17 @@ public class Kweet implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date timeOfPosting;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "SENDER_ID", nullable = false)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH})
     private UserProfile sender;
 
     @OneToMany
     private List<UserProfile> mentions;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Heart> likes;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST}, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonBackReference
     private List<Hashtag> hashtags;
 
     /**
@@ -129,7 +132,6 @@ public class Kweet implements Serializable {
     public void setHashtags(List<Hashtag> hashtags) {
         this.hashtags = hashtags;
     }
-
 
     //</editor-fold>
 

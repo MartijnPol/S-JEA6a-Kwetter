@@ -11,6 +11,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 
+import static org.omnifaces.util.Faces.redirect;
+
 /**
  * Created by Martijn van der Pol on 25-03-18
  **/
@@ -38,13 +40,12 @@ public class RegisterBean implements Serializable {
     /**
      * Function to try to authenticate a UserAccount by it's given username and password
      */
-    public String Register() {
+    public void Register() {
         UserAccount newAccount = new UserAccount(this.username, this.password, this.email);
         this.userAccountService.save(newAccount);
         this.regularUserGroup.addUser(newAccount);
         this.userGroupService.update(this.regularUserGroup);
-
-        return "/login.xhtml?faces-redirect=true";
+        redirect("login.xhtml?faces-redirect=true");
     }
 
     public String getUsername() {

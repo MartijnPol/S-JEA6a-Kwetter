@@ -3,12 +3,12 @@
                 xmlns:b="http://bootsfaces.net/ui"
                 template="/templates/template.xhtml">
 
-    <ui:define name="title">Dashboard (regular)</ui:define>
+    <ui:define name="title">Dashboard</ui:define>
 
     <ui:define name="content">
 
         <b:container>
-            <h1 style="text-align: center">Welcome #{SessionBean.loggedInUser.userProfile.firstName}</h1>
+            <h1 style="text-align: center">Welcome back #{SessionBean.loggedInUser.username}</h1>
         </b:container>
 
     </ui:define>

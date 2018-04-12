@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:b="http://bootsfaces.net/ui"
+                template="/templates/template.xhtml">
+
+    <ui:define name="title">Details - #{DetailsOverviewBean.sender.username}</ui:define>
+
+    <ui:define name="content">
+
+        <div class="container">
+
+            <header class="header">
+                <h1>#{DetailsOverviewBean.sender.username}'s details</h1>
+                <h5 class="text-muted">Detail page for #{DetailsOverviewBean.sender.username}</h5>
+            </header>
+
+            <div class="content-container">
+
+                <h2>Kweets</h2>
+
+                <h:form>
+                    <b:dataTable id="kweetsTable" value="#{DetailsOverviewBean.kweetList}" var="kweet"
+                                 responsive="true">
+
+                        <b:dataTableColumn value="#{kweet.message}"/>
+                        <b:dataTableColumn value="#{kweet.timeOfPosting}" label="Date"/>
+
+                        <b:dataTableColumn orderable="false" label="Remove">
+                            <b:commandButton look="danger" value="Delete" styleClass="width-100"
+                                             ajax="true" update="kweetsTable"
+                                             action="#{DetailsOverviewBean.deleteKweet(kweet)}">
+                            </b:commandButton>
+                        </b:dataTableColumn>
+
+                    </b:dataTable>
+                </h:form>
+
+            </div>
+
+        </div>
+
+    </ui:define>
+</ui:composition>

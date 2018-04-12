@@ -2,7 +2,9 @@ package dao.implementations.collection;
 
 import dao.interfaces.KweetDao;
 import domain.Kweet;
+import domain.UserProfile;
 import event.KweetEvent;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.enterprise.event.Observes;
 import java.util.ArrayList;
@@ -34,6 +36,10 @@ public class KweetDaoCollectionImpl implements KweetDao {
                 this.kweetList.remove(kweet);
             }
         }
+    }
+
+    public void delete(Kweet kweet) {
+        throw new NotImplementedException();
     }
 
     public Kweet findById(Long id) {
@@ -71,6 +77,10 @@ public class KweetDaoCollectionImpl implements KweetDao {
             }
         }
         return matchingKweets;
+    }
+
+    public List<Kweet> findAllKweetsBySender(UserProfile sender) {
+        throw new NotImplementedException();
     }
 
     public void addKweetEvent(@Observes KweetEvent kweetEvent) {

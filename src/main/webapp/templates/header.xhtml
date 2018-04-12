@@ -7,6 +7,12 @@
         <b:navLink value="Accounts" href="/Kwetter/pages/admin/accounts.xhtml"/>
     </b:navbarLinks>
 
+    <b:form>
+        <b:navbarLinks pull="right">
+            <b:navCommandLink value="Logout" actionListener="#{SessionBean.Logout}"/>
+        </b:navbarLinks>
+    </b:form>
+
 </b:navBar>
 
 </html>

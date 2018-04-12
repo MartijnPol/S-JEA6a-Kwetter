@@ -3,6 +3,7 @@ package service;
 import dao.interfaces.KweetDao;
 import domain.JPA;
 import domain.Kweet;
+import domain.UserProfile;
 import event.KweetEvent;
 import interceptor.LoggingInterceptor;
 
@@ -59,11 +60,23 @@ public class KweetService {
 
     /**
      * Function to delete a Kweet stored in the database
+     *
      * @param id of the Kweet that needs to be deleted
      */
     public void deleteById(Long id) {
         if (!isNull(id)) {
             this.kweetDao.deleteById(id);
+        }
+    }
+
+    /**
+     * Removes a Kweet from the DataBase.
+     *
+     * @param kweet kweet to remove
+     */
+    public void delete(Kweet kweet) {
+        if (!isNull(kweet)) {
+            this.kweetDao.delete(kweet);
         }
     }
 
@@ -82,6 +95,7 @@ public class KweetService {
 
     /**
      * Function to find a specific Kweet by it's id
+     *
      * @param id is the id from the specific Kweet that needs to be retrieved
      * @return the Kweet object that matches with the given id
      */
@@ -94,12 +108,26 @@ public class KweetService {
 
     /**
      * Function to find all kweets containing a given message
+     *
      * @param message the message the Kweets has to contain
      * @return a collection of Kweets that match with the given message
      */
     public List<Kweet> findAllKweetsByMessage(String message) {
         if (!isNull(message)) {
             return kweetDao.findAllKweetsByMessage(message);
+        }
+        return null;
+    }
+
+    /**
+     * Function to find all kweets by a given sender
+     *
+     * @param sender the UserProfile
+     * @return a collection of Kweets that belong to the given sender
+     */
+    public List<Kweet> findAllKweetsBySender(UserProfile sender) {
+        if (!isNull(sender)) {
+            return kweetDao.findAllKweetsBySender(sender);
         }
         return null;
     }

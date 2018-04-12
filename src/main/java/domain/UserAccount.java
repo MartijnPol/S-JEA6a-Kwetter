@@ -29,21 +29,17 @@ public class UserAccount implements Serializable {
     private String username;
 
     @NotNull
+    @JsonIgnore
     private String password;
 
     @Column(unique = true)
     @Email
     private String mailAddress;
 
-    @JsonIgnore
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    @OneToOne(cascade = CascadeType.ALL)
     private UserProfile userProfile;
 
-    @NotNull
-    @Enumerated(value = EnumType.STRING)
-    private UserRole role;
-
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER, mappedBy = "users")
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER, mappedBy = "accounts")
     private List<UserGroup> userGroups;
 
     /**
@@ -66,7 +62,6 @@ public class UserAccount implements Serializable {
         this.password = EncryptionHelper.encryptPassword(password);
         this.mailAddress = mailAddress;
         this.userProfile = new UserProfile(this, null, null, null);
-        this.role = UserRole.REGULAR;
     }
 
     //<editor-fold desc="Getters and Setters">
@@ -101,14 +96,6 @@ public class UserAccount implements Serializable {
 
     public void setMailAddress(String mailAddress) {
         this.mailAddress = mailAddress;
-    }
-
-    public UserRole getRole() {
-        return role;
-    }
-
-    public void setRole(UserRole role) {
-        this.role = role;
     }
 
     public UserProfile getUserProfile() {

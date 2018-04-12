@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 
+import static org.omnifaces.util.Faces.redirect;
+
 /**
  * Created by Martijn van der Pol on 25-03-18
  **/
@@ -30,7 +32,7 @@ public class LoginBean implements Serializable {
     /**
      * Function to try to authenticate a UserAccount by it's given username and password
      */
-    public String Login() {
+    public void Login() {
         FacesContext context = FacesContext.getCurrentInstance();
         HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
 
@@ -46,7 +48,7 @@ public class LoginBean implements Serializable {
         boolean isRegular = request.isUserInRole("RegularRole");
         boolean isAdmin = request.isUserInRole("AdminRole");
 
-        return "/pages/regular/dashboard.xhtml?faces-redirect=true";
+        redirect("pages/regular/dashboard.xhtml");
     }
 
     public String getUsername() {

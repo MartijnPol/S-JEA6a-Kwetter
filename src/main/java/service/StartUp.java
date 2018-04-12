@@ -29,33 +29,33 @@ public class StartUp {
     public void initData() {
 
         UserAccount MartijnPolAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
-        UserAccount HansDeGansAccount = new UserAccount("HansDeGans", "1234", "hans.degans@hotmail.com");
+        UserAccount AdminAccount = new UserAccount("admin", "admin", "admin@hotmail.com");
 
         UserProfile MartijnPolProfile = new UserProfile(MartijnPolAccount, "Martijn", "van der Pol", new Date());
-        UserProfile HansDeGansProfile = new UserProfile(HansDeGansAccount, "Hans", "de Gans", new Date());
+        UserProfile AdminProfile = new UserProfile(AdminAccount, "Ad", "Min", new Date());
 
         Hashtag hashtag = new Hashtag("#LoveJEA");
 
         Kweet martijnKweet = new Kweet(MartijnPolProfile, "Java is life");
-        martijnKweet.addHashtag(hashtag);
+//        martijnKweet.addHashtag(hashtag);
 
-        Kweet hansKweet = new Kweet(HansDeGansProfile, "JavaEE is pretty cool stuff to learn about!");
+        Kweet hansKweet = new Kweet(AdminProfile, "JavaEE is pretty cool stuff to learn about!");
         hansKweet.addHashtag(hashtag);
 
         MartijnPolProfile.addKweet(martijnKweet);
-        HansDeGansProfile.addKweet(hansKweet);
+        AdminProfile.addKweet(hansKweet);
 
         MartijnPolAccount.setUserProfile(MartijnPolProfile);
-        HansDeGansAccount.setUserProfile(HansDeGansProfile);
+        AdminAccount.setUserProfile(AdminProfile);
 
         UserGroup regularUserGroup = new UserGroup("Regular");
         regularUserGroup.addUser(MartijnPolAccount);
 
         UserGroup adminUserGroup = new UserGroup("Admin");
-        adminUserGroup.addUser(HansDeGansAccount);
+        adminUserGroup.addUser(AdminAccount);
 
         userAccountService.save(MartijnPolAccount);
-        userAccountService.save(HansDeGansAccount);
+        userAccountService.save(AdminAccount);
 
         userGroupService.save(regularUserGroup);
         userGroupService.save(adminUserGroup);

@@ -2,6 +2,7 @@ package bean;
 
 import domain.UserAccount;
 import service.UserAccountService;
+import utils.RedirectHelper;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
@@ -13,9 +14,9 @@ import java.util.List;
 /**
  * Created by Martijn van der Pol on 06-04-18
  **/
-@Named("UserAccountBean")
+@Named("AccountOverviewBean")
 @ViewScoped
-public class UserAccountBean implements Serializable {
+public class AccountOverviewBean implements Serializable {
 
     @Inject
     private UserAccountService userAccountService;
@@ -47,4 +48,9 @@ public class UserAccountBean implements Serializable {
     public void deleteAccount(UserAccount account) {
         userAccountService.deleteById(account.getId());
     }
+
+    public void loadDetails(UserAccount account) {
+        RedirectHelper.redirect("/pages/admin/details.xhtml?accountId=" + account.getId());
+    }
+
 }

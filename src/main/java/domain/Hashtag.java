@@ -1,5 +1,7 @@
 package domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.persistence.*;
@@ -26,7 +28,8 @@ public class Hashtag implements Serializable {
     @Column(unique = true)
     private String subject;
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+    @JsonManagedReference
     private List<Kweet> kweets;
 
     /**

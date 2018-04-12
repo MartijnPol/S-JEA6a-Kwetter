@@ -2,6 +2,7 @@ package dao.implementations.collection;
 
 import dao.interfaces.HeartDao;
 import domain.Heart;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,10 @@ public class HeartDaoCollectionImpl implements HeartDao {
                 this.likeList.remove(like);
             }
         }
+    }
+
+    public void delete(Heart heart) {
+        throw new NotImplementedException();
     }
 
     public Heart findById(Long id) {

@@ -45,10 +45,17 @@ public interface GenericDao<T> {
     T update(T t);
 
     /**
-     * Method to delete an entity
+     * Method to delete an entity by it's ID
      *
      * @param id
      */
     void deleteById(Long id);
+
+    /**
+     * Method to delete an entity
+     *
+     * @param t object to delete
+     */
+    void delete(T t);
 
 }

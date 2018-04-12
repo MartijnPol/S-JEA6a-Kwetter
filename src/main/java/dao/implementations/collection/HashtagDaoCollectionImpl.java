@@ -2,6 +2,7 @@ package dao.implementations.collection;
 
 import dao.interfaces.HashtagDao;
 import domain.Hashtag;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,10 @@ public class HashtagDaoCollectionImpl implements HashtagDao {
                 this.hashtagList.remove(hashtag);
             }
         }
+    }
+
+    public void delete(Hashtag hashtag) {
+        throw new NotImplementedException();
     }
 
     public Hashtag findById(Long id) {

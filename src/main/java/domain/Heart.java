@@ -21,10 +21,10 @@ public class Heart implements Serializable {
     private Date timeOfLiking;
 
     @NotNull
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
     private UserProfile sender;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
     private Kweet parentKweet;
 
     /**

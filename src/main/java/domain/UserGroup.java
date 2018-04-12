@@ -24,10 +24,10 @@ public class UserGroup implements Serializable {
                     referencedColumnName = "groupName"),
             inverseJoinColumns = @JoinColumn(name = "USERNAME",
                     referencedColumnName = "username"))
-    private List<UserAccount> users;
+    private List<UserAccount> accounts;
 
     public UserGroup() {
-        this.users = new ArrayList<UserAccount>();
+        this.accounts = new ArrayList<UserAccount>();
     }
 
     public UserGroup(String groupName) {
@@ -43,19 +43,19 @@ public class UserGroup implements Serializable {
         this.groupName = groupName;
     }
 
-    public List<UserAccount> getUsers() {
-        return users;
+    public List<UserAccount> getAccounts() {
+        return accounts;
     }
 
-    public void setUsers(List<UserAccount> users) {
-        this.users = users;
+    public void setAccounts(List<UserAccount> accounts) {
+        this.accounts = accounts;
     }
 
     public void addUser(UserAccount user) {
-        this.users.add(user);
+        this.accounts.add(user);
     }
 
     public void addUsers(List<UserAccount> users) {
-        this.users.addAll(users);
+        this.accounts.addAll(users);
     }
 }

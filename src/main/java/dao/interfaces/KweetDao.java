@@ -1,6 +1,7 @@
 package dao.interfaces;
 
 import domain.Kweet;
+import domain.UserProfile;
 import event.KweetEvent;
 
 import javax.enterprise.event.Observes;
@@ -12,6 +13,8 @@ import java.util.List;
 public interface KweetDao extends GenericDao<Kweet> {
 
     List<Kweet> findAllKweetsByMessage(String message);
+
+    List<Kweet> findAllKweetsBySender(UserProfile sender);
 
     void addKweetEvent(@Observes KweetEvent kweetEvent);
 
