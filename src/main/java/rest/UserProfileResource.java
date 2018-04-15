@@ -54,6 +54,30 @@ public class UserProfileResource {
     }
 
     @GET
+    @Path("find/followers/{username}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getFollowers(@PathParam("username") String username) {
+        UserProfile userProfile = userProfileService.findByUsername(username);
+        if (userProfile != null) {
+            List<UserProfile> followers = userProfile.getFollowers();
+            return Response.ok(userProfileService.convertAllToJson(followers)).header("Access-Control-Allow-Origin", "*").build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*").build();
+    }
+
+    @GET
+    @Path("find/following/{username}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getFollowing(@PathParam("username") String username) {
+        UserProfile userProfile = userProfileService.findByUsername(username);
+        if (userProfile != null) {
+            List<UserProfile> followers = userProfile.getFollowing();
+            return Response.ok(userProfileService.convertAllToJson(followers)).header("Access-Control-Allow-Origin", "*").build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*").build();
+    }
+
+    @GET
     @Path("count")
     @Produces(MediaType.APPLICATION_JSON)
     public Response countAllUserProfiles() {

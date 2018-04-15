@@ -33,4 +33,5 @@ public class UserProfileDaoJPAImpl extends GenericDaoJPAImpl<UserProfile> implem
 
         return null;
     }
+
 }
