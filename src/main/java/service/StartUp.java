@@ -28,44 +28,82 @@ public class StartUp {
     @PostConstruct
     public void initData() {
 
-        UserAccount MartijnPolAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
-        UserAccount AdminAccount = new UserAccount("JohnDoe", "admin", "admin@hotmail.com");
+        // Hashtags
+        Hashtag JEAHashtag = new Hashtag("JEA");
+        Hashtag SOLIDHashtag = new Hashtag("SOLID");
 
+        // Martijn van der Pol
+        UserAccount MartijnPolAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
         UserProfile MartijnPolProfile = new UserProfile(MartijnPolAccount, "Martijn", "van der Pol", new Date(), "Utrecht, The Netherlands");
         MartijnPolProfile.setBiography("FairChain expert to make asparagus fair again.");
         MartijnPolProfile.setAvatarUrl("https://avatars3.githubusercontent.com/u/25583331?s=400&u=6ad434b6e128ea5e198c00308ca1470a8610a007&v=4");
 
-        UserProfile JohnProfile = new UserProfile(AdminAccount, "John", "Doe", new Date(), "New York City, United States of America");
-        JohnProfile.setBiography("What's Kwetter without it's admins?");
+        Kweet martijnKweet = new Kweet(MartijnPolProfile, "Do you even C#?");
+
+        // John Doe
+        UserAccount JohnAccount = new UserAccount("JohnDoe", "admin", "john@doe.com");
+        UserProfile JohnProfile = new UserProfile(JohnAccount, "John", "Doe", new Date(), "New York City, United States of America");
+        JohnProfile.setBiography("Senior Java SOLID REST C# Architecture Network Endpoint Architect @ Ordina");
         JohnProfile.setAvatarUrl("https://s3.eu-central-1.amazonaws.com/artistarea.gallereplay.com/production/user_9/picture_2405201614728.jpg");
 
-        Kweet martijnKweet = new Kweet(MartijnPolProfile, "Java is life");
-
-        Kweet johnFirstKweet = new Kweet(JohnProfile, "JavaEE is pretty cool stuff to learn about!");
-        Hashtag hashtag = new Hashtag("LoveJEA");
-        johnFirstKweet.addHashtag(hashtag);
-        martijnKweet.addHashtag(hashtag);
-
+        Kweet johnFirstKweet = new Kweet(JohnProfile, "Bruh, do you even C#?");
         Kweet johnSecondKweet = new Kweet(JohnProfile, "Solid Java code is a fairy tale. It doesn't exist.");
 
+        // Lisa Hampton
+        UserAccount LisaAccount = new UserAccount("LisaHampton", "1234", "lisa@hampton.com");
+        UserProfile LisaProfile = new UserProfile(LisaAccount, "Lisa", "Hampton", new Date(), "Amsterdam, the Netherlands");
+        LisaProfile.setBiography("Make Java, not war.");
+        LisaProfile.setAvatarUrl("https://orig00.deviantart.net/9af2/f/2011/227/4/8/profile_picture_by_coi_stock-d46ovqt.jpg");
+
+        Kweet lisaFirstKweet = new Kweet(LisaProfile, "I thought Python was a snake?");
+        Kweet lisaSecondKweet = new Kweet(LisaProfile, "Wow, just had 3204 exceptions when I tried to make JPA work!");
+
+        // Add Hashtags to Kweets
+        johnFirstKweet.addHashtag(JEAHashtag);
+        lisaSecondKweet.addHashtag(JEAHashtag);
+
+        johnSecondKweet.addHashtag(JEAHashtag);
+        johnSecondKweet.addHashtag(SOLIDHashtag);
+
+        martijnKweet.addHashtag(SOLIDHashtag);
+
+        // Add Kweets to UserProfile's
         MartijnPolProfile.addKweet(martijnKweet);
+
         JohnProfile.addKweet(johnFirstKweet);
         JohnProfile.addKweet(johnSecondKweet);
 
-        MartijnPolProfile.addFollowee(JohnProfile);
-        JohnProfile.addFollowee(MartijnPolProfile);
+        LisaProfile.addKweet(lisaFirstKweet);
+        LisaProfile.addKweet(lisaSecondKweet);
 
+        // Add Followers and Followees
+        MartijnPolProfile.addFollowee(JohnProfile);
+        MartijnPolProfile.addFollowee(LisaProfile);
+        LisaProfile.addFollower(MartijnPolProfile);
+        JohnProfile.addFollower(MartijnPolProfile);
+
+        JohnProfile.addFollowee(MartijnPolProfile);
+        MartijnPolProfile.addFollower(JohnProfile);
+
+        LisaProfile.addFollowee(JohnProfile);
+        JohnProfile.addFollower(LisaProfile);
+
+        // Add profiles and roles to accounts
         MartijnPolAccount.setUserProfile(MartijnPolProfile);
-        AdminAccount.setUserProfile(JohnProfile);
+        JohnAccount.setUserProfile(JohnProfile);
+        LisaAccount.setUserProfile(LisaProfile);
 
         UserGroup regularUserGroup = new UserGroup("Regular");
         regularUserGroup.addUser(MartijnPolAccount);
+        regularUserGroup.addUser(LisaAccount);
 
         UserGroup adminUserGroup = new UserGroup("Admin");
-        adminUserGroup.addUser(AdminAccount);
+        adminUserGroup.addUser(JohnAccount);
 
+        // Save accounts
         userAccountService.save(MartijnPolAccount);
-        userAccountService.save(AdminAccount);
+        userAccountService.save(JohnAccount);
+        userAccountService.save(LisaAccount);
 
         userGroupService.save(regularUserGroup);
         userGroupService.save(adminUserGroup);
