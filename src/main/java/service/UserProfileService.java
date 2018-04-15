@@ -97,19 +97,6 @@ public class UserProfileService {
     }
 
     /**
-     * Function to find a avatar of a UserProfile according to the given UserProfile id
-     *
-     * @param id is the UserProfile id
-     * @return a byte[] containing the avatar of the UserProfile
-     */
-    public byte[] findAvatarById(Long id) {
-        if (!isNull(id)) {
-            return this.userProfileDao.findById(id).getAvatar();
-        }
-        return null;
-    }
-
-    /**
      * Function to find all kweets from a specific UserProfile id
      *
      * @param id is the UserProfile id

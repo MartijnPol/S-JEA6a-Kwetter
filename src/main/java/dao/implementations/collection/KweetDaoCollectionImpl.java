@@ -79,7 +79,15 @@ public class KweetDaoCollectionImpl implements KweetDao {
         return matchingKweets;
     }
 
-    public List<Kweet> findAllKweetsBySender(UserProfile sender) {
+    public List<Kweet> findAllKweetsBySender(Long senderId) {
+        throw new NotImplementedException();
+    }
+
+    public List<Kweet> findAllKweetsByHashtagSubject(String subject) {
+        throw new NotImplementedException();
+    }
+
+    public List<Kweet> findAllKweetsFromFollowers(UserProfile profile) {
         throw new NotImplementedException();
     }
 

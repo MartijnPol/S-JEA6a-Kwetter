@@ -61,7 +61,7 @@ public class UserAccount implements Serializable {
         this.username = username;
         this.password = EncryptionHelper.encryptPassword(password);
         this.mailAddress = mailAddress;
-        this.userProfile = new UserProfile(this, null, null, null);
+        this.userProfile = new UserProfile(this, null, null, null, null);
     }
 
     //<editor-fold desc="Getters and Setters">

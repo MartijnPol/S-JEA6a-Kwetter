@@ -28,7 +28,7 @@ public class DetailsOverviewBean implements Serializable {
     @Inject
     private UserAccountService userAccountService;
 
-    private UserAccount sender;
+    private UserAccount user;
     private List<Kweet> kweetList;
     private List<Kweet> kweetFilteredList;
     private String accountId;
@@ -39,16 +39,16 @@ public class DetailsOverviewBean implements Serializable {
         Map<String, String> paramMap = context.getExternalContext().getRequestParameterMap();
         accountId = paramMap.get("accountId");
 
-        this.sender = userAccountService.findById(new Long(accountId));
-        this.kweetList = kweetService.findAllKweetsBySender(sender.getUserProfile());
+        this.user = userAccountService.findById(new Long(accountId));
+        this.kweetList = kweetService.findAllKweetsBySender(user.getId());
     }
 
-    public UserAccount getSender() {
-        return sender;
+    public UserAccount getUser() {
+        return user;
     }
 
-    public void setSender(UserAccount sender) {
-        this.sender = sender;
+    public void setUser(UserAccount user) {
+        this.user = user;
     }
 
     public List<Kweet> getKweetList() {
@@ -69,6 +69,11 @@ public class DetailsOverviewBean implements Serializable {
 
     public void deleteKweet(Kweet kweet) {
         kweetService.delete(kweet);
+        RedirectHelper.redirect("/pages/admin/details.xhtml?accountId=" + accountId);
+    }
+
+    public void updateUserAccount() {
+        this.userAccountService.update(user);
         RedirectHelper.redirect("/pages/admin/details.xhtml?accountId=" + accountId);
     }
 

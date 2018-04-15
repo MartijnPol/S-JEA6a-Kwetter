@@ -4,18 +4,52 @@
                 xmlns:b="http://bootsfaces.net/ui"
                 template="/templates/template.xhtml">
 
-    <ui:define name="title">Details - #{DetailsOverviewBean.sender.username}</ui:define>
+    <ui:define name="title">Details - #{DetailsOverviewBean.user.username}</ui:define>
 
     <ui:define name="content">
 
         <div class="container">
 
             <header class="header">
-                <h1>#{DetailsOverviewBean.sender.username}'s details</h1>
-                <h5 class="text-muted">Detail page for #{DetailsOverviewBean.sender.username}</h5>
+                <h1>#{DetailsOverviewBean.user.username}'s details</h1>
+                <h5 class="text-muted">Detail page for #{DetailsOverviewBean.user.username}</h5>
             </header>
 
             <div class="content-container">
+
+                <h2>Details</h2>
+
+                <h:form>
+
+                    <div class="form-group">
+                        <b:inputText id="username"
+                                     placeholder="Username"
+                                     styleClass="form-control"
+                                     value="#{DetailsOverviewBean.user.username}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <b:inputText id="email"
+                                     placeholder="Email"
+                                     styleClass="form-control"
+                                     type="email"
+                                     value="#{DetailsOverviewBean.user.mailAddress}"/>
+                    </div>
+
+                    <!--<div class="form-group">-->
+                    <!--<b:label value="Role"/>-->
+                    <!--<b:selectOneMenu value="Role">-->
+                    <!--<f:selectItem itemLabel="Regular" itemValue="Regular"/>-->
+                    <!--<f:selectItem itemLabel="Admin" itemValue="Admin"/>-->
+                    <!--</b:selectOneMenu>-->
+                    <!--</div>-->
+
+                    <b:commandButton action="#{DetailsOverviewBean.updateUserAccount}"
+                                     id="register"
+                                     value="Update user"
+                                     styleClass="btn btn-success"/>
+
+                </h:form>
 
                 <h2>Kweets</h2>
 
@@ -26,7 +60,7 @@
                         <b:dataTableColumn value="#{kweet.message}"/>
                         <b:dataTableColumn value="#{kweet.timeOfPosting}" label="Date"/>
 
-                        <b:dataTableColumn orderable="false" label="Remove">
+                        <b:dataTableColumn orderable="false" label="Delete">
                             <b:commandButton look="danger" value="Delete" styleClass="width-100"
                                              ajax="true" update="kweetsTable"
                                              action="#{DetailsOverviewBean.deleteKweet(kweet)}">

@@ -28,7 +28,7 @@ public class UserProfileResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUserProfiles() {
         List<UserProfile> userProfiles = userProfileService.getAll();
-        return Response.ok((userProfileService.convertAllToJson(userProfiles))).build();
+        return Response.ok((userProfileService.convertAllToJson(userProfiles))).header("Access-Control-Allow-Origin", "*").build();
     }
 
     @GET
@@ -37,9 +37,9 @@ public class UserProfileResource {
     public Response getUserProfileById(@PathParam("id") Long id) {
         UserProfile userProfile = userProfileService.findById(id);
         if (userProfile != null) {
-            return Response.ok(userProfile.toJson()).build();
+            return Response.ok(userProfile.toJson()).header("Access-Control-Allow-Origin", "*").build();
         }
-        return Response.status(Response.Status.NOT_FOUND).build();
+        return Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*").build();
     }
 
     @GET
@@ -48,16 +48,16 @@ public class UserProfileResource {
     public Response getUserProfileByUsername(@PathParam("username") String username) {
         UserProfile userProfile = userProfileService.findByUsername(username);
         if (userProfile != null) {
-            return Response.ok(userProfile.toJson()).build();
+            return Response.ok(userProfile.toJson()).header("Access-Control-Allow-Origin", "*").build();
         }
-        return Response.status(Response.Status.NOT_FOUND).build();
+        return Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*").build();
     }
 
     @GET
     @Path("count")
     @Produces(MediaType.APPLICATION_JSON)
     public Response countAllUserProfiles() {
-        return Response.ok(userProfileService.countAll()).build();
+        return Response.ok(userProfileService.countAll()).header("Access-Control-Allow-Origin", "*").build();
     }
 
 }

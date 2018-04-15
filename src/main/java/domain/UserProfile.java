@@ -6,6 +6,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,11 +27,13 @@ public class UserProfile implements Serializable, RestObject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private byte[] avatar;
+    private String avatarUrl;
 
     private String firstName;
 
     private String lastName;
+
+    private String location;
 
     @Temporal(TemporalType.DATE)
     private Date dateOfBirth;
@@ -47,18 +51,18 @@ public class UserProfile implements Serializable, RestObject {
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private List<Kweet> mentionKweets;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "followees")
+    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "following")
     private List<UserProfile> followers;
 
     @ManyToMany
-    private List<UserProfile> followees;
+    private List<UserProfile> following;
 
     /**
      * Empty constructor for the ORM
      */
     public UserProfile() {
         this.followers = new ArrayList<UserProfile>();
-        this.followees = new ArrayList<UserProfile>();
+        this.following = new ArrayList<UserProfile>();
         this.kweets = new ArrayList<Kweet>();
         this.mentionKweets = new ArrayList<Kweet>();
     }
@@ -70,23 +74,31 @@ public class UserProfile implements Serializable, RestObject {
      * @param lastName    is the last name of the person this account belongs to
      * @param dateOfBirth is the birthday of the person this account belongs to
      */
-    public UserProfile(UserAccount userAccount, String firstName, String lastName, Date dateOfBirth) {
+    public UserProfile(UserAccount userAccount, String firstName, String lastName, Date dateOfBirth, String location) {
         this();
         this.userAccount = userAccount;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+        this.location = location;
     }
 
     public JsonObject toJson() {
+
+        DateFormat birthdayFormat = new SimpleDateFormat("dd/MM/yyyy");
+
         return Json.createObjectBuilder()
                 .add("id", this.id)
+                .add("username", this.userAccount.getUsername())
+                .add("email", this.userAccount.getMailAddress())
+                .add("location", this.location)
                 .add("firstName", this.firstName)
                 .add("lastName", this.lastName)
-                .add("userAccountId", this.userAccount.getId())
-                .add("kweets", this.kweets.size())
-                .add("followers", this.followers.size())
-                .add("followees", this.followees.size())
+                .add("biography", this.biography)
+                .add("dateOfBirth", birthdayFormat.format(this.dateOfBirth))
+                .add("avatarUrl", this.avatarUrl)
+                .add("amountFollowers", this.followers.size())
+                .add("amountFollowing", this.following.size())
                 .build();
     }
 
@@ -106,12 +118,12 @@ public class UserProfile implements Serializable, RestObject {
         this.id = id;
     }
 
-    public byte[] getAvatar() {
-        return avatar;
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
-    public void setAvatar(byte[] avatar) {
-        this.avatar = avatar;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
     public String getFirstName() {
@@ -178,14 +190,21 @@ public class UserProfile implements Serializable, RestObject {
         this.followers = followers;
     }
 
-    public List<UserProfile> getFollowees() {
-        return followees;
+    public List<UserProfile> getFollowing() {
+        return following;
     }
 
-    public void setFollowees(List<UserProfile> followees) {
-        this.followees = followees;
+    public void setFollowing(List<UserProfile> followees) {
+        this.following = followees;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     //</editor-fold>
 
@@ -195,6 +214,14 @@ public class UserProfile implements Serializable, RestObject {
 
     public void addMention(Kweet mentionKweet) {
         this.mentionKweets.add(mentionKweet);
+    }
+
+    public void addFollower(UserProfile follower) {
+        this.followers.add(follower);
+    }
+
+    public void addFollowee(UserProfile followee) {
+        this.following.add(followee);
     }
 
 }

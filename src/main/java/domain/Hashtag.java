@@ -16,7 +16,7 @@ import java.util.List;
 
 @Entity
 @NamedQueries(
-        @NamedQuery(name = "Hashtag.findBySubject", query = "SELECT hashtag FROM Hashtag hashtag WHERE hashtag.subject LIKE :subject")
+        @NamedQuery(name = "Hashtag.findBySubject", query = "SELECT hashtag FROM Hashtag hashtag WHERE hashtag.subject = :subject")
 )
 public class Hashtag implements Serializable {
 
@@ -85,7 +85,7 @@ public class Hashtag implements Serializable {
         return Json.createObjectBuilder()
                 .add("id", this.id)
                 .add("subject", this.subject)
-                .add("kweets", this.kweets.size())
+                .add("popularity", this.kweets.size())
                 .build();
     }
 

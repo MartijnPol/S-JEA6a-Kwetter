@@ -3,6 +3,7 @@ package domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.json.Json;
+import javax.json.JsonArrayBuilder;
 import javax.json.JsonObject;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -21,7 +22,9 @@ import java.util.List;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Kweet.findAllKweetsByMessage", query = "SELECT kweet FROM Kweet kweet WHERE kweet.message LIKE :message"),
-        @NamedQuery(name = "Kweet.findAllKweetsBySender", query = "SELECT kweet FROM Kweet kweet WHERE kweet.sender = :sender")
+        @NamedQuery(name = "Kweet.findAllKweetsBySender", query = "SELECT kweet FROM Kweet kweet WHERE kweet.sender.id = :senderId"),
+        @NamedQuery(name = "Kweet.findAllKweetsByHashtagSubject", query = "SELECT kweet FROM Kweet kweet JOIN kweet.hashtags hashtag WHERE hashtag.subject = :subject"),
+        @NamedQuery(name = "Kweet.findAllKweetsFromFollowers", query = "SELECT kweet FROM Kweet kweet WHERE kweet.sender IN :followers")
 })
 public class Kweet implements Serializable {
 
@@ -62,7 +65,7 @@ public class Kweet implements Serializable {
     /**
      * Constructor for the Kweet class
      *
-     * @param message  contains the content of this Kweet
+     * @param message contains the content of this Kweet
      */
     public Kweet(UserProfile sender, String message) {
         this();
@@ -136,6 +139,7 @@ public class Kweet implements Serializable {
     //</editor-fold>
 
     //<editor-fold desc="Methods">
+
     /**
      * Method to add a like to a Kweet
      *
@@ -170,11 +174,24 @@ public class Kweet implements Serializable {
 
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
+        JsonArrayBuilder hashtagArrayBuilder = Json.createArrayBuilder();
+        JsonArrayBuilder likesArrayBuilder = Json.createArrayBuilder();
+
+        for (Hashtag hashtag : this.hashtags) {
+            hashtagArrayBuilder.add(hashtag.toJson());
+        }
+
+        for (Heart heart : this.likes) {
+            likesArrayBuilder.add(heart.toJson());
+        }
+
         return Json.createObjectBuilder()
                 .add("id", this.id)
                 .add("message", this.message)
                 .add("timeOfPosting", dateFormat.format(this.timeOfPosting))
-                .add("senderId", this.sender.getId())
+                .add("sender", this.sender.toJson())
+                .add("hashtags", hashtagArrayBuilder)
+                .add("likes", likesArrayBuilder)
                 .build();
     }
 

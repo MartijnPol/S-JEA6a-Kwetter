@@ -120,16 +120,13 @@ public class KweetService {
     }
 
     /**
-     * Function to find all kweets by a given sender
+     * Function to find all kweets by a given user
      *
-     * @param sender the UserProfile
-     * @return a collection of Kweets that belong to the given sender
+     * @param senderId the id of the sender
+     * @return a collection of Kweets that belong to the given user
      */
-    public List<Kweet> findAllKweetsBySender(UserProfile sender) {
-        if (!isNull(sender)) {
-            return kweetDao.findAllKweetsBySender(sender);
-        }
-        return null;
+    public List<Kweet> findAllKweetsBySender(Long senderId) {
+        return kweetDao.findAllKweetsBySender(senderId);
     }
 
     /**
@@ -157,4 +154,23 @@ public class KweetService {
         return jsonObjects;
     }
 
+    /**
+     * Functon to find all kweets by a given hashtag subject
+     *
+     * @param subject hashtag subject
+     * @return a list of Kweets that are using the same hashtag
+     */
+    public List<Kweet> findAllKweetsByHashtagSubject(String subject) {
+        return kweetDao.findAllKweetsByHashtagSubject(subject);
+    }
+
+    /**
+     * Function to find all Kweets that a given UserProfile should have in it's timeline
+     *
+     * @param profile the profile
+     * @return all Kweets from the followers
+     */
+    public List<Kweet> findAllKweetsFromFollowers(UserProfile profile) {
+        return this.kweetDao.findAllKweetsFromFollowers(profile);
+    }
 }

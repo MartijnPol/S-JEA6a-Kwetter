@@ -1,8 +1,12 @@
 package domain;
 
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -80,5 +84,17 @@ public class Heart implements Serializable {
     }
 
     //</editor-fold>
+
+    public JsonObject toJson() {
+
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+        return Json.createObjectBuilder()
+                .add("id", this.id)
+                .add("timeOfLiking", dateFormat.format(this.timeOfLiking))
+                .add("sender", this.sender.toJson())
+                .add("parentKweet", this.parentKweet.toJson())
+                .build();
+    }
 
 }

@@ -29,24 +29,34 @@ public class StartUp {
     public void initData() {
 
         UserAccount MartijnPolAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
-        UserAccount AdminAccount = new UserAccount("admin", "admin", "admin@hotmail.com");
+        UserAccount AdminAccount = new UserAccount("JohnDoe", "admin", "admin@hotmail.com");
 
-        UserProfile MartijnPolProfile = new UserProfile(MartijnPolAccount, "Martijn", "van der Pol", new Date());
-        UserProfile AdminProfile = new UserProfile(AdminAccount, "Ad", "Min", new Date());
+        UserProfile MartijnPolProfile = new UserProfile(MartijnPolAccount, "Martijn", "van der Pol", new Date(), "Utrecht, The Netherlands");
+        MartijnPolProfile.setBiography("FairChain expert to make asparagus fair again.");
+        MartijnPolProfile.setAvatarUrl("https://avatars3.githubusercontent.com/u/25583331?s=400&u=6ad434b6e128ea5e198c00308ca1470a8610a007&v=4");
 
-        Hashtag hashtag = new Hashtag("#LoveJEA");
+        UserProfile JohnProfile = new UserProfile(AdminAccount, "John", "Doe", new Date(), "New York City, United States of America");
+        JohnProfile.setBiography("What's Kwetter without it's admins?");
+        JohnProfile.setAvatarUrl("https://s3.eu-central-1.amazonaws.com/artistarea.gallereplay.com/production/user_9/picture_2405201614728.jpg");
 
         Kweet martijnKweet = new Kweet(MartijnPolProfile, "Java is life");
-//        martijnKweet.addHashtag(hashtag);
 
-        Kweet hansKweet = new Kweet(AdminProfile, "JavaEE is pretty cool stuff to learn about!");
-        hansKweet.addHashtag(hashtag);
+        Kweet johnFirstKweet = new Kweet(JohnProfile, "JavaEE is pretty cool stuff to learn about!");
+        Hashtag hashtag = new Hashtag("LoveJEA");
+        johnFirstKweet.addHashtag(hashtag);
+        martijnKweet.addHashtag(hashtag);
+
+        Kweet johnSecondKweet = new Kweet(JohnProfile, "Solid Java code is a fairy tale. It doesn't exist.");
 
         MartijnPolProfile.addKweet(martijnKweet);
-        AdminProfile.addKweet(hansKweet);
+        JohnProfile.addKweet(johnFirstKweet);
+        JohnProfile.addKweet(johnSecondKweet);
+
+        MartijnPolProfile.addFollowee(JohnProfile);
+        JohnProfile.addFollowee(MartijnPolProfile);
 
         MartijnPolAccount.setUserProfile(MartijnPolProfile);
-        AdminAccount.setUserProfile(AdminProfile);
+        AdminAccount.setUserProfile(JohnProfile);
 
         UserGroup regularUserGroup = new UserGroup("Regular");
         regularUserGroup.addUser(MartijnPolAccount);
