@@ -2,8 +2,10 @@ package bean;
 
 import domain.Kweet;
 import domain.UserAccount;
+import domain.UserGroup;
 import service.KweetService;
 import service.UserAccountService;
+import service.UserGroupService;
 import utils.RedirectHelper;
 
 import javax.annotation.PostConstruct;
@@ -28,10 +30,16 @@ public class DetailsOverviewBean implements Serializable {
     @Inject
     private UserAccountService userAccountService;
 
+    @Inject
+    private UserGroupService userGroupService;
+
     private UserAccount user;
     private List<Kweet> kweetList;
     private List<Kweet> kweetFilteredList;
     private String accountId;
+
+    private List<UserGroup> userGroups;
+    private String userGroup;
 
     @PostConstruct
     public void init() {
@@ -41,6 +49,7 @@ public class DetailsOverviewBean implements Serializable {
 
         this.user = userAccountService.findById(new Long(accountId));
         this.kweetList = kweetService.findAllKweetsBySender(user.getId());
+        this.userGroups = userGroupService.getAll();
     }
 
     public UserAccount getUser() {
@@ -67,13 +76,44 @@ public class DetailsOverviewBean implements Serializable {
         this.kweetFilteredList = kweetFilteredList;
     }
 
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+
+    public String getUserGroup() {
+        return userGroup;
+    }
+
+    public void setUserGroup(String userGroup) {
+        this.userGroup = userGroup;
+    }
+
     public void deleteKweet(Kweet kweet) {
         kweetService.delete(kweet);
         RedirectHelper.redirect("/pages/admin/details.xhtml?accountId=" + accountId);
     }
 
     public void updateUserAccount() {
-        this.userAccountService.update(user);
+
+        for (UserGroup userGroup : userGroups) {
+            if (userGroup.getAccounts().contains(this.user)) {
+                userGroup.getAccounts().remove(this.user);
+                this.userGroupService.update(userGroup);
+            }
+        }
+
+        UserGroup foundUserGroup = this.userGroupService.findByName(this.userGroup);
+        if (!foundUserGroup.getAccounts().contains(this.user)) {
+            foundUserGroup.addUser(this.user);
+            this.userGroupService.update(foundUserGroup);
+        }
+
+        this.userAccountService.update(this.user);
+
         RedirectHelper.redirect("/pages/admin/details.xhtml?accountId=" + accountId);
     }
 

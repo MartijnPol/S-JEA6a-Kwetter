@@ -6,10 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static utils.HrefBuilder.build;
@@ -35,8 +32,8 @@ public class UserProfile implements Serializable, RestObject {
 
     private String location;
 
-    @Temporal(TemporalType.DATE)
-    private Date dateOfBirth;
+    //    @Temporal(TemporalType.DATE)
+    private String dateOfBirth;
 
     @Size(max = 160, message = "Biography can't be longer then 160 characters.")
     private String biography;
@@ -74,7 +71,7 @@ public class UserProfile implements Serializable, RestObject {
      * @param lastName    is the last name of the person this account belongs to
      * @param dateOfBirth is the birthday of the person this account belongs to
      */
-    public UserProfile(UserAccount userAccount, String firstName, String lastName, Date dateOfBirth, String location) {
+    public UserProfile(UserAccount userAccount, String firstName, String lastName, String dateOfBirth, String location) {
         this();
         this.userAccount = userAccount;
         this.firstName = firstName;
@@ -85,8 +82,6 @@ public class UserProfile implements Serializable, RestObject {
 
     public JsonObject toJson() {
 
-        DateFormat birthdayFormat = new SimpleDateFormat("dd/MM/yyyy");
-
         return Json.createObjectBuilder()
                 .add("id", this.id)
                 .add("username", this.userAccount.getUsername())
@@ -95,7 +90,7 @@ public class UserProfile implements Serializable, RestObject {
                 .add("firstName", this.firstName)
                 .add("lastName", this.lastName)
                 .add("biography", this.biography)
-                .add("dateOfBirth", birthdayFormat.format(this.dateOfBirth))
+                .add("dateOfBirth", this.dateOfBirth)
                 .add("avatarUrl", this.avatarUrl)
                 .add("amountFollowers", this.followers.size())
                 .add("amountFollowing", this.following.size())
@@ -142,11 +137,11 @@ public class UserProfile implements Serializable, RestObject {
         this.lastName = lastName;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

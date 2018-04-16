@@ -6,7 +6,6 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
-import java.util.Date;
 
 /**
  * Created by Martijn van der Pol on 02-03-18
@@ -34,7 +33,7 @@ public class StartUp {
 
         // Martijn van der Pol
         UserAccount MartijnPolAccount = new UserAccount("MartijnPol", "1234", "martijn.pol@hotmail.com");
-        UserProfile MartijnPolProfile = new UserProfile(MartijnPolAccount, "Martijn", "van der Pol", new Date(), "Utrecht, The Netherlands");
+        UserProfile MartijnPolProfile = new UserProfile(MartijnPolAccount, "Martijn", "van der Pol", "27-05-1997", "Utrecht, The Netherlands");
         MartijnPolProfile.setBiography("FairChain expert to make asparagus fair again.");
         MartijnPolProfile.setAvatarUrl("https://avatars3.githubusercontent.com/u/25583331?s=400&u=6ad434b6e128ea5e198c00308ca1470a8610a007&v=4");
 
@@ -42,7 +41,7 @@ public class StartUp {
 
         // John Doe
         UserAccount JohnAccount = new UserAccount("JohnDoe", "admin", "john@doe.com");
-        UserProfile JohnProfile = new UserProfile(JohnAccount, "John", "Doe", new Date(), "New York City, United States of America");
+        UserProfile JohnProfile = new UserProfile(JohnAccount, "John", "Doe", "06-01-1975", "New York City, United States of America");
         JohnProfile.setBiography("Senior Java SOLID REST C# Architecture Network Endpoint Architect @ Ordina");
         JohnProfile.setAvatarUrl("https://s3.eu-central-1.amazonaws.com/artistarea.gallereplay.com/production/user_9/picture_2405201614728.jpg");
 
@@ -51,7 +50,7 @@ public class StartUp {
 
         // Lisa Hampton
         UserAccount LisaAccount = new UserAccount("LisaHampton", "1234", "lisa@hampton.com");
-        UserProfile LisaProfile = new UserProfile(LisaAccount, "Lisa", "Hampton", new Date(), "Amsterdam, the Netherlands");
+        UserProfile LisaProfile = new UserProfile(LisaAccount, "Lisa", "Hampton", "17-03-1996", "Amsterdam, the Netherlands");
         LisaProfile.setBiography("Make Java, not war.");
         LisaProfile.setAvatarUrl("https://orig00.deviantart.net/9af2/f/2011/227/4/8/profile_picture_by_coi_stock-d46ovqt.jpg");
 

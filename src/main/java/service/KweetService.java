@@ -54,7 +54,7 @@ public class KweetService {
      */
     public void save(Kweet kweet) {
         if (!isNull(kweet)) {
-            kweetEvent.fire(new KweetEvent(kweet));
+            this.kweetDao.save(kweet);
         }
     }
 

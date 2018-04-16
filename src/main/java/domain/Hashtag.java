@@ -28,7 +28,7 @@ public class Hashtag implements Serializable {
     @Column(unique = true)
     private String subject;
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE, CascadeType.REMOVE})
     @JsonManagedReference
     private List<Kweet> kweets;
 
@@ -42,7 +42,7 @@ public class Hashtag implements Serializable {
     /**
      * Constructor for the Hashtag class
      *
-     * @param subject     is the subject of the hashtag, for example '#DonaldTrump'
+     * @param subject is the subject of the hashtag, for example '#DonaldTrump'
      */
     public Hashtag(String subject) {
         this.kweets = new ArrayList<Kweet>();

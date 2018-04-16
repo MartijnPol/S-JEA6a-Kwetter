@@ -46,7 +46,6 @@ public class KweetDaoJPAImpl extends GenericDaoJPAImpl<Kweet> implements KweetDa
                 .setParameter("followers", userProfile.getFollowing()).getResultList();
     }
 
-
     public void addKweetEvent(@Observes KweetEvent kweetEvent) {
         Kweet kweet = kweetEvent.getKweet();
         entityManager.persist(kweet);

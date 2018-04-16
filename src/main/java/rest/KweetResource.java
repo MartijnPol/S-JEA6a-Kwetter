@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Date;
 import java.util.List;
 
 @Path("kweets")
@@ -31,6 +32,19 @@ public class KweetResource {
     public Response getAllKweets() {
         List<Kweet> kweetList = kweetService.getAll();
         return Response.ok(kweetService.convertAllToJson(kweetList)).header("Access-Control-Allow-Origin", "*").build();
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response createKweet(Kweet kweet) {
+        if (kweet == null) {
+            return Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*").build();
+        }
+        kweet.setTimeOfPosting(new Date());
+        kweet.setSender(userProfileService.findById(kweet.getSender().getId()));
+        kweetService.save(kweet);
+        return Response.ok().header("Access-Control-Allow-Origin", "*").build();
     }
 
     @GET

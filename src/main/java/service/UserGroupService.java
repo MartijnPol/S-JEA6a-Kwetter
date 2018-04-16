@@ -6,6 +6,7 @@ import domain.UserGroup;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import java.util.List;
 
 /**
  * Created by Martijn van der Pol on 29-03-18
@@ -58,6 +59,15 @@ public class UserGroupService {
      */
     public UserGroup findByName(String name) {
         return this.userGroupDao.findByName(name);
+    }
+
+    /**
+     * Function to get all UserGroups
+     *
+     * @return all UserGroups
+     */
+    public List<UserGroup> getAll() {
+        return this.userGroupDao.getAll();
     }
 
 }
