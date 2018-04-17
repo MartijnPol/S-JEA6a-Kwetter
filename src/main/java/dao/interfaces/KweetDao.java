@@ -18,7 +18,7 @@ public interface KweetDao extends GenericDao<Kweet> {
 
     List<Kweet> findAllKweetsByHashtagSubject(String subject);
 
-    List<Kweet> findAllKweetsFromFollowers(UserProfile userProfile);
+    List<Kweet> findAllKweetsFromFollowing(UserProfile userProfile);
 
     void addKweetEvent(@Observes KweetEvent kweetEvent);
 

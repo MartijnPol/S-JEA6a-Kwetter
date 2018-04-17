@@ -2,7 +2,6 @@ package rest;
 
 import domain.Kweet;
 import domain.UserProfile;
-import service.HashtagService;
 import service.KweetService;
 import service.UserProfileService;
 
@@ -20,9 +19,6 @@ public class KweetResource {
 
     @Inject
     private KweetService kweetService;
-
-    @Inject
-    private HashtagService hashtagService;
 
     @Inject
     private UserProfileService userProfileService;
@@ -83,7 +79,7 @@ public class KweetResource {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
 
-        List<Kweet> timelineKweets = this.kweetService.findAllKweetsFromFollowers(foundProfile);
+        List<Kweet> timelineKweets = this.kweetService.findAllKweetsFromFollowing(foundProfile);
         return Response.ok(this.kweetService.convertAllToJson(timelineKweets)).header("Access-Control-Allow-Origin", "*").build();
     }
 

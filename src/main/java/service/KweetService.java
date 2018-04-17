@@ -170,7 +170,7 @@ public class KweetService {
      * @param profile the profile
      * @return all Kweets from the followers
      */
-    public List<Kweet> findAllKweetsFromFollowers(UserProfile profile) {
-        return this.kweetDao.findAllKweetsFromFollowers(profile);
+    public List<Kweet> findAllKweetsFromFollowing(UserProfile profile) {
+        return this.kweetDao.findAllKweetsFromFollowing(profile);
     }
 }

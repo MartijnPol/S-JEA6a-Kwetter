@@ -21,10 +21,10 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Kweet.findAllKweetsByMessage", query = "SELECT kweet FROM Kweet kweet WHERE kweet.message LIKE :message"),
-        @NamedQuery(name = "Kweet.findAllKweetsBySender", query = "SELECT kweet FROM Kweet kweet WHERE kweet.sender.id = :senderId"),
-        @NamedQuery(name = "Kweet.findAllKweetsByHashtagSubject", query = "SELECT kweet FROM Kweet kweet JOIN kweet.hashtags hashtag WHERE hashtag.subject = :subject"),
-        @NamedQuery(name = "Kweet.findAllKweetsFromFollowers", query = "SELECT kweet FROM Kweet kweet WHERE kweet.sender IN :followers")
+        @NamedQuery(name = "Kweet.findAllKweetsByMessage", query = "SELECT kweet FROM Kweet kweet WHERE kweet.message LIKE :message ORDER BY kweet.timeOfPosting ASC"),
+        @NamedQuery(name = "Kweet.findAllKweetsBySender", query = "SELECT kweet FROM Kweet kweet WHERE kweet.sender.id = :senderId ORDER BY kweet.timeOfPosting ASC"),
+        @NamedQuery(name = "Kweet.findAllKweetsByHashtagSubject", query = "SELECT kweet FROM Kweet kweet JOIN kweet.hashtags hashtag WHERE hashtag.subject = :subject ORDER BY kweet.timeOfPosting ASC"),
+        @NamedQuery(name = "Kweet.findAllKweetsFromFollowing", query = "SELECT kweet FROM Kweet kweet WHERE kweet.sender = :sender OR kweet.sender IN :following ORDER BY kweet.timeOfPosting ASC")
 })
 public class Kweet implements Serializable {
 

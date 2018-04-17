@@ -87,7 +87,7 @@ public class KweetDaoCollectionImpl implements KweetDao {
         throw new NotImplementedException();
     }
 
-    public List<Kweet> findAllKweetsFromFollowers(UserProfile profile) {
+    public List<Kweet> findAllKweetsFromFollowing(UserProfile profile) {
         throw new NotImplementedException();
     }
 

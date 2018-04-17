@@ -41,9 +41,10 @@ public class KweetDaoJPAImpl extends GenericDaoJPAImpl<Kweet> implements KweetDa
                 .setParameter("subject", subject).getResultList();
     }
 
-    public List<Kweet> findAllKweetsFromFollowers(UserProfile userProfile) {
-        return this.entityManager.createNamedQuery("Kweet.findAllKweetsFromFollowers")
-                .setParameter("followers", userProfile.getFollowing()).getResultList();
+    public List<Kweet> findAllKweetsFromFollowing(UserProfile userProfile) {
+        return this.entityManager.createNamedQuery("Kweet.findAllKweetsFromFollowing")
+                .setParameter("sender", userProfile)
+                .setParameter("following", userProfile.getFollowing()).getResultList();
     }
 
     public void addKweetEvent(@Observes KweetEvent kweetEvent) {
