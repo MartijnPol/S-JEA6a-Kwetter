@@ -62,6 +62,16 @@ public class UserGroupService {
     }
 
     /**
+     * Find UserGroups by given username
+     *
+     * @param username username of the User
+     * @return List of all UserGroups
+     */
+    public List<UserGroup> findByUsername(String username) {
+        return this.userGroupDao.findByUsername(username);
+    }
+
+    /**
      * Function to get all UserGroups
      *
      * @return all UserGroups
