@@ -1,12 +1,13 @@
 package jwt;
 
+import javax.security.enterprise.credential.Credential;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class JWTCredential implements javax.security.enterprise.credential.Credential {
+public class JWTCredential implements Credential {
 
     private String caller;
     private Set<String> groups;

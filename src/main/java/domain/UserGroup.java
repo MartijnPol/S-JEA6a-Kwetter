@@ -11,7 +11,8 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "UserGroup.findByName", query = "SELECT u FROM UserGroup u WHERE u.groupName = :name")
+        @NamedQuery(name = "UserGroup.findByName", query = "SELECT u FROM UserGroup u WHERE u.groupName = :name"),
+        @NamedQuery(name = "UserGroup.findByUsername", query = "SELECT u FROM UserGroup u JOIN u.accounts ua JOIN ua.userGroups uac WHERE ua.username = :username")
 })
 public class UserGroup implements Serializable {
 

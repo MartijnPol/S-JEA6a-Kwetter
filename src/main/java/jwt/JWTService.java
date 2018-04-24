@@ -5,7 +5,6 @@ import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jose.crypto.MACVerifier;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
-import exception.SystemException;
 import net.minidev.json.JSONArray;
 import net.minidev.json.JSONObject;
 
@@ -20,10 +19,10 @@ import java.util.*;
 public class JWTService {
 
     private static final Instant CURRENT_TIME = Instant.now();
-    private static final Instant EXPIRED_TIME = CURRENT_TIME.plus(15, ChronoUnit.MINUTES);
+    private static final Instant EXPIRED_TIME = CURRENT_TIME.plus(30, ChronoUnit.MINUTES);
 
     @Inject
-    KeyGenerator keyGenerator;
+    private KeyGenerator keyGenerator;
 
     protected static boolean isTokenTimeValid(final Date creation, final Date expiration) {
         Date now = new Date();
@@ -34,13 +33,11 @@ public class JWTService {
         try {
             String secretKey = this.keyGenerator.generateKey();
 
-            // Create HMAC signer
             JWSSigner signer = new MACSigner(secretKey);
 
-            // Prepare JWT with claims set
             JWTClaimsSet.Builder claimSet = new JWTClaimsSet.Builder();
 
-            claimSet.issuer("swhp");
+            claimSet.issuer("Kwetter");
             claimSet.subject(username);
             claimSet.audience("Kwetter");
             claimSet.issueTime(Date.from(CURRENT_TIME));
@@ -55,15 +52,11 @@ public class JWTService {
             claimSet.claim("realm_access", groups);
 
             SignedJWT signedJWT = new SignedJWT(new JWSHeader(JWSAlgorithm.HS256), claimSet.build());
-
-            // apply the HMAC protection
             signedJWT.sign(signer);
-
-            // serialize the compact form
             return signedJWT.serialize();
 
         } catch (JOSEException ex) {
-            throw new SystemException(ex.getMessage());
+            throw new RuntimeException(ex.getMessage());
         }
     }
 
@@ -78,11 +71,11 @@ public class JWTService {
             JWSVerifier verifier = new MACVerifier(secretKey);
 
             if (!signedJWT.verify(verifier)) {
-                throw new SystemException("Not Verified");
+                throw new RuntimeException("Token is not verified.");
             }
 
             if (!isTokenTimeValid(claimsSet.getIssueTime(), claimsSet.getExpirationTime())) {
-                throw new SystemException("Expired Token");
+                throw new RuntimeException("Token is expired.");
             }
 
             JSONObject realmAccess = (JSONObject) claimsSet.getClaim("realm_access");
@@ -94,7 +87,7 @@ public class JWTService {
             return new JWTCredential(claimsSet.getSubject(), groups);
 
         } catch (ParseException | JOSEException ex) {
-            throw new SystemException(ex.getMessage());
+            throw new RuntimeException(ex.getMessage());
         }
     }
 

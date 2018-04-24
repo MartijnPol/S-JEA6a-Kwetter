@@ -1,6 +1,7 @@
 package rest;
 
 import domain.UserAccount;
+import domain.UserGroup;
 import jwt.JWTService;
 import service.UserAccountService;
 import service.UserGroupService;
@@ -15,7 +16,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 
@@ -41,11 +43,21 @@ public class AuthenticationResource {
 
         UserAccount foundUser = userAccountService.findByCredentials(username, EncryptionHelper.encryptPassword(password));
 
+        // User not found? Throw an unauthorized status
         if (foundUser == null) {
-            throw new WebApplicationException(Response.Status.FORBIDDEN);
+            throw new WebApplicationException(Response.Status.UNAUTHORIZED);
         }
 
-        String token = this.jwtService.generateToken(username, Arrays.asList("ADMIN", "MEMBER"));
+        // Get UserGroups the User belongs to
+        List<UserGroup> userGroupList = userGroupService.findByUsername(username);
+        ArrayList<String> groupNames = new ArrayList<>();
+
+        for (UserGroup userGroup : userGroupList) {
+            groupNames.add(userGroup.getGroupName());
+        }
+
+        // Generate token and return it in the authorization header
+        String token = this.jwtService.generateToken(username, groupNames);
         return Response.ok(token).header(AUTHORIZATION, "Bearer " + token).build();
     }
 }

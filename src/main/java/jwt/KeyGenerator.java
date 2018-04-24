@@ -1,7 +1,5 @@
 package jwt;
 
-import exception.SystemException;
-
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -12,19 +10,17 @@ public class KeyGenerator {
     private static final String SECRET_KEY = "secret";
     private static final String SHA_256 = "SHA-256";
 
-    public String generateKey() {
+    String generateKey() {
         return getHashText(SECRET_KEY);
     }
 
-    protected String getHashText(final String text) {
+    private String getHashText(final String text) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(SHA_256);
             byte[] hash = messageDigest.digest(text.getBytes(StandardCharsets.UTF_8));
-            String encoded = Base64.getEncoder().encodeToString(hash);
-
-            return encoded;
+            return Base64.getEncoder().encodeToString(hash);
         } catch (NoSuchAlgorithmException ex) {
-            throw new SystemException();
+            throw new RuntimeException(ex.getMessage());
         }
     }
 
