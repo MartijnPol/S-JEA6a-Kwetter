@@ -38,8 +38,12 @@
 //            System.out.println("Authorized");
 //            return context.notifyContainerAboutLogin(this.identityStore.validate(credential));
 //        } else {
-//            System.out.println("Unauthorized");
-//            return context.doNothing();
+//            if (req.getRequestURI().equals("/Kwetter/api/authentication")) {
+//                return context.doNothing();
+//            } else {
+//                System.out.println("Unauthorized");
+//                return context.doNothing();
+//            }
 //        }
 //    }
 //

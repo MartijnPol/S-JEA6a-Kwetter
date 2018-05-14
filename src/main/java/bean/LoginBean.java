@@ -40,6 +40,7 @@ public class LoginBean implements Serializable {
             request.login(this.username, this.password);
         } catch (ServletException e) {
             e.printStackTrace();
+            return;
         }
 
         UserAccount loggedInUser = this.userAccountService.findByUsername(request.getUserPrincipal().getName());
