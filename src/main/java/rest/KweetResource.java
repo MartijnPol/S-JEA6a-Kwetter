@@ -2,6 +2,7 @@ package rest;
 
 import domain.Kweet;
 import domain.UserProfile;
+import models.NewKweet;
 import service.KweetService;
 import service.UserProfileService;
 
@@ -10,7 +11,6 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.Date;
 import java.util.List;
 
 @Path("kweets")
@@ -33,13 +33,12 @@ public class KweetResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createKweet(Kweet kweet) {
+    public Response createKweet(NewKweet kweet) {
         if (kweet == null) {
             return Response.status(Response.Status.NOT_FOUND).header("Access-Control-Allow-Origin", "*").build();
         }
-        kweet.setTimeOfPosting(new Date());
-        kweet.setSender(userProfileService.findById(kweet.getSender().getId()));
-        kweetService.save(kweet);
+        Kweet newKweet = new Kweet(userProfileService.findById(kweet.getId()), kweet.getMessage());
+        kweetService.save(newKweet);
         return Response.ok().header("Access-Control-Allow-Origin", "*").build();
     }
 

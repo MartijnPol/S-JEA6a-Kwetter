@@ -1,10 +1,14 @@
 package domain;
 
+import rest.KweetResource;
+
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.core.Link;
+import javax.ws.rs.core.UriBuilder;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,6 +86,10 @@ public class UserProfile implements Serializable, RestObject {
 
     public JsonObject toJson() {
 
+        // GetKweetsByUserProfile Link (HATEOS)
+        UriBuilder kweetsUriBuilder = UriBuilder.fromResource(KweetResource.class).path(KweetResource.class, "findAllKweetsByUser");
+        Link allKweetsLink = Link.fromUri(kweetsUriBuilder.build(this.id)).rel("self").build();
+
         return Json.createObjectBuilder()
                 .add("id", this.id)
                 .add("username", this.userAccount.getUsername())
@@ -94,6 +102,7 @@ public class UserProfile implements Serializable, RestObject {
                 .add("avatarUrl", this.avatarUrl)
                 .add("amountFollowers", this.followers.size())
                 .add("amountFollowing", this.following.size())
+                .add("kweets", allKweetsLink.getUri().getPath())
                 .build();
     }
 

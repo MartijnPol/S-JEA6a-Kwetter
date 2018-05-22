@@ -1,6 +1,7 @@
 package domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import rest.UserProfileResource;
 
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
@@ -8,6 +9,8 @@ import javax.json.JsonObject;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.ws.rs.core.Link;
+import javax.ws.rs.core.UriBuilder;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -174,6 +177,9 @@ public class Kweet implements Serializable {
 
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
+        UriBuilder uriBuilder = UriBuilder.fromResource(UserProfileResource.class).path(UserProfileResource.class, "getUserProfileById");
+        Link userProfileLink = Link.fromUri(uriBuilder.build(this.sender.getId())).rel("self").build();
+
         JsonArrayBuilder hashtagArrayBuilder = Json.createArrayBuilder();
         JsonArrayBuilder likesArrayBuilder = Json.createArrayBuilder();
 
@@ -190,6 +196,7 @@ public class Kweet implements Serializable {
                 .add("message", this.message)
                 .add("timeOfPosting", dateFormat.format(this.timeOfPosting))
                 .add("sender", this.sender.toJson())
+                .add("sender_uri", userProfileLink.getUri().getPath())
                 .add("hashtags", hashtagArrayBuilder)
                 .add("likes", likesArrayBuilder)
                 .build();
